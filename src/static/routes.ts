@@ -1,0 +1,18 @@
+export const route = {
+    home: '/',
+    login: '/login',
+    location: '/location',
+    admin: '/admin',
+    createSpot: '/spots',
+    createLocation: '/createLocation',
+    createNewFloorPlan: '/createNewFloorPlan',
+    floorPlan: '/floorPlan',
+    createReservation: '/create-reservation',
+    reservationSummary: '/reservation-summary',
+    calendar: '/calendar',
+    user: '/user',
+    updatePassword: '/user-update-password/:userId',
+    updateProfilePicture: '/user-update-picture/:userId',
+    register: '/register',
+    notFound: '/*',
+};

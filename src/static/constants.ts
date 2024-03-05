@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://parking-and-office-management-frontend.vercel.app';
