@@ -1,6 +1,8 @@
 import { UserProfilePageLogic } from './UserProfilePage.logic';
 import { BaseButtonLogout, BigButtonDark, BigButtonLight } from '../../../components/CommonStyledElements';
 import {
+    BackButton,
+    ListContainer,
     ToggleButtonsContainer,
     UpdateButtonContainer,
     UserAdditionalInfoContainer,
@@ -16,8 +18,7 @@ import defaultPicture from '../../../assets/default-profile.jpg';
 import UserReservationsTable from '../../../components/UserReservationsTable/UserReservationsTable';
 import { TbLogout2 } from 'react-icons/tb';
 import NotFound from '../../NotFound/NotFound';
-
-
+import { FaArrowLeft } from 'react-icons/fa';
 
 const UserProfilePage = () => {
     const {
@@ -39,15 +40,19 @@ const UserProfilePage = () => {
         reservationTypes,
         tokenId,
         tokenRole,
+        handleGoBack,
     } = UserProfilePageLogic();
 
     if (tokenRole !== 'ADMIN') {
-        if(tokenId !== user?.id){
+        if (tokenId !== user?.id) {
             return <NotFound />;
         }
     }
     return (
-        <div>
+        <ListContainer>
+            <BackButton onClick={handleGoBack}>
+                <FaArrowLeft />
+            </BackButton>
             {user && (
                 <div>
                     <UserProfileContainer>
@@ -140,7 +145,7 @@ const UserProfilePage = () => {
                     )}
                 </div>
             )}
-        </div>
+        </ListContainer>
     );
 };
 

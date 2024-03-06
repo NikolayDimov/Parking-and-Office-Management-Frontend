@@ -52,7 +52,7 @@ const StyledDetailBullet = styled.li`
 `;
 
 const UserProfileContainer = styled.div`
-    margin: 1.875rem 0.625rem;
+    margin: 0.875rem 0.625rem;
     display: grid;
     grid-template-columns: 60% 40%;
     padding: 0.625rem;
@@ -128,6 +128,35 @@ const UserProfileEmail = styled.p`
     font-size: 1.2rem;
 `;
 
+const ListContainer = styled.div`
+    max-width: 93rem;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        padding: 0.625rem;
+    }
+`;
+
+const BackButton = styled.button`
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.875rem;
+    color: var(--blue-green);
+    cursor: pointer;
+    padding: 0.5rem;
+
+    transition: font-size 0.3s ease-in-out;
+
+    &:hover {
+        font-size: 2.25rem;
+    }
+
+    &.floor-plan {
+        margin-top: 1.25rem;
+    }
+`;
+
 export {
     ToggleButtonsContainer,
     UpdateButtonContainer,
@@ -138,4 +167,6 @@ export {
     UserProfilePicture,
     UserProfilePictureContainer,
     UserProfileEmail,
+    ListContainer,
+    BackButton,
 };
