@@ -42,12 +42,8 @@ const UserProfilePage = () => {
     } = UserProfilePageLogic();
 
     if (tokenRole !== 'ADMIN') {
-        console.log(user);
-        
         if(tokenId !== user?.id){
-            console.log(user);
-            
-        return <NotFound />;
+            return <NotFound />;
         }
     }
     return (

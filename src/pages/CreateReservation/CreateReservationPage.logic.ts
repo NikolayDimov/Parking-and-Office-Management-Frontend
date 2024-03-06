@@ -26,11 +26,10 @@ function useShowSpots() {
 
     const [showSpots, setShowSpots] = useState<boolean>(false);
     const decodedToken = useToken();
-    const { id: tokenId, role: tokenRole } = decodedToken || {};
+    const { role: tokenRole } = decodedToken || {};
     const [users, setUsers] = useState<User[]>([]);
     const [selectedUser, setSelectedUser] = useState<User | null>();
 
-    console.log('selectedUser', selectedUser);
 
     function toggleSpots() {
         setShowSpots(!showSpots);
@@ -77,7 +76,6 @@ function useShowSpots() {
                     start: calendarData.startDate,
                     end: calendarData.endDate,
                 });
-                console.log(spotCombination);
                 const outputSpots = spotCombination.map((s: CombinedReservationSpotMarker) => {
                     s.floorPlanId = s.spot.floorPlanId;
                     s.description = s.spot.description;
@@ -89,6 +87,7 @@ function useShowSpots() {
                     s.modifiedBy = s.spot.modifiedBy;
                     s.spotTypeId = s.spot.spotTypeId;
                     s.spotType = selectedSpotType.name;
+                    s.user = selectedUser;
                     return s;
                 });
 

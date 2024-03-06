@@ -35,6 +35,10 @@ function useReserveSpotCombination() {
                             userId: user?.id,
                             modifiedBy: user?.id,
                         };
+
+                        if (spot.user) {
+                            reservationData.userId = spot.user.id;
+                        }
                         const selectedSpot = await checkReservation(reservationData);
 
                         if (selectedSpot.error) {

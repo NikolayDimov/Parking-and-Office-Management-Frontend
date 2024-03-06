@@ -22,6 +22,7 @@ interface CombinedReservationSpotMarker {
     modifiedBy: string;
     spotType: string;
     spot: Spot;
+    user?: User | null;
     start: Date;
     end: Date;
 }
