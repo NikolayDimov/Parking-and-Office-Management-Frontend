@@ -38,10 +38,17 @@ const UserProfilePage = () => {
         logout,
         reservationTypes,
         tokenId,
+        tokenRole,
     } = UserProfilePageLogic();
 
-    if (tokenId !== user?.id && user?.role !== "ADMIN") {
+    if (tokenRole !== 'ADMIN') {
+        console.log(user);
+        
+        if(tokenId !== user?.id){
+            console.log(user);
+            
         return <NotFound />;
+        }
     }
     return (
         <div>
