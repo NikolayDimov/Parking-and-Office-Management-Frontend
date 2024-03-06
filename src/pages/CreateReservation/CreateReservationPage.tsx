@@ -25,6 +25,10 @@ export default function CreateReservation() {
         selectedSpotType,
         isCombination,
         combinedSpots,
+        tokenRole,
+        selectedUser,
+        users,
+        setSelectedUser,
     } = useShowSpots();
 
     if (isLoading) {
@@ -52,6 +56,27 @@ export default function CreateReservation() {
                                             showPlan(floorPlan);
                                         }}
                                     >
+                                        {tokenRole === 'ADMIN' && (
+                                            <select
+                                                value={selectedUser?.id || ''}
+                                                onChange={(e) => {
+                                                    const userId = e.target.value;
+                                                    const user = users.find((u) => u.id === userId) || null;
+                                                    setSelectedUser(user);
+                                                }}
+                                            >
+                                                <option value="" disabled>
+                                                    Select a user
+                                                </option>
+                                                {Array.isArray(users) &&
+                                                    users.map((user) => (
+                                                        <option key={user.id} value={user.id}>
+                                                            {user.email}
+                                                        </option>
+                                                    ))}
+                                            </select>
+                                        )}
+
                                         <Card
                                             data-tooltip-id={`component_${floorPlan.id}`}
                                             data-tooltip-place="right-start"

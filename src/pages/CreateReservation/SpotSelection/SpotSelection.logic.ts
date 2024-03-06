@@ -7,6 +7,7 @@ import { useReservationContext } from '../../../context/ReservationContext';
 
 import { route } from '../../../static/routes';
 import { Reservation } from '../../../static/types';
+import { useShowSpots } from '../CreateReservationPage.logic';
 
 function useReservSpot() {
     const { addReservation } = useReservationContext();
@@ -38,6 +39,11 @@ function useReservSpot() {
                         userId: user?.id,
                         modifiedBy: user?.id,
                     };
+
+                    if (spotProps.user) {
+                        reservationData.userId = spotProps.user.id;
+                    }
+
                     const selectedSpot = await checkReservation(reservationData);
 
                     if (selectedSpot.error) {
@@ -48,6 +54,8 @@ function useReservSpot() {
                 }
                 resetForm();
                 navigate(route.reservationSummary);
+
+                console.log('user obj', user);
             } catch (e) {
                 const errorMessage = e instanceof Error ? e.message : 'An unexpected error occurred.';
 
@@ -57,7 +65,15 @@ function useReservSpot() {
         },
     });
 
-    return { formik, navigate, spotProps, startPeriodDate, startPeriodTime, endPeriodDate, endPeriodTime };
+    return {
+        formik,
+        navigate,
+        spotProps,
+        startPeriodDate,
+        startPeriodTime,
+        endPeriodDate,
+        endPeriodTime,
+    };
 }
 
 export { useReservSpot };
