@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { route } from '../../../static/routes';
 import { useMutation, useQuery } from 'react-query';
 import { RefetchFunction, User } from './UsersPage.static';
+import { useLocation } from 'react-router-dom';
 
 const useUsers = () => {
     const { data: users, isLoading, error, refetch } = useQuery({ queryKey: ['users'], queryFn: getUsers });
@@ -21,6 +22,7 @@ const useDeleteUser = (refetch: RefetchFunction<User>) => {
 };
 
 const useUsersPageLogic = () => {
+    const location = useLocation();
     const { users, isLoading, refetch } = useUsers();
     const { deleteUser } = useDeleteUser(refetch);
     const [filteredUsers, setFilteredUsers] = useState<User[] | undefined>([]);
@@ -28,7 +30,7 @@ const useUsersPageLogic = () => {
     const searchPlaceholder = 'Search user..';
     const navigate = useNavigate();
     const handleCreateUser = () => {
-        navigate(route.register);
+        navigate(route.register, { state: { background: location } });
     };
     const handleDeleteUser = async (userId: string) => {
         deleteUser(userId);

@@ -13,6 +13,6 @@ export const route = {
     user: '/user',
     updatePassword: '/user-update-password/:userId',
     updateProfilePicture: '/user-update-picture/:userId',
-    register: '/register',
+    register: '/user/register',
     notFound: '/*',
 };

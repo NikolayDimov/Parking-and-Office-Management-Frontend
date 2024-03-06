@@ -61,8 +61,9 @@ function App() {
                                 <Route path={`${route.floorPlan}/:id/:spotid`} element={<SpotUpdate />} />
                             </Route>
                             <Route path={route.login} element={<Login />} />
-                            <Route path={route.register} element={<Register />} />
-                            <Route path={route.user} element={<UsersPage />} />
+                            <Route path={route.user} element={<UsersPage />}>
+                                <Route path={route.register} element={<Register />} />
+                            </Route>
                             <Route path={`${route.user}/:id`} element={<UserProfilePage />}>
                                 <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
                                 <Route
@@ -84,6 +85,7 @@ function App() {
 
                         {background?.background && (
                             <Routes>
+                                <Route path={route.register} element={<Register />} />
                                 <Route path="/spots/:id/create" element={<AddSpotForm />} />
                                 <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
                                 <Route
@@ -101,5 +103,5 @@ function App() {
         </StyledApp>
     );
 }
-// ......,,,,,,,
+
 export default App;
