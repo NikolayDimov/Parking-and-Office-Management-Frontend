@@ -72,6 +72,10 @@ const UserProfilePageLogic = () => {
     const location = useLocation();
     const reservationTypes = { past: 'Past', current: 'Current', future: 'Future' };
 
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return {
         user,
         pastReservations,
@@ -90,6 +94,7 @@ const UserProfilePageLogic = () => {
         reservationTypes,
         tokenId,
         tokenRole,
+        handleGoBack,
         handleUpdateUserProfilePicture: (id: string) =>
             navigate(`${route.user}/${id}/change-picture`, { state: { background: location } }),
         handleUpdateUserPassword: (id: string) =>

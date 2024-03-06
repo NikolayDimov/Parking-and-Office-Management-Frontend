@@ -3,12 +3,20 @@ import { BaseButton, StyledToolTip } from '../../components/CommonStyledElements
 import { useShowSpots } from './CreateReservationPage.logic';
 import Loader from '../../components/Loader/Loader';
 import { LocationImage } from '../Home/LocationChocie/LocationChoice.style';
-import { Card, ImageContainer, ImageStyled, NoSpotsMessageContainer } from './CreateReservationPage.style';
+import {
+    BackButton,
+    Card,
+    ImageContainer,
+    ImageStyled,
+    ListContainer,
+    NoSpotsMessageContainer,
+} from './CreateReservationPage.style';
 import { DivFlexStyled } from '../CreateSpots/CreateSpotsPage.style';
 import SpotMarkerReservation from './SpotMarkerReservation/SpotMarkerReservation';
 import CalendarPage from './Calendar/CalendarPage';
 import { FloorPlan } from '../FloorPlan/FloorPlan.static';
 import SpotCardsContainer from './CombinationReservation/SpotCardsContainer';
+import { FaArrowLeft } from 'react-icons/fa';
 
 export default function CreateReservation() {
     const {
@@ -29,6 +37,7 @@ export default function CreateReservation() {
         selectedUser,
         users,
         setSelectedUser,
+        handleGoBack,
     } = useShowSpots();
 
     if (isLoading) {
@@ -40,7 +49,10 @@ export default function CreateReservation() {
     }
 
     return (
-        <>
+        <ListContainer>
+            <BackButton onClick={handleGoBack}>
+                <FaArrowLeft />
+            </BackButton>
             <DivFlexStyled className="create-reservation-container">
                 <CalendarPage sendDateTime={handleDataFromCalendar} spotType={selectedSpotType} />
                 {calendarData && (
@@ -120,6 +132,6 @@ export default function CreateReservation() {
                     )}
                 </>
             )}
-        </>
+        </ListContainer>
     );
 }

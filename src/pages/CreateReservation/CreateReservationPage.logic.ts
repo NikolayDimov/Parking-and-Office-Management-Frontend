@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { getAllBySpotTypeAndLocation } from '../../services/floorPlanService';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import {
     getFreeSpotsBySpotTypeAndLocation,
@@ -15,6 +15,7 @@ import useToken from '../../hooks/Token/Token.hook';
 
 function useShowSpots() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     const currentLocation = location.state.currentLocation;
     const selectedSpotType = location.state.selectedSpotType;
@@ -29,7 +30,6 @@ function useShowSpots() {
     const { role: tokenRole } = decodedToken || {};
     const [users, setUsers] = useState<User[]>([]);
     const [selectedUser, setSelectedUser] = useState<User | null>();
-
 
     function toggleSpots() {
         setShowSpots(!showSpots);
@@ -112,6 +112,10 @@ function useShowSpots() {
         getAllUsers();
     }, []);
 
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return {
         isLoading,
         error,
@@ -130,6 +134,7 @@ function useShowSpots() {
         users,
         selectedUser,
         setSelectedUser,
+        handleGoBack,
     };
 }
 
