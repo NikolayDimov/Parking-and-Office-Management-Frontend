@@ -17,6 +17,7 @@ const UsersPage = () => {
         handleDeleteUser,
         searchPlaceholder,
         handleGoBack,
+        handleDisplayUserReservations,
     } = useUsersPageLogic();
 
     if (isLoading) {
@@ -33,7 +34,13 @@ const UsersPage = () => {
                 <SearchBar placeholder={searchPlaceholder} onSearch={handleSearch} />
             </UserPageMainButtonsContainer>
             <PageTitle>{title}</PageTitle>
-            {users && <UserCardsContainer users={users} deleteUser={handleDeleteUser} />}
+            {users && (
+                <UserCardsContainer
+                    users={users}
+                    deleteUser={handleDeleteUser}
+                    userReservations={handleDisplayUserReservations}
+                />
+            )}
         </ListContainer>
     );
 };

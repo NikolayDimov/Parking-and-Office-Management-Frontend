@@ -38,9 +38,6 @@ const UserProfilePage = () => {
         tokenId,
     } = UserProfilePageLogic();
 
-    if (tokenId !== user?.id) {
-        return <NotFound />;
-    }
     return (
         <div>
             {user && (
@@ -51,18 +48,20 @@ const UserProfilePage = () => {
                                 <UserProfilePicture src={user.imgUrl ?? defaultPicture} alt="Profile" />
                                 <UserProfileEmail>{user.email}</UserProfileEmail>
                             </UserProfilePictureContainer>
-                            <UpdateButtonContainer>
-                                <BigButtonLight onClick={() => handleUpdateUserProfilePicture(user.id)}>
-                                    {userProfileConstants.changeProfilePictureButton}
-                                </BigButtonLight>
-                                <BigButtonLight onClick={() => handleUpdateUserPassword(user.id)}>
-                                    {userProfileConstants.changePasswordButton}
-                                </BigButtonLight>
-                                <BaseButtonLogout className="remove-btn" onClick={() => logout()}>
-                                    {userProfileConstants.logout}
-                                    <TbLogout2 />
-                                </BaseButtonLogout>
-                            </UpdateButtonContainer>
+                            {tokenId === user.id && (
+                                <UpdateButtonContainer>
+                                    <BigButtonLight onClick={() => handleUpdateUserProfilePicture(user.id)}>
+                                        {userProfileConstants.changeProfilePictureButton}
+                                    </BigButtonLight>
+                                    <BigButtonLight onClick={() => handleUpdateUserPassword(user.id)}>
+                                        {userProfileConstants.changePasswordButton}
+                                    </BigButtonLight>
+                                    <BaseButtonLogout className="remove-btn" onClick={() => logout()}>
+                                        {userProfileConstants.logout}
+                                        <TbLogout2 />
+                                    </BaseButtonLogout>
+                                </UpdateButtonContainer>
+                            )}
                         </UserMainInfoContainer>
                         <UserAdditionalInfoContainer>
                             <UserProfileInfo

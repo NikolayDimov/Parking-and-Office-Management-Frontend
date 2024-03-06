@@ -52,6 +52,12 @@ const useUsersPageLogic = () => {
         navigate(-1);
     };
 
+    const handleDisplayUserReservations = async (userId: string) => {
+        try {
+            navigate(`/user/${userId}`);
+        } catch (error) {}
+    };
+
     return {
         users: filteredUsers,
         isLoading,
@@ -61,6 +67,7 @@ const useUsersPageLogic = () => {
         title,
         searchPlaceholder,
         handleGoBack,
+        handleDisplayUserReservations,
     };
 };
 
