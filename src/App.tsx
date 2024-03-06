@@ -63,6 +63,7 @@ function App() {
                             <Route path={route.login} element={<Login />} />
                             <Route path={route.register} element={<Register />} />
                             <Route path={route.user} element={<UsersPage />} />
+
                             <Route path={`${route.user}/:id`} element={<UserProfilePage />}>
                                 <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
                                 <Route

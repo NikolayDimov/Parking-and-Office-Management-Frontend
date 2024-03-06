@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { route } from '../../../static/routes';
 import { useMutation, useQuery } from 'react-query';
 import { RefetchFunction, User } from './UsersPage.static';
+import { impersonateUser } from '../../../services/userService';
 
 const useUsers = () => {
     const { data: users, isLoading, error, refetch } = useQuery({ queryKey: ['users'], queryFn: getUsers });
@@ -50,6 +51,12 @@ const useUsersPageLogic = () => {
         navigate(-1);
     };
 
+    const handleDisplayUserReservations = async (userId: string) => {
+        try {
+            navigate(`/user/${userId}`);
+        } catch (error) {}
+    };
+
     return {
         users: filteredUsers,
         isLoading,
@@ -59,6 +66,7 @@ const useUsersPageLogic = () => {
         title,
         searchPlaceholder,
         handleGoBack,
+        handleDisplayUserReservations,
     };
 };
 
