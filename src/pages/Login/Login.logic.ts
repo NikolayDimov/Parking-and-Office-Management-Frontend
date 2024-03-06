@@ -12,12 +12,19 @@ const useLogin = () => {
         },
         validationSchema: LoginSchema,
 
-        onSubmit: (values: LoginUser) => {
+        onSubmit: async (values: LoginUser, { setFieldError, setSubmitting, resetForm }) => {
             try {
-                loginUser(values);
+                const user = await loginUser(values);
+                if (user?.error) {
+                    throw new Error(user.error);
+                } else {
+                    resetForm();
+                }
             } catch (error) {
-                console.error('Error logging in:', error);
-                formik.setFieldValue('error', error.message);
+                const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
+
+                setFieldError('error', errorMessage);
+                setSubmitting(false);
             }
         },
     });
