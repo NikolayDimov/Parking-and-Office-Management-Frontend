@@ -1,11 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
 import useRegister from './Register.logic';
 import { RegisterForm } from './Register.style';
 import { BaseButtonCreateUser } from '../User/UsersPage/UsersPage.style';
 
 const Register = () => {
-    const navigate = useNavigate();
     const { formik } = useRegister();
     return (
         <Modal>
