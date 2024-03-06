@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import { RegisterUser, register } from '../../services/userService';
 import { RegisterSchema } from './Register.static';
 import { useNavigate } from 'react-router';
-import { route } from '../../static/routes';
 import useToken from '../../hooks/Token/Token.hook';
 
 const useRegister = () => {
@@ -17,14 +16,20 @@ const useRegister = () => {
         },
         validationSchema: RegisterSchema,
 
-        onSubmit: async (values: RegisterUser) => {
+        onSubmit: async (values: RegisterUser, { setFieldError, setSubmitting, resetForm }) => {
             try {
-                await register(values);
-                navigate(route.user);
+                const user = await register(values);
+                if (user?.error) {
+                    throw new Error(user.error);
+                } else {
+                    resetForm();
+                    navigate(-1);
+                }
             } catch (error) {
-                console.error('Error while register user:', error);
+                const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
 
-                formik.setFieldValue('error', error.message);
+                setFieldError('error', errorMessage);
+                setSubmitting(false);
             }
         },
     });

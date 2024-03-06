@@ -1,3 +1,4 @@
+
 {
     "arrowParens": "always",
     "endOfLine": "lf",
@@ -10,3 +11,4 @@
     "trailingComma": "all",
     "useTabs": false
   }
+

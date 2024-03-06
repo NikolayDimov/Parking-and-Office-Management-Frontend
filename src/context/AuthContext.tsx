@@ -7,7 +7,7 @@ import { loginService } from '../services/userService';
 
 interface AuthContextType {
     isAuthenticated: boolean;
-    loginUser: ({ email, password }: LoginUser) => void;
+    loginUser: ({ email, password }: LoginUser) => Promise<LoginUser | undefined>;
     logout: () => void;
 }
 
@@ -52,7 +52,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 navigate('/');
             } else {
                 setIsAuthenticated(false);
+                return response;
             }
+            return response;
         } catch (error) {
             console.error('Error logging in:', error);
             setIsAuthenticated(false);

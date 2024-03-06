@@ -1,22 +1,8 @@
 import { LoginUser } from '../pages/Login/Login.static';
-import { User } from '../pages/User/UsersPage/UsersPage.static';
+import { ChangePasswordResponse, ChangeProfilePictureResponse, RegisterUser, User } from '../pages/User/UsersPage/UsersPage.static';
 import { endpoints } from '../static/endpoints';
 import { del, get, patch, post } from './fetchService';
 
-interface RegisterUser {
-    email: string;
-    password: string;
-    modifiedBy: string | undefined;
-    error?: string;
-}
-interface ChangePasswordResponse {
-    message?: string;
-    error?: string;
-}
-interface ChangeProfilePictureResponse {
-    message?: string;
-    error?: string;
-}
 
 const getUsers = async (): Promise<User[]> => {
     const response = await get(`${endpoints.user}`, {});
