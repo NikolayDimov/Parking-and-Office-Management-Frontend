@@ -14,8 +14,10 @@ import { userProfileConstants } from './UserProfilePage.static';
 import UserProfileInfo from './UserProfileInfo';
 import defaultPicture from '../../../assets/default-profile.jpg';
 import UserReservationsTable from '../../../components/UserReservationsTable/UserReservationsTable';
-import NotFound from '../../NotFound/NotFound';
 import { TbLogout2 } from 'react-icons/tb';
+import NotFound from '../../NotFound/NotFound';
+
+
 
 const UserProfilePage = () => {
     const {
@@ -36,8 +38,18 @@ const UserProfilePage = () => {
         logout,
         reservationTypes,
         tokenId,
+        tokenRole,
     } = UserProfilePageLogic();
 
+    if (tokenRole !== 'ADMIN') {
+        console.log(user);
+        
+        if(tokenId !== user?.id){
+            console.log(user);
+            
+        return <NotFound />;
+        }
+    }
     return (
         <div>
             {user && (

@@ -54,7 +54,7 @@ const useFutureReservationsByUserId = (userId: string | undefined) => {
 const UserProfilePageLogic = () => {
     const { id: userId } = useParams();
     const decodedToken = useToken();
-    const { id: tokenId } = decodedToken || {};
+    const { id: tokenId, role: tokenRole } = decodedToken || {};
     const { user, userRefetch } = useUser(userId);
     const { pastReservations, arePastReservationsLoading, pastReservationsRefetch } = usePastReservationsByUser(userId);
     const { currentReservations, areCurrentReservationsLoading, currentReservationsRefetch } =
@@ -89,6 +89,7 @@ const UserProfilePageLogic = () => {
         logout,
         reservationTypes,
         tokenId,
+        tokenRole,
         handleUpdateUserProfilePicture: (id: string) =>
             navigate(`${route.user}/${id}/change-picture`, { state: { background: location } }),
         handleUpdateUserPassword: (id: string) =>
