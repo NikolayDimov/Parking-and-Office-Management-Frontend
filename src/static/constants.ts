@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://parking-and-office-management-frontend.vercel.app';
+export const BASE_URL = "http://localhost:3000";
