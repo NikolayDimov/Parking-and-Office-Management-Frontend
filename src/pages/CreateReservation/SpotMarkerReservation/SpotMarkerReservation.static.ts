@@ -1,9 +1,11 @@
 import { SpotMarker } from '../../CreateSpots/AddSpotForm/AddSpotForm.static';
+import { User } from '../../User/UsersPage/UsersPage.static';
 import { DateRangeOutput } from '../Calendar/Calendar.static';
 
 interface CustomSpotMarker extends SpotMarker {
     period?: DateRangeOutput;
     spotType?: string;
+    user?: User | null;
 }
 interface CombinedReservationSpotMarker {
     id: string;

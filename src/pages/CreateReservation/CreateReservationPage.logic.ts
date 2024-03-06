@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { getAllBySpotTypeAndLocation } from '../../services/floorPlanService';
 import { useLocation } from 'react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     getFreeSpotsBySpotTypeAndLocation,
     getFreeSpotsCombinationBySpotTypeAndFloorPlan,
@@ -9,6 +9,9 @@ import {
 import { DateRangeOutput } from './Calendar/Calendar.static';
 import { FloorPlan } from '../FloorPlan/FloorPlan.static';
 import { CombinedReservationSpotMarker, CustomSpotMarker } from './SpotMarkerReservation/SpotMarkerReservation.static';
+import { getUsers } from '../../services/userService';
+import { User } from '../User/UsersPage/UsersPage.static';
+import useToken from '../../hooks/Token/Token.hook';
 
 function useShowSpots() {
     const location = useLocation();
@@ -22,6 +25,12 @@ function useShowSpots() {
     const [currentFloorPlan, setCurrentFloorPlan] = useState<FloorPlan>();
 
     const [showSpots, setShowSpots] = useState<boolean>(false);
+    const decodedToken = useToken();
+    const { id: tokenId, role: tokenRole } = decodedToken || {};
+    const [users, setUsers] = useState<User[]>([]);
+    const [selectedUser, setSelectedUser] = useState<User | null>();
+
+    console.log('selectedUser', selectedUser);
 
     function toggleSpots() {
         setShowSpots(!showSpots);
@@ -47,8 +56,9 @@ function useShowSpots() {
 
             if (data.length > 0) {
                 const outputSpots = data.map((spot: CustomSpotMarker) => {
-                    spot.spotType = selectedSpotType.name;
+                    spot.spotType = selectedSpotType?.name || '';
                     spot.period = calendarData;
+                    spot.user = selectedUser;
                     return spot;
                 });
 
@@ -57,7 +67,10 @@ function useShowSpots() {
                 if (!showSpots) {
                     toggleSpots();
                 }
-            } else if (data.length <= 0 && (selectedSpotType.name === "Office desk" || selectedSpotType.name === "Parking place" )){
+            } else if (
+                data.length <= 0 &&
+                (selectedSpotType.name === 'Office desk' || selectedSpotType.name === 'Parking place')
+            ) {
                 const spotCombination = await getFreeSpotsCombinationBySpotTypeAndFloorPlan({
                     floorPlanId: floorPlan.id!,
                     spotTypeId: selectedSpotType.id,
@@ -87,6 +100,19 @@ function useShowSpots() {
         }
     };
 
+    const getAllUsers = async () => {
+        try {
+            const userData = await getUsers();
+            setUsers(userData);
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    };
+
+    useEffect(() => {
+        getAllUsers();
+    }, []);
+
     return {
         isLoading,
         error,
@@ -101,6 +127,10 @@ function useShowSpots() {
         selectedSpotType,
         isCombination,
         areNoSpots,
+        tokenRole,
+        users,
+        selectedUser,
+        setSelectedUser,
     };
 }
 

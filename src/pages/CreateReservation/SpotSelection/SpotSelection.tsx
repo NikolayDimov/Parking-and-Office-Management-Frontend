@@ -10,22 +10,29 @@ export default function SpotSelection() {
 
     return (
         <Modal>
-            <h3>{spotProps.name}</h3>
-            <p>Spot type: {spotProps.spotType}</p>
-            <p>Description: {spotProps.description}</p>
-            {spotProps.spotType === 'Office desk' || spotProps.spotType === 'Parking place' ? (
-                <div>
-                    Reservation period:
-                    <p>from: {startPeriodDate}</p>
-                    <p>to: {endPeriodDate}</p>
-                </div>
-            ) : (
-                <div>
-                    Reservation period: on {startPeriodDate}
-                    <p>from: {startPeriodTime}</p>
-                    <p>to: {endPeriodTime}</p>
-                </div>
+            {spotProps && (
+                <>
+                    <h3>{spotProps.name}</h3>
+                    <p>Spot type: {spotProps.spotType}</p>
+                    <p>Description: {spotProps.description}</p>
+                    {spotProps.spotType === 'Office desk' || spotProps.spotType === 'Parking place' ? (
+                        <div>
+                            Reservation period:
+                            <p>from: {startPeriodDate}</p>
+                            <p>to: {endPeriodDate}</p>
+                            {spotProps.user && <p>user: {spotProps.user.email}</p>}
+                        </div>
+                    ) : (
+                        <div>
+                            Reservation period: on {startPeriodDate}
+                            <p>from: {startPeriodTime}</p>
+                            <p>to: {endPeriodTime}</p>
+                            {spotProps.user && <p>user: {spotProps.user.email}</p>}
+                        </div>
+                    )}
+                </>
             )}
+
             <FormStyled onSubmit={formik.handleSubmit}>
                 <InputField
                     type="text"
