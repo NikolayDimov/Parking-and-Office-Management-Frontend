@@ -71,9 +71,41 @@ const loginService = async ({ email, password }: LoginUser): Promise<LoginUser> 
     }
 };
 
+const impersonateUser = async (userId: string, adminToken: string) => {
+    try {
+        const response = await fetch(`/user/impersonate/${userId}`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${adminToken}`,
+            },
+        });
+
+        if (response.ok) {
+            const userData = await response.json();
+            return userData;
+        } else {
+            console.error('Impersonation failed:', response.statusText);
+            throw new Error('Impersonation failed');
+        }
+    } catch (error) {
+        console.error('Error during impersonation:', error);
+        throw new Error('Error during impersonation');
+    }
+};
+
 const logout = async () => {
     localStorage.removeItem('access_token');
 };
 
 export type { RegisterUser, ChangePasswordResponse, ChangeProfilePictureResponse };
-export { getUser, getUsers, deleteUser, register, changePassword, changeProfilePicture, loginService, logout };
+export {
+    getUser,
+    getUsers,
+    deleteUser,
+    register,
+    changePassword,
+    changeProfilePicture,
+    loginService,
+    logout,
+    impersonateUser,
+};
