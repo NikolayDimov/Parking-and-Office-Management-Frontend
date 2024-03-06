@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const SelectSpotShema = Yup.object().shape({
+const SelectSpotSchema = Yup.object().shape({
     comment: Yup.string().required('Comment is required'),
 });
 
@@ -18,5 +18,5 @@ interface MultipleReservations {
     reservations: ReservationData[];
 }
 
-export { SelectSpotShema };
+export { SelectSpotSchema };
 export type { ReservationData, MultipleReservations };
