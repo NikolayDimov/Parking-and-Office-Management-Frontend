@@ -17,7 +17,7 @@ const ListContainer = styled.div`
     }
 `;
 
-const ContainerCreateSerch = styled.li`
+const ContainerCreateSearch = styled.li`
     display: flex;
     justify-content: space-between;
 
@@ -120,4 +120,4 @@ const LocationTableStyle = styled.table`
     }
 `;
 
-export { LocationTableStyle, BaseButtonCreateLocation, ListContainer, Table, ContainerCreateSerch, ContainerCreate };
+export { LocationTableStyle, BaseButtonCreateLocation, ListContainer, Table, ContainerCreateSearch, ContainerCreate };

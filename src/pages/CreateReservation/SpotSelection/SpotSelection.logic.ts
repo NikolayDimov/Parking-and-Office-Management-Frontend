@@ -1,15 +1,14 @@
 import { useLocation, useNavigate } from 'react-router';
 import useToken from '../../../hooks/Token/Token.hook';
 import { useFormik } from 'formik';
-import { SelectSpotShema } from './SpotSelection.static';
+import { SelectSpotSchema } from './SpotSelection.static';
 import { checkReservation } from '../../../services/reservationService';
 import { useReservationContext } from '../../../context/ReservationContext';
 
 import { route } from '../../../static/routes';
 import { Reservation } from '../../../static/types';
-import { useShowSpots } from '../CreateReservationPage.logic';
 
-function useReservSpot() {
+function useReserveSpot() {
     const { addReservation } = useReservationContext();
     const location = useLocation();
     const spotProps = location.state.spotProps;
@@ -26,7 +25,7 @@ function useReservSpot() {
             comment: '',
             error: '',
         },
-        validationSchema: SelectSpotShema,
+        validationSchema: SelectSpotSchema,
 
         onSubmit: async (values, { setFieldError, setSubmitting, resetForm }) => {
             try {
@@ -55,7 +54,6 @@ function useReservSpot() {
                 resetForm();
                 navigate(route.reservationSummary);
 
-                console.log('user obj', user);
             } catch (e) {
                 const errorMessage = e instanceof Error ? e.message : 'An unexpected error occurred.';
 
@@ -76,4 +74,4 @@ function useReservSpot() {
     };
 }
 
-export { useReservSpot };
+export { useReserveSpot };

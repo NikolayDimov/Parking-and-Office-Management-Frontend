@@ -1,6 +1,6 @@
 import { Location } from '../Home/Home.static';
 import { useNavigate } from 'react-router-dom';
-import { BaseButtonCreateLocation, ContainerCreate, ContainerCreateSerch, ListContainer } from './AdminPage.style';
+import { BaseButtonCreateLocation, ContainerCreate, ContainerCreateSearch, ListContainer } from './AdminPage.style';
 import EditIcon from '../../components/Icons/EditIcon/EditIcon';
 import DeleteIcon from '../../components/Icons/DeleteIcon/DeleteIcon';
 import useAdminPage from './AdminPage.logic';
@@ -47,7 +47,7 @@ const AdminPage = () => {
 
     return (
         <ListContainer>
-            <ContainerCreateSerch>
+            <ContainerCreateSearch>
                 <ContainerCreate>
                     <BaseButtonCreateLocation
                         onClick={handleCreateLocationClick}
@@ -67,7 +67,7 @@ const AdminPage = () => {
                     </BaseButtonCreateLocation>
                 </ContainerCreate>
                 <SearchBar placeholder="Search locations" onSearch={setSearchQuery} />
-            </ContainerCreateSerch>
+            </ContainerCreateSearch>
 
             <UserReservationsTableStyle>
                 <caption>Location List</caption>

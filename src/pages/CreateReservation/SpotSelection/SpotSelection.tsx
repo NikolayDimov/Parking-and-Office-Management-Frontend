@@ -2,11 +2,11 @@ import { BaseButton, FormButtonsContainer } from '../../../components/CommonStyl
 import Modal from '../../../components/Modal/Modal';
 import { FormStyled } from '../../CreateSpots/AddSpotForm/AddSpotForm.style';
 import InputField from '../../../components/InputField/InputField';
-import { useReservSpot } from './SpotSelection.logic';
+import { useReserveSpot } from './SpotSelection.logic';
 
 export default function SpotSelection() {
     const { formik, navigate, spotProps, startPeriodDate, startPeriodTime, endPeriodDate, endPeriodTime } =
-        useReservSpot();
+        useReserveSpot();
 
     return (
         <Modal>

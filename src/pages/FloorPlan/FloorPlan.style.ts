@@ -19,7 +19,7 @@ const ListContainer = styled.div`
     }
 `;
 
-const ContainerCreateSerch = styled.li`
+const ContainerCreateSearch = styled.li`
     display: flex;
     justify-content: space-between;
 
@@ -175,6 +175,6 @@ export {
     LocationTableStyle,
     Table,
     ListContainer,
-    ContainerCreateSerch,
+    ContainerCreateSearch,
     BaseButtonCreateLocation,
 };
