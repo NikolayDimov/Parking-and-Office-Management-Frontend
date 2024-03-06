@@ -24,6 +24,11 @@ const getFutureReservationsByUserId = async (id: string | undefined): Promise<Re
     return response;
 };
 
+const getFutureReservationsByUserIdAndLocation = async (userId: string | undefined, locationId: string | undefined): Promise<Reservation[]> => {
+    const response = await get(`${endpoints.getFutureReservationsByUserAndLocation}${userId}/${locationId}`, {});
+    return response;
+};
+
 const getResevationsBySpot = async (spotId: string): Promise<Reservation[]> => {
     const response = await get(`${endpoints.getResevationsBySpotId}/${spotId}`, {});
     return response;
@@ -60,6 +65,7 @@ export {
     getPastReservationsByUserId,
     getCurrentReservationsByUserId,
     getFutureReservationsByUserId,
+    getFutureReservationsByUserIdAndLocation,
     getResevationsBySpot,
     checkReservation,
     createReservation,
