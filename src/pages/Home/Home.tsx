@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <HomeContainer>
-            {locations ? (
+            {Array.isArray(locations) && locations.length > 0 ? (
                 <>
                     <h1>Choose location</h1>
                     <ul>
@@ -27,7 +27,7 @@ const Home = () => {
                     </ul>
                 </>
             ) : (
-                <Loader />
+                <div>No locations available</div>
             )}
         </HomeContainer>
     );
