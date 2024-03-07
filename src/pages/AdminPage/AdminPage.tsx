@@ -15,6 +15,7 @@ import FloorPlansAddIcon from '../../components/Icons/FloorPlanAddIcon/FloorPlan
 import { UserReservationsTableStyle } from '../../components/UserReservationsTable/UserReservationsTable.styles';
 import Loader from '../../components/Loader/Loader';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { route } from '../../static/routes';
 
 const AdminPage = () => {
     const navigate = useNavigate();
@@ -110,14 +111,18 @@ const AdminPage = () => {
                                     <FloorPlansAddIcon
                                         onClick={() => {
                                             if (location.id) {
-                                                navigate('/createNewFloorPlan', { state: { locationId: location.id } });
+                                                navigate(route.createNewFloorPlan.replace(':locId', `${location.id}`), {
+                                                    state: { locationId: location.id },
+                                                });
                                             }
                                         }}
                                     />
                                     <FloorPlansIcon
                                         onClick={() => {
                                             if (location.id) {
-                                                navigate('/floorPlan', { state: { locationId: location.id } });
+                                                navigate(route.floorPlan.replace(':locId', `${location.id}`), {
+                                                    state: { locationId: location.id },
+                                                });
                                             }
                                         }}
                                     />

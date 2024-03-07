@@ -1,8 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AddSpotIcon, ArrowIcon, BackButton, LinkFloorPlan, ListContainer } from './FloorPlan.style';
 import useModal from '../../components/ModalList/useModal';
-import DeleteFloorPlanModal from './FloorPlanListModal/DeleteModal/DeleteModal';
-import EditFloorPlanModal from './FloorPlanListModal/EditModal/EditModal';
+import DeleteFloorPlanModal from './FloorPlanDeleteModal';
 import useFloorPlan from './FloorPlan.logic';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useSpotsContext } from '../../context/SpotsContext';
@@ -10,24 +9,16 @@ import { StyledToolTip } from '../../components/CommonStyledElements';
 import EditIcon from '../../components/Icons/EditIcon/EditIcon';
 import DeleteIcon from '../../components/Icons/DeleteIcon/DeleteIcon';
 import { UserReservationsTableStyle } from '../../components/UserReservationsTable/UserReservationsTable.styles';
+import { FloorPlan } from './FloorPlan.static';
+import { route } from '../../static/routes';
 
 const FloorPlanPage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const {
-        floorPlan,
-        isLoading,
-        onDeleteClick,
-        onDeleteConfirm,
-        onEditClick,
-        onEditConfirm,
-        setCurrentFloorPlanName,
-        originalFloorPlanName,
-        handleGoBack,
-    } = useFloorPlan();
+    const { floorPlans, isLoading, onDeleteClick, onDeleteConfirm, handleGoBack } = useFloorPlan();
 
     const { isVisible: isDeleteModalVisible, showModal: showDeleteModal, hideModal: hideDeleteModal } = useModal();
-    const { isVisible: isEditModalVisible, showModal: showEditModal, hideModal: hideEditModal } = useModal();
     const { setExistingSpots } = useSpotsContext();
 
     return (
@@ -48,13 +39,13 @@ const FloorPlanPage = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {floorPlan.length > 0 ? (
-                            floorPlan.map((floorPlanItem) => (
+                        {floorPlans && floorPlans?.length > 0 ? (
+                            floorPlans.map((floorPlanItem: FloorPlan) => (
                                 <tr key={floorPlanItem.id}>
                                     <td data-label="Name:">{floorPlanItem.name}</td>
 
                                     <td data-label="Open Floor Plan:">
-                                        <LinkFloorPlan to={`/floorPlan/${floorPlanItem.id}`}>
+                                        <LinkFloorPlan to={`${route.floorPlan}/${floorPlanItem.id}`}>
                                             Show Floor Plan
                                             <ArrowIcon />
                                         </LinkFloorPlan>
@@ -66,7 +57,7 @@ const FloorPlanPage = () => {
                                             data-tooltip-place="left"
                                             className="material-icons"
                                             onClick={() => {
-                                                navigate(`/spots/${floorPlanItem.id}`);
+                                                navigate(`${route.createSpot}/${floorPlanItem.id}`);
                                                 setExistingSpots([]);
                                             }}
                                         >
@@ -77,8 +68,12 @@ const FloorPlanPage = () => {
                                         </StyledToolTip>
                                         <EditIcon
                                             onClick={() => {
-                                                onEditClick(floorPlanItem.id || '', floorPlanItem.name || '');
-                                                showEditModal();
+                                                navigate(
+                                                    route.updateFloorPlan.replace(':fpId', `${floorPlanItem.id}`),
+                                                    {
+                                                        state: { background: location, floorPlan: floorPlanItem },
+                                                    },
+                                                );
                                             }}
                                         />
 
@@ -105,16 +100,6 @@ const FloorPlanPage = () => {
                     isVisible={isDeleteModalVisible}
                     hideModal={hideDeleteModal}
                     onDeleteConfirm={onDeleteConfirm}
-                />
-            )}
-
-            {isEditModalVisible && (
-                <EditFloorPlanModal
-                    isVisible={isEditModalVisible}
-                    hideModal={hideEditModal}
-                    onConfirm={onEditConfirm}
-                    currentFloorPlanName={originalFloorPlanName}
-                    setCurrentFloorPlanName={setCurrentFloorPlanName}
                 />
             )}
         </ListContainer>
