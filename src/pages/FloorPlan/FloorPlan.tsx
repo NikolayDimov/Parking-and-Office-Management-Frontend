@@ -1,7 +1,7 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AddSpotIcon, ArrowIcon, BackButton, LinkFloorPlan, ListContainer } from './FloorPlan.style';
 import useModal from '../../components/ModalList/useModal';
-import DeleteFloorPlanModal from './FloorPlanDeleteModal';
+import DeleteFloorPlanModal from './FloorPlanDelete/FloorPlanDeleteModal';
 import useFloorPlan from './FloorPlan.logic';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useSpotsContext } from '../../context/SpotsContext';
@@ -16,7 +16,7 @@ const FloorPlanPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const { floorPlans, isLoading, onDeleteClick, onDeleteConfirm, handleGoBack } = useFloorPlan();
+    const { locId, floorPlans, isLoading, onDeleteClick, onDeleteConfirm, handleGoBack } = useFloorPlan();
 
     const { isVisible: isDeleteModalVisible, showModal: showDeleteModal, hideModal: hideDeleteModal } = useModal();
     const { setExistingSpots } = useSpotsContext();
@@ -45,7 +45,9 @@ const FloorPlanPage = () => {
                                     <td data-label="Name:">{floorPlanItem.name}</td>
 
                                     <td data-label="Open Floor Plan:">
-                                        <LinkFloorPlan to={`${route.floorPlan}/${floorPlanItem.id}`}>
+                                        <LinkFloorPlan
+                                            to={`${route.floorPlan.replace(':locId', `${locId}`)}/${floorPlanItem.id}`}
+                                        >
                                             Show Floor Plan
                                             <ArrowIcon />
                                         </LinkFloorPlan>

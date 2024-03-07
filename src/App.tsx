@@ -59,9 +59,9 @@ function App() {
                             <Route path={route.createNewFloorPlan} element={<CreateNewFloorPlanForm />} />
                             <Route path={route.floorPlan} element={<FloorPlanPage />}>
                                 <Route path={route.updateFloorPlan} element={<UpdateFloorPlanModal />} />
-                                <Route path={route.floorPlanDetails} element={<FloorPlanDetails />}>
-                                    <Route path={route.spotDetails} element={<SpotUpdate />} />
-                                </Route>
+                            </Route>
+                            <Route path={route.floorPlanDetails} element={<FloorPlanDetails />}>
+                                <Route path={route.spotDetails} element={<SpotUpdate />} />
                             </Route>
                             <Route path={route.login} element={<Login />} />
                             <Route path={route.user} element={<UsersPage />}>
@@ -101,7 +101,10 @@ function App() {
                                 />
                                 <Route path={`${route.createReservation}/:id`} element={<SpotSelection />} />
                                 <Route path="/create-reservation/combination" element={<CombinationReservation />} />
-                                <Route path={route.spotDetails} element={<SpotUpdate />} />
+                                <Route
+                                    path={`${route.floorPlanDetails}/${route.spotDetails}`}
+                                    element={<SpotUpdate />}
+                                />
                             </Routes>
                         )}
                     </SpotsProvider>
