@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../../components/ModalList/Modal';
+import Modal from '../../components/ModalList/Modal';
 
 interface DeleteModalProps {
     isVisible: boolean;

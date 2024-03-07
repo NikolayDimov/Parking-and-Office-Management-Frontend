@@ -19,6 +19,7 @@ export const endpoints = {
     getFloorPlans: `${BASE_URL}/floor-plan`,
     getSingleFloorPlan: `${BASE_URL}/floor-plan/:floorPlanId`,
     getBySpotTypeAndLocation: `${BASE_URL}/floor-plan/search?`,
+    getFLoorPlansByLocation: `${BASE_URL}/floor-plan/by-location/search?`,
     createFloorPlan: `${BASE_URL}/floor-plan`,
     deleteFloorPlan: `${BASE_URL}/floor-plan/:floorPlanId`,
 

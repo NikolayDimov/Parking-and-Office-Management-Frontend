@@ -15,7 +15,7 @@ export default function SpotUpdateMarker(props: SpotMarker) {
                 data-tooltip-place="top"
                 className={`custom-marker_${props.isPermanent}`}
                 onClick={() => {
-                    navigate(`${route.floorPlan}/${id}/${props.id}`, {
+                    navigate(route.spotDetails.replace(':id/:spotId', `${id}/${props.id}`), {
                         state: { background: location, spotProps: props },
                     });
                 }}
