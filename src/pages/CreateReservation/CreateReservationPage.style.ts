@@ -88,4 +88,13 @@ const BackButton = styled.button`
     }
 `;
 
-export { Card, ImageContainer, ImageStyled, NoSpotsMessageContainer, BackButton, ListContainer };
+const SelectUser = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 8rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+`;
+
+export { Card, ImageContainer, ImageStyled, NoSpotsMessageContainer, BackButton, ListContainer, SelectUser };
