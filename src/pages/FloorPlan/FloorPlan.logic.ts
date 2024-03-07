@@ -42,6 +42,7 @@ function useFloorPlan() {
     };
 
     return {
+        locId,
         floorPlans,
         isLoading,
         error,

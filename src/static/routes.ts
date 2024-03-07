@@ -8,7 +8,7 @@ export const route = {
     createNewFloorPlan: '/admin/:locId/create-new-floor-plan',
     floorPlan: '/admin/:locId/floor-plans',
     floorPlanDetails: '/admin/:locId/floor-plans/:fpId',
-    spotDetails: ':fpId/:spotId',
+    spotDetails: ':spotId',
     updateFloorPlan: ':fpId/update',
     createReservation: '/create-reservation',
     reservationSummary: '/reservation-summary',

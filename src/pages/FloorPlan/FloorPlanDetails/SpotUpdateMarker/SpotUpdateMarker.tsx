@@ -7,7 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 export default function SpotUpdateMarker(props: SpotMarker) {
     const navigate = useNavigate();
     const location = useLocation();
-    const { id } = useParams();
+    const { fpId } = useParams();
     return (
         <>
             <MarkerStyled
@@ -15,7 +15,7 @@ export default function SpotUpdateMarker(props: SpotMarker) {
                 data-tooltip-place="top"
                 className={`custom-marker_${props.isPermanent}`}
                 onClick={() => {
-                    navigate(route.spotDetails.replace(':id/:spotId', `${id}/${props.id}`), {
+                    navigate(route.spotDetails.replace(':spotId', `${props.id}`), {
                         state: { background: location, spotProps: props },
                     });
                 }}

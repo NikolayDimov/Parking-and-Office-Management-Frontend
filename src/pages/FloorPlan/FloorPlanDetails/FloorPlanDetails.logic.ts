@@ -8,7 +8,7 @@ import { getFloorPlan } from '../../../services/floorPlanService';
 function useFloorPlanDetails() {
     const navigate = useNavigate();
 
-    const { id } = useParams();
+    const { fpId } = useParams();
 
     const [floorPlan, setFloorPlan] = useState<FloorPlan | null>(null);
     const {
@@ -16,17 +16,17 @@ function useFloorPlanDetails() {
         error,
         isLoading,
         refetch: refetchSpots,
-    } = useQuery('spotsByFloorPlan', () => getSpotsByFloorPlanId(id!));
+    } = useQuery('spotsByFloorPlan', () => getSpotsByFloorPlanId(fpId!));
 
     useEffect(() => {
-        if (id) {
-            getFloorPlan(id)
+        if (fpId) {
+            getFloorPlan(fpId)
                 .then((data: FloorPlan) => {
                     setFloorPlan(data);
                 })
                 .catch((error) => console.error('Error fetching floor plan details:', error));
         }
-    }, [id]);
+    }, [fpId]);
 
     const handleGoBack = () => {
         navigate(-1);
