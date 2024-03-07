@@ -10,6 +10,7 @@ import {
     ImageStyled,
     ListContainer,
     NoSpotsMessageContainer,
+    SelectUser,
 } from './CreateReservationPage.style';
 import { DivFlexStyled } from '../CreateSpots/CreateSpotsPage.style';
 import SpotMarkerReservation from './SpotMarkerReservation/SpotMarkerReservation';
@@ -59,6 +60,30 @@ export default function CreateReservation() {
                     <>
                         <h4>Select an option:</h4>
                         <DivFlexStyled className="create-reservation-container-cards">
+                            {tokenRole === 'ADMIN' && (
+                                <SelectUser>
+                                    <label htmlFor="userSelect">Admin can create reservation for user:</label>
+                                    <select
+                                        value={selectedUser?.id || ''}
+                                        onChange={(e) => {
+                                            const userId = e.target.value;
+                                            const user = users.find((u) => u.id === userId) || null;
+                                            setSelectedUser(user);
+                                        }}
+                                    >
+                                        <option value="" disabled>
+                                            Select a user
+                                        </option>
+                                        {Array.isArray(users) &&
+                                            users.map((user) => (
+                                                <option key={user.id} value={user.id}>
+                                                    {user.email}
+                                                </option>
+                                            ))}
+                                    </select>
+                                </SelectUser>
+                            )}
+
                             {floorPlans?.map((floorPlan: FloorPlan) => {
                                 return (
                                     <BaseButton
@@ -68,27 +93,6 @@ export default function CreateReservation() {
                                             showPlan(floorPlan);
                                         }}
                                     >
-                                        {tokenRole === 'ADMIN' && (
-                                            <select
-                                                value={selectedUser?.id || ''}
-                                                onChange={(e) => {
-                                                    const userId = e.target.value;
-                                                    const user = users.find((u) => u.id === userId) || null;
-                                                    setSelectedUser(user);
-                                                }}
-                                            >
-                                                <option value="" disabled>
-                                                    Select a user
-                                                </option>
-                                                {Array.isArray(users) &&
-                                                    users.map((user) => (
-                                                        <option key={user.id} value={user.id}>
-                                                            {user.email}
-                                                        </option>
-                                                    ))}
-                                            </select>
-                                        )}
-
                                         <Card
                                             data-tooltip-id={`component_${floorPlan.id}`}
                                             data-tooltip-place="right-start"
