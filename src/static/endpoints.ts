@@ -41,7 +41,7 @@ export const endpoints = {
     getSpotsOccupancyBySpotTypeAndLocation: `${BASE_URL}/spot/by-type-and-location-occupancy/search`,
 
     reservation: `${BASE_URL}/reservation`,
-    getResevationsBySpotId: `${BASE_URL}/reservation/by-spot`,
+    getReservationsBySpotId: `${BASE_URL}/reservation/by-spot`,
     getPastReservationsByUser: `${BASE_URL}/reservation/by-user-past/`,
     getCurrentReservationsByUser: `${BASE_URL}/reservation/by-user-current/`,
     getFutureReservationsByUser: `${BASE_URL}/reservation/by-user-future/`,
