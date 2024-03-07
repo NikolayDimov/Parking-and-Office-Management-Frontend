@@ -9,7 +9,7 @@ interface FloorPlan {
     error?: string;
 }
 
-const FloorPlanCreateShema = Yup.object().shape({
+const FloorPlanCreateSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Name is too short!').max(100, 'Name is too long!').required('Name is required'),
     imgUrl: Yup.string().required('Image is required'),
 });
@@ -19,4 +19,4 @@ interface EditFormErrors {
 }
 
 export type { FloorPlan, EditFormErrors };
-export { FloorPlanCreateShema };
+export { FloorPlanCreateSchema };

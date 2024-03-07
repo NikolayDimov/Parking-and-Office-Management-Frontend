@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { AddSpotShema, SpotMarker } from './AddSpotForm.static';
+import { AddSpotSchema, SpotMarker } from './AddSpotForm.static';
 import { useEffect } from 'react';
 import { Marker } from 'react-image-marker';
 import { checkSpot } from '../../../services/spotService';
@@ -27,7 +27,7 @@ function useAddSpot() {
             floorPlanId: '',
             error: '',
         },
-        validationSchema: AddSpotShema,
+        validationSchema: AddSpotSchema,
 
         onSubmit: async (values: SpotMarker, { setFieldError, setSubmitting, resetForm }) => {
             try {
@@ -51,7 +51,7 @@ function useAddSpot() {
                         throw new Error(spot.error);
                     } else {
                         saveNewSpots(newMarker);
-                        toast.success("New spot was added to the plan and is ready for saving!")
+                        toast.success('New spot was added to the plan and is ready for saving!');
                         resetForm();
                         navigate(-1);
                     }

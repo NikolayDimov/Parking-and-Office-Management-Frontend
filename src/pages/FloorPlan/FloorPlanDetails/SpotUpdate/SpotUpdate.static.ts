@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const UpdateSpotShema = Yup.object().shape({
+const UpdateSpotSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     description: Yup.string().required('Description is required'),
 });
@@ -14,4 +14,4 @@ interface SpotUpdate {
     error?: string;
 }
 export type { SpotUpdate };
-export { UpdateSpotShema };
+export { UpdateSpotSchema };
