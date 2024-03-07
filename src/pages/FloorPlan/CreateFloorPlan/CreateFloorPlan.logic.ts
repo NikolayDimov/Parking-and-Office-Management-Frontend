@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import useToken from '../../../hooks/Token/Token.hook';
 import { useState } from 'react';
 import { uploadImage } from '../../../services/imageService';
-import { FloorPlan, FloorPlanCreateShema } from '../FloorPlan.static';
+import { FloorPlan, FloorPlanCreateSchema } from '../FloorPlan.static';
 import { addFloorPlan } from '../../../services/floorPlanService';
 import { toast } from 'react-toastify';
 
@@ -27,7 +27,7 @@ function useCreateFloorPlan() {
             modifiedBy: '',
             error: '',
         },
-        validationSchema: FloorPlanCreateShema,
+        validationSchema: FloorPlanCreateSchema,
 
         onSubmit: async (values: FloorPlan, { setFieldError, setSubmitting, resetForm }) => {
             const newObj = {

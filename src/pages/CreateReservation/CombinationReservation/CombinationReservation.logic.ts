@@ -10,7 +10,7 @@ import { CombinedReservationSpotMarker } from '../SpotMarkerReservation/SpotMark
 import { toast } from 'react-toastify';
 
 function useReserveSpotCombination() {
-    const { addReservation } = useReservationContext();
+    const { addReservation, reservations } = useReservationContext();
     const location = useLocation();
     const spots = location.state.spots;
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ function useReserveSpotCombination() {
                         if (spot.user) {
                             reservationData.userId = spot.user.id;
                         }
-                        const selectedSpot = await checkReservation(reservationData);
+                        const selectedSpot = await checkReservation(reservationData, reservations);
 
                         if (selectedSpot.error) {
                             toast.error(selectedSpot.error);

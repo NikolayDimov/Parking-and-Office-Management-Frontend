@@ -5,7 +5,7 @@ import { FloorPlan } from '../FloorPlan.static';
 import { updateFloorPlan } from '../../../services/floorPlanService';
 import { merge } from 'lodash';
 import { toast } from 'react-toastify';
-import { UpdateFloorPlanShema } from './FloorPlanUpdate.static';
+import { UpdateFloorPlanSchema } from './FloorPlanUpdate.static';
 import useFloorPlan from '../FloorPlan.logic';
 import { route } from '../../../static/routes';
 
@@ -25,7 +25,7 @@ const useUpdateFloorPlan = () => {
             modifiedBy: user?.id,
             error: floorPlan?.error,
         },
-        validationSchema: UpdateFloorPlanShema,
+        validationSchema: UpdateFloorPlanSchema,
 
         onSubmit: async (values: FloorPlan, { setFieldError, setSubmitting, resetForm }) => {
             try {
@@ -38,8 +38,8 @@ const useUpdateFloorPlan = () => {
                                 return v[0] === 'id' || v[0] === 'modifiedBy'
                                     ? { [v[0]]: v[1] }
                                     : v[1] !== w[1]
-                                        ? { [v[0]]: v[1] }
-                                        : undefined;
+                                      ? { [v[0]]: v[1] }
+                                      : undefined;
                             }
                         }
                     })

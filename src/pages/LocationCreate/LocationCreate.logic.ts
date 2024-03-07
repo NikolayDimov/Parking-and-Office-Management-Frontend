@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { LocationCreate, LocationCreateShema } from './LocationCreate.static';
+import { LocationCreate, LocationCreateSchema } from './LocationCreate.static';
 import { addLocation } from '../../services/locationService';
 import useToken from '../../hooks/Token/Token.hook';
 import { useState } from 'react';
@@ -26,7 +26,7 @@ function useCreateLocation() {
             modifiedBy: '',
             error: '',
         },
-        validationSchema: LocationCreateShema,
+        validationSchema: LocationCreateSchema,
 
         onSubmit: async (values: LocationCreate, { setFieldError, setSubmitting, resetForm }) => {
             const newObj = {

@@ -24,24 +24,25 @@ const getFutureReservationsByUserId = async (id: string | undefined): Promise<Re
     return response;
 };
 
-const getFutureReservationsByUserIdAndLocation = async (userId: string | undefined, locationId: string | undefined): Promise<Reservation[]> => {
+const getFutureReservationsByUserIdAndLocation = async (
+    userId: string | undefined,
+    locationId: string | undefined,
+): Promise<Reservation[]> => {
     const response = await get(`${endpoints.getFutureReservationsByUserAndLocation}${userId}/${locationId}`, {});
     return response;
 };
 
-const getResevationsBySpot = async (spotId: string): Promise<Reservation[]> => {
-    const response = await get(`${endpoints.getResevationsBySpotId}/${spotId}`, {});
+const getReservationsBySpot = async (spotId: string): Promise<Reservation[]> => {
+    const response = await get(`${endpoints.getReservationsBySpotId}/${spotId}`, {});
     return response;
 };
 
-const checkReservation = async ({
-    spotId,
-    start,
-    end,
-    comment,
-    userId,
-    modifiedBy,
-}: Reservation): Promise<Reservation> => {
+const checkReservation = async (
+    { spotId, start, end, comment, userId, modifiedBy }: Reservation,
+    currentReservations: Reservation[],
+): Promise<Reservation> => {
+    console.log("Hello");
+    console.log(currentReservations);
     return await post(`${endpoints.checkReservation}`, {
         spotId,
         start,
@@ -49,6 +50,7 @@ const checkReservation = async ({
         comment,
         userId,
         modifiedBy,
+        currentReservations
     });
 };
 
@@ -66,7 +68,7 @@ export {
     getCurrentReservationsByUserId,
     getFutureReservationsByUserId,
     getFutureReservationsByUserIdAndLocation,
-    getResevationsBySpot,
+    getReservationsBySpot,
     checkReservation,
     createReservation,
     deleteReservation,

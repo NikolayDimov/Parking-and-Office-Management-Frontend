@@ -16,11 +16,11 @@ interface MultipleSpots {
     markers: Array<SpotMarker>;
 }
 
-const AddSpotShema = Yup.object().shape({
+const AddSpotSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     description: Yup.string().required('Description is required'),
     spotTypeId: Yup.string().required('Please select a type'),
 });
 
-export { AddSpotShema };
+export { AddSpotSchema };
 export type { SpotMarker, MultipleSpots };
