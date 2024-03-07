@@ -31,6 +31,7 @@ import SpotUpdate from './pages/FloorPlan/FloorPlanDetails/SpotUpdate/SpotUpdate
 import { SpotsProvider } from './context/SpotsContext';
 import Navigation from './components/Navigation/Navigation';
 import AdminPage from './pages/AdminPage/AdminPage';
+import UpdateFloorPlanModal from './pages/FloorPlan/FloorPlanUpdate/FloorPlanUpdate';
 
 export const StyledApp = styled.div`
     min-height: 100vh;
@@ -56,9 +57,11 @@ function App() {
                             <Route path={route.reservationSummary} element={<ReservationSummary />} />
 
                             <Route path={route.createNewFloorPlan} element={<CreateNewFloorPlanForm />} />
-                            <Route path={route.floorPlan} element={<FloorPlanPage />} />
-                            <Route path={`${route.floorPlan}/:id`} element={<FloorPlanDetails />}>
-                                <Route path={`${route.floorPlan}/:id/:spotid`} element={<SpotUpdate />} />
+                            <Route path={route.floorPlan} element={<FloorPlanPage />}>
+                                <Route path={route.updateFloorPlan} element={<UpdateFloorPlanModal />} />
+                                <Route path={route.floorPlanDetails} element={<FloorPlanDetails />}>
+                                    <Route path={route.spotDetails} element={<SpotUpdate />} />
+                                </Route>
                             </Route>
                             <Route path={route.login} element={<Login />} />
                             <Route path={route.user} element={<UsersPage />}>
@@ -87,6 +90,10 @@ function App() {
                             <Routes>
                                 <Route path={route.register} element={<Register />} />
                                 <Route path="/spots/:id/create" element={<AddSpotForm />} />
+                                <Route
+                                    path={`${route.floorPlan}/${route.updateFloorPlan}`}
+                                    element={<UpdateFloorPlanModal />}
+                                />
                                 <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
                                 <Route
                                     path={`${route.user}/:id/change-picture`}
@@ -94,7 +101,7 @@ function App() {
                                 />
                                 <Route path={`${route.createReservation}/:id`} element={<SpotSelection />} />
                                 <Route path="/create-reservation/combination" element={<CombinationReservation />} />
-                                <Route path={`${route.floorPlan}/:id/:spotid`} element={<SpotUpdate />} />
+                                <Route path={route.spotDetails} element={<SpotUpdate />} />
                             </Routes>
                         )}
                     </SpotsProvider>
