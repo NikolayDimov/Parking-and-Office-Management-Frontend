@@ -9,7 +9,7 @@ import { route } from '../../../static/routes';
 import { Reservation } from '../../../static/types';
 
 function useReserveSpot() {
-    const { addReservation } = useReservationContext();
+    const { addReservation, reservations } = useReservationContext();
     const location = useLocation();
     const spotProps = location.state.spotProps;
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ function useReserveSpot() {
                         reservationData.userId = spotProps.user.id;
                     }
 
-                    const selectedSpot = await checkReservation(reservationData);
+                    const selectedSpot = await checkReservation(reservationData, reservations);
 
                     if (selectedSpot.error) {
                         throw new Error(selectedSpot.error);
