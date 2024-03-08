@@ -110,6 +110,8 @@ const useAdminPage = () => {
         }
     };
 
+    //test1
+
     return {
         locations,
         isLoading,
