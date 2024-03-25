@@ -3,6 +3,7 @@ interface ReservationsTable {
     comment: string;
     spotName: string;
     spotDescription: string;
+    spotLocation: string;
     spotTypeName: string;
     start: Date;
     end: Date;
