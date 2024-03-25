@@ -4,6 +4,19 @@ import { useEffect, useState } from 'react';
 import { getSpotById } from '../../services/spotService';
 import { getSpotType } from '../../services/spotTypeService';
 import { Reservation } from '../../static/types';
+import { getFloorPlan } from '../../services/floorPlanService';
+import { getLocation } from '../../services/locationService';
+
+type FormattedReservation = {
+    id: string;
+    comment: string;
+    spotName: string;
+    spotDescription: string;
+    spotTypeName: string;
+    start: Date;
+    end: Date;
+    spotLocation: string;
+};
 
 const useUserReservationsTableLogic = (
     reservations: Reservation[] | undefined,
@@ -16,7 +29,7 @@ const useUserReservationsTableLogic = (
         },
     });
 
-    const [formattedReservations, setFormattedReservations] = useState([]);
+    const [formattedReservations, setFormattedReservations] = useState<FormattedReservation[]>([]);
     const [selectedReservationIdForDelete, setSelectedReservationIdForDelete] = useState<string | null>(null);
 
     const onDeleteClick = (reservationId: string) => {
@@ -39,12 +52,19 @@ const useUserReservationsTableLogic = (
         if (!reservations) return;
 
         const fetchSpotData = async () => {
-            const formattedData = await Promise.all(
+            const potentialFormattedData = await Promise.all(
                 reservations.map(async (reservation: Reservation) => {
                     const spotId = reservation.spotId;
                     try {
                         const spot = await getSpotById(spotId);
                         const spotType = await getSpotType(spot.spotTypeId);
+                        const floorPlan = await getFloorPlan(spot.floorPlanId);
+                        let locationName = '';
+
+                        if (floorPlan.locationId) {
+                            const location = await getLocation(floorPlan.locationId);
+                            locationName = location.name;
+                        }
 
                         return {
                             id: reservation.id,
@@ -54,6 +74,7 @@ const useUserReservationsTableLogic = (
                             spotTypeName: spotType.name,
                             start: reservation.start,
                             end: reservation.end,
+                            spotLocation: locationName,
                         };
                     } catch (error) {
                         console.error('Error fetching spot or spot type:', error);
@@ -62,6 +83,10 @@ const useUserReservationsTableLogic = (
                 }),
             );
 
+            // setFormattedReservations(formattedData);
+
+            // Filter out null values before setting the state
+            const formattedData = potentialFormattedData.filter((item): item is FormattedReservation => item !== null);
             setFormattedReservations(formattedData);
         };
 

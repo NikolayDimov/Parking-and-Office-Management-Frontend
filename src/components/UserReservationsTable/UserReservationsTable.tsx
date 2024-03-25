@@ -43,6 +43,7 @@ const UserReservationsTable = ({
                             <tr>
                                 <th className="table-head">Spot</th>
                                 <th className="table-head">Spot Description</th>
+                                <th className="table-head">Spot Location</th>
                                 <th className="table-head">Comment</th>
                                 <th className="table-head">Start</th>
                                 <th className="table-head">End</th>
@@ -55,6 +56,7 @@ const UserReservationsTable = ({
                                     <tr key={reservation.id}>
                                         <td data-label="Spot:">{reservation.spotName}</td>
                                         <td data-label="Spot Description:">{reservation.spotDescription}</td>
+                                        <td data-label="Location:">{reservation.spotLocation}</td>
                                         <td data-label="Comment:">{reservation.comment}</td>
                                         <td data-label="Start:">{new Date(reservation.start).toLocaleString()}</td>
                                         <td data-label="End:">{new Date(reservation.end).toLocaleString()}</td>
