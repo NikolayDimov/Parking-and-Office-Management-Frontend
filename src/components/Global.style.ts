@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
   --spot-green: #00FF40;
 
   --font-family: 'Noto Sans', sans-serif;
+
+
 }
 
 body {

@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getLocation } from '../../services/locationService';
 import useToken from '../../hooks/Token/Token.hook';
 import { getFutureReservationsByUserIdAndLocation } from '../../services/reservationService';
@@ -29,7 +29,7 @@ const useFutureReservationsByUserIdAndLocation = (userId: string | undefined) =>
         data: reservations,
         refetch,
         isLoading,
-    } = useQuery(['futureReservationsByUserId', userId], () => getFutureReservationsByUserIdAndLocation(userId,id));
+    } = useQuery(['futureReservationsByUserId', userId], () => getFutureReservationsByUserIdAndLocation(userId, id));
     return {
         futureReservations: reservations,
         futureReservationsRefetch: refetch,
@@ -37,4 +37,14 @@ const useFutureReservationsByUserIdAndLocation = (userId: string | undefined) =>
     };
 };
 
-export {useChoseLocation, useFutureReservationsByUserIdAndLocation};
+const useLocationBackBtn = () => {
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
+    return { handleGoBack };
+};
+
+export { useChoseLocation, useFutureReservationsByUserIdAndLocation, useLocationBackBtn };

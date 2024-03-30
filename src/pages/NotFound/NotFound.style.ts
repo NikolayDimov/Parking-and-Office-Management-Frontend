@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const NotFoundContainer = styled.div`
     text-align: center;
-    margin-top: 3.125rem;
+    margin-top: 4rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         padding: 2.5rem;
     }
 `;

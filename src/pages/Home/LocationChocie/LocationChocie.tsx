@@ -8,7 +8,7 @@ const LocationChoice = ({ location }: { location: Location }) => {
         <li>
             <div>
                 <Link to={`location/${location.id}`}>
-                    <StyledCard className='home-card'>
+                    <StyledCard className="home-card">
                         <LocationImage src={location.imgUrl} alt="location-photo" />
                         <InformationContainer>
                             <span>{location.city}</span>

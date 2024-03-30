@@ -8,9 +8,18 @@ const HomeContainer = styled.div`
     gap: 5rem;
     align-items: center;
 
+    @media (max-width: 450px) {
+        display: block;
+    }
+
     h1 {
         margin-top: 3rem;
+        margin-bottom: 3rem;
         text-align: center;
+
+        @media (max-width: 450px) {
+            margin-bottom: 2rem;
+        }
     }
 
     ul {
@@ -27,14 +36,16 @@ const HomeContainer = styled.div`
         transition: transform 0.3s ease;
         cursor: pointer;
         margin: 0.625rem;
+        /* flex: 1; */
+        max-width: 25rem;
+        /* width: calc(33.333% - 1.25rem); */
         width: 25rem;
         &:hover {
             transform: translateY(-5px);
         }
 
-        @media (max-width: 900px) {
-            width: 80%;
-            margin: 0 auto;
+        @media (max-width: 450px) {
+            margin: 0 1rem;
         }
     }
 
