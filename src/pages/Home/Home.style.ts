@@ -14,6 +14,7 @@ const HomeContainer = styled.div`
 
     h1 {
         margin-top: 3rem;
+        margin-bottom: 3rem;
         text-align: center;
 
         @media (max-width: 450px) {
