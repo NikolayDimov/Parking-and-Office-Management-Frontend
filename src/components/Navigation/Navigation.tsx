@@ -1,14 +1,13 @@
-import { NavLink } from 'react-router-dom';
-import { NavContainer, NavDiv } from './Navigation.style';
+import { NavContainer, NavDiv, StyledNavLink } from './Navigation.style';
 import Burger from './Burger/Burger';
 
 const Navigation = () => {
     return (
         <NavDiv>
             <NavContainer>
-                <NavLink to={`/`} className="logo">
+                <StyledNavLink to={`/`} className="logo">
                     <p>Home</p>
-                </NavLink>
+                </StyledNavLink>
 
                 <div style={{ flex: 1 }}></div>
 

@@ -9,10 +9,11 @@ const StyledCalendarIcon = styled.div`
         height: 1.5625rem;
         width: 1.5625rem;
         transition: transform 0.3s ease-in-out;
-        color: #000;
+        color: #e7eaf0;
 
         &:hover {
             transform: scale(1.1);
+            color: #999;
         }
     }
 

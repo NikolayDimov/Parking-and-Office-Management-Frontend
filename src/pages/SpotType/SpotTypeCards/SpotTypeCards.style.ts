@@ -4,9 +4,7 @@ const SpotTypeContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
-    padding: 1.25rem 0.625rem;
     margin: 3rem auto;
-    background-color: var(--blue-green);
     border-radius: 0.5rem;
     text-align: center;
     justify-content: center;

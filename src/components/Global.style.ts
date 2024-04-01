@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   --brown-light: #7d7061;
   --brown-dark: #3e3831;
   --spot-green: #00FF40;
+  --light-blue: #9fc5e8;
 
   --font-family: 'Noto Sans', sans-serif;
 

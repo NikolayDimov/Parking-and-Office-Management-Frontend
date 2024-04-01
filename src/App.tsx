@@ -32,12 +32,7 @@ import { SpotsProvider } from './context/SpotsContext';
 import Navigation from './components/Navigation/Navigation';
 import AdminPage from './pages/AdminPage/AdminPage';
 import UpdateFloorPlanModal from './pages/FloorPlan/FloorPlanUpdate/FloorPlanUpdate';
-
-export const StyledApp = styled.div`
-    min-height: 100vh;
-    padding-top: 4rem;
-    background: linear-gradient(180deg, var(--pink-light) 0%, var(--pink) 100%);
-`;
+import { StyledApp } from './App.style';
 
 function App() {
     const location = useLocation();

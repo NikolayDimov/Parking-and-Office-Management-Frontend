@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavProps } from './RightNav.static';
+import { NavLink as RouterNavLink } from 'react-router-dom';
 
 const Ul = styled.ul<NavProps>`
     list-style: none;
@@ -44,4 +45,12 @@ const Ul = styled.ul<NavProps>`
     }
 `;
 
-export { Ul };
+const StyledNavLink = styled(RouterNavLink)`
+    &.nav-link {
+        color: #e7eaf0;
+        text-decoration: none;
+        cursor: pointer;
+    }
+`;
+
+export { Ul, StyledNavLink };

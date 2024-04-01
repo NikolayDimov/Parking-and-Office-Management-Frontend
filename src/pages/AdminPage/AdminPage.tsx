@@ -53,7 +53,7 @@ const AdminPage = () => {
                     <BaseButtonCreateLocation
                         onClick={handleCreateLocationClick}
                         style={{
-                            backgroundColor: `var(--blue-green-light)`,
+                            backgroundColor: `var(--light-blue)`,
                         }}
                     >
                         Create Location
@@ -61,7 +61,7 @@ const AdminPage = () => {
                     <BaseButtonCreateLocation
                         onClick={handleManageUsersClick}
                         style={{
-                            backgroundColor: `var(--blue-green-light)`,
+                            backgroundColor: `var(--light-blue)`,
                         }}
                     >
                         Manage Users
