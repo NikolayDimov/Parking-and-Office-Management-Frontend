@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const BaseButton = styled.button`
     align-self: center;
-    background-color: var(--blue-green-light);
+    background-color: var(--light-blue);
     border: transparent;
     border-radius: 0.625rem;
     box-shadow: darkgrey 15px 28px 25px -18px;
@@ -56,7 +56,7 @@ const BaseButton = styled.button`
     }
 
     &.reservation-card {
-        background-color: var(--blue-green-light);
+        background-color: var(--light-blue);
         padding: 0;
         max-width: 10rem;
     }
@@ -216,13 +216,12 @@ const BaseButtonLogout = styled.button`
 `;
 
 const StyledCard = styled.div`
-    background-color: var(--light-blue);
+    background-color: var(--navbar);
     width: 100%;
     height: 90%;
     margin: 0 auto;
-    border: 1px solid #ccc;
     border-radius: 0.5rem;
-    padding: 0.7rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

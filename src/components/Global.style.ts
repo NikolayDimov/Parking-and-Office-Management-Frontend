@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
   --brown-dark: #3e3831;
   --spot-green: #00FF40;
   --light-blue: #9fc5e8;
+  --light-blue-2: #e6f3ff;
+  --background-color: #f3f6f9;
+  --navbar: #102d6a;
 
   --font-family: 'Noto Sans', sans-serif;
 

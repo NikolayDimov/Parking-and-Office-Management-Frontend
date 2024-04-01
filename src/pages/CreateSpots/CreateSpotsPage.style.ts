@@ -14,19 +14,23 @@ const DivFlexStyled = styled.div`
 
     &.create-reservation-container {
         max-width: 100%;
-        background-color: var(--blue-green-light);
+        background-color: var(--background-color);
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        gap: 5rem;
 
-        h4{
+        h4 {
             padding-top: 2rem;
         }
     }
 
+    &.create-reservation-container.collapsed {
+        /* Styles for the container when it's collapsed */
+        display: none; /* or any other styles to hide it */
+    }
+
     &.create-reservation-container-cards {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         width: auto;
         padding: 1rem;

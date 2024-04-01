@@ -31,6 +31,11 @@ function useShowSpots() {
     const [users, setUsers] = useState<User[]>([]);
     const [selectedUser, setSelectedUser] = useState<User | null>();
 
+    const [isContainerCollapsed, setIsContainerCollapsed] = useState(false);
+    const toggleContainerCollapse = () => {
+        setIsContainerCollapsed((prevState) => !prevState);
+    };
+
     function toggleSpots() {
         setShowSpots(!showSpots);
     }
@@ -52,6 +57,8 @@ function useShowSpots() {
                 start: calendarData.startDate,
                 end: calendarData.endDate,
             });
+
+            // setIsTopContainerExpanded(!showSpots);
 
             if (data.length > 0) {
                 const outputSpots = data.map((spot: CustomSpotMarker) => {
@@ -135,6 +142,8 @@ function useShowSpots() {
         selectedUser,
         setSelectedUser,
         handleGoBack,
+        isContainerCollapsed,
+        toggleContainerCollapse,
     };
 }
 

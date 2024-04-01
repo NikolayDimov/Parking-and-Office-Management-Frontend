@@ -1,5 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { SpotTypeContainer, SpotTypeImage, SpotTypeParagraph, SpotTypeImageContainer } from './SpotTypeCards.style';
+import {
+    SpotTypeContainer,
+    SpotTypeImage,
+    SpotTypeParagraph,
+    SpotTypeImageContainer,
+    StyledCardLocation,
+} from './SpotTypeCards.style';
 import { BaseButton, Container, PageTitle, StyledCard } from '../../../components/CommonStyledElements';
 import { SpotType } from './SpotTypeCards.static';
 import { Location } from '../SpotType.static';
@@ -53,13 +59,13 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                                     });
                                 }}
                             >
-                                <StyledCard>
+                                <StyledCardLocation>
                                     <SpotTypeParagraph>{spotType.name}</SpotTypeParagraph>
                                     {(spotType.name === 'Office desk' || spotType.name === 'Parking place') && (
                                         <SpotTypeParagraph>{`Occupancy Tomorrow: ${spotType.occupancy}%`}</SpotTypeParagraph>
                                     )}
                                     <SpotTypeImageContainer>{renderImage(spotType.name)}</SpotTypeImageContainer>
-                                </StyledCard>
+                                </StyledCardLocation>
                             </BaseButton>
                         ))}
                     </SpotTypeContainer>
