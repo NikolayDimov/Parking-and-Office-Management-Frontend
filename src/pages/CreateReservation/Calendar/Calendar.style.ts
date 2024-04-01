@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const CalendarContainer = styled.div`
-    background-color: var(--blue-green-light);
     text-align: center;
     max-width: 37.5rem;
     width: auto;
@@ -16,7 +15,7 @@ const StyledAppContainer = styled.div`
     justify-content: space-around;
     align-items: stretch;
     border-radius: 0.625rem;
-    background-color: var(--beige);
+    background-color: var(--light-blue);
     font-family: Arial, sans-serif;
 
     &.outer-container {

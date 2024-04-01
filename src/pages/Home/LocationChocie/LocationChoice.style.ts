@@ -3,9 +3,7 @@ import styled from 'styled-components';
 const InformationContainer = styled.div`
     display: flex;
     flex-direction: column;
-    /* background-color: var(--blue-green); */
-
-    background-color: #e6f3ff;
+    background-color: var(--light-blue-2);
     border-radius: 0.5rem;
     width: 100%;
 

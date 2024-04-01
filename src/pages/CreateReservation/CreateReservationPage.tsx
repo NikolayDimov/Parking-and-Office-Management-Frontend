@@ -6,6 +6,9 @@ import { LocationImage } from '../Home/LocationChocie/LocationChoice.style';
 import {
     BackButton,
     Card,
+    DivFlexStyledContainer,
+    ExpandRow,
+    FloorPlanImageContainer,
     ImageContainer,
     ImageStyled,
     ListContainer,
@@ -18,6 +21,8 @@ import CalendarPage from './Calendar/CalendarPage';
 import { FloorPlan } from '../FloorPlan/FloorPlan.static';
 import SpotCardsContainer from './CombinationReservation/SpotCardsContainer';
 import { FaArrowLeft } from 'react-icons/fa';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function CreateReservation() {
     const {
@@ -39,6 +44,8 @@ export default function CreateReservation() {
         users,
         setSelectedUser,
         handleGoBack,
+        isContainerCollapsed,
+        toggleContainerCollapse,
     } = useShowSpots();
 
     if (isLoading) {
@@ -54,11 +61,21 @@ export default function CreateReservation() {
             <BackButton onClick={handleGoBack}>
                 <FaArrowLeft />
             </BackButton>
-            <DivFlexStyled className="create-reservation-container">
+
+            {isContainerCollapsed ? (
+                <ExpandRow onClick={toggleContainerCollapse}>
+                    <span>Calendar</span>
+                    {isContainerCollapsed && <ExpandMoreIcon />}
+                </ExpandRow>
+            ) : null}
+
+            <DivFlexStyledContainer
+                className={`create-reservation-container ${isContainerCollapsed ? 'collapsed' : ''}`}
+            >
                 <CalendarPage sendDateTime={handleDataFromCalendar} spotType={selectedSpotType} />
                 {calendarData && (
-                    <>
-                        <h4>Select an option:</h4>
+                    <FloorPlanImageContainer>
+                        <h4>Select Floor Plan:</h4>
                         <DivFlexStyled className="create-reservation-container-cards">
                             {tokenRole === 'ADMIN' && (
                                 <SelectUser>
@@ -91,6 +108,7 @@ export default function CreateReservation() {
                                         className="reservation-card"
                                         onClick={() => {
                                             showPlan(floorPlan);
+                                            toggleContainerCollapse();
                                         }}
                                     >
                                         <Card
@@ -107,9 +125,9 @@ export default function CreateReservation() {
                                 );
                             })}
                         </DivFlexStyled>
-                    </>
+                    </FloorPlanImageContainer>
                 )}
-            </DivFlexStyled>
+            </DivFlexStyledContainer>
 
             {areNoSpots ? (
                 <NoSpotsMessageContainer>Sorry, there are no free spots of this spot type.</NoSpotsMessageContainer>

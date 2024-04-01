@@ -36,4 +36,23 @@ const SpotTypeImage = styled.img`
     object-fit: cover;
 `;
 
-export { SpotTypeContainer, SpotTypeImage, SpotTypeImageContainer, SpotTypeParagraph };
+const StyledCardLocation = styled.div`
+    background-color: var(--navbar);
+    color: #fff;
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+    /* border: 1px solid #ccc; */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.home-card {
+        width: 90%;
+    }
+`;
+
+export { SpotTypeContainer, SpotTypeImage, SpotTypeImageContainer, SpotTypeParagraph, StyledCardLocation };

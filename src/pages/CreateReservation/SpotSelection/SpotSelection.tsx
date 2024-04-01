@@ -42,6 +42,7 @@ export default function SpotSelection() {
                     onChange={formik.handleChange}
                 />
                 {formik.errors.comment && formik.touched.comment ? <div>{formik.errors.comment}</div> : null}
+
                 <FormButtonsContainer>
                     <BaseButton type={'submit'}>Add reservation</BaseButton>
                     <BaseButton

@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 const SelectSpotSchema = Yup.object().shape({
-    comment: Yup.string().required('Comment is required'),
+    comment: Yup.string(),
 });
 
 interface ReservationData {
@@ -11,7 +11,7 @@ interface ReservationData {
     comment: string;
     userId: string;
     modifiedBy: string;
-    error?: string
+    error?: string;
 }
 
 interface MultipleReservations {
