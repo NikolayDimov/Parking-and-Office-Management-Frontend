@@ -14,6 +14,7 @@ const UserReservationsTableStyle = styled.table`
 
     .table-head {
         background-color: var(--beige-light);
+        background-color: var(--light-blue);
     }
 
     th,

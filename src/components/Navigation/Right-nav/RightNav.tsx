@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { route } from '../../../static/routes';
 
-import { Ul } from './RightNav.style';
+import { StyledNavLink, Ul } from './RightNav.style';
 import { useAuth } from '../../../context/AuthContext';
 import useToken from '../../../hooks/Token/Token.hook';
 import useRightNav from './RightNav.logic';
@@ -25,7 +25,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
             <Ul open={open}>
                 {isAuthenticated ? (
                     <>
-                        <NavLink
+                        <StyledNavLink
                             to={route.reservationSummary}
                             className="nav-link"
                             onClick={handleCloseNav}
@@ -33,25 +33,25 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                             data-tooltip-place="top"
                         >
                             <CalendarIcon />
-                        </NavLink>
+                        </StyledNavLink>
                         <StyledToolTip id={`component_calendar_icon`} className="spot-info">
                             {<p>Reservation Summary</p>}
                         </StyledToolTip>
                         <UserRoleHOC>
-                            <NavLink to={`/admin`} className="nav-link" onClick={handleCloseNav}>
+                            <StyledNavLink to={`/admin`} className="nav-link" onClick={handleCloseNav}>
                                 <li>Admin</li>
-                            </NavLink>
+                            </StyledNavLink>
                         </UserRoleHOC>
 
-                        <NavLink to={`/user/${decodedToken?.id}`} className="nav-link" onClick={handleCloseNav}>
+                        <StyledNavLink to={`/user/${decodedToken?.id}`} className="nav-link" onClick={handleCloseNav}>
                             <li>Profile</li>
-                        </NavLink>
+                        </StyledNavLink>
                     </>
                 ) : (
                     <>
-                        <NavLink to={route.login} className="nav-link" onClick={handleCloseNav}>
+                        <StyledNavLink to={route.login} className="nav-link" onClick={handleCloseNav}>
                             <li>Login</li>
-                        </NavLink>
+                        </StyledNavLink>
                     </>
                 )}
             </Ul>

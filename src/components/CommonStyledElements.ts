@@ -8,7 +8,7 @@ const PageTitle = styled.h1`
 `;
 
 const Container = styled.div`
-    max-width: 93.75rem;
+    max-width: 60.75rem;
     margin: auto;
     padding: 0 2rem;
     overflow: hidden;
@@ -216,13 +216,13 @@ const BaseButtonLogout = styled.button`
 `;
 
 const StyledCard = styled.div`
-    background-color: var(--blue-green-light);
+    background-color: var(--light-blue);
     width: 100%;
     height: 90%;
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
-    padding: 1.25rem;
+    padding: 0.7rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

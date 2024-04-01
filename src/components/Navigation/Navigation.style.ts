@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { NavLink as RouterNavLink } from 'react-router-dom';
 
 const NavDiv = styled.div`
-    background: #fff;
+    background: #102d6a;
     width: 100%;
     height: 4rem;
     padding: 1rem 0;
@@ -39,4 +40,14 @@ const NavContainer = styled.div`
     }
 `;
 
-export { NavDiv, NavContainer };
+const StyledNavLink = styled(RouterNavLink)`
+    &.logo {
+        color: #e7eaf0;
+        text-decoration: none;
+    }
+    &:hover {
+        color: #999;
+    }
+`;
+
+export { NavDiv, NavContainer, StyledNavLink };

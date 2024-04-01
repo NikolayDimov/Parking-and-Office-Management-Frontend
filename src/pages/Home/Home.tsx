@@ -20,7 +20,7 @@ const Home = () => {
         <HomeContainer>
             {Array.isArray(locations) && locations.length > 0 ? (
                 <ListContainer>
-                    <h1>Choose location</h1>
+                    <h1>Select location</h1>
                     <ul>
                         {locations.map((location: Location) => (
                             <LocationChoice key={location.id} location={location} />

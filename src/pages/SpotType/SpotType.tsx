@@ -32,12 +32,12 @@ const SpotType = () => {
                 <FaArrowLeft />
             </BackButton>
             <SpotTypeCards singleLocation={singleLocation} spotTypeData={spotTypeByLocationId} />
-            <UserReservationsTable
+            {/* <UserReservationsTable
                 reservations={futureReservations}
                 isLoading={areFutureReservationsLoading}
                 refetch={futureReservationsRefetch}
                 reservationType="Future"
-            />
+            /> */}
         </ChooseLocationContainer>
     );
 };

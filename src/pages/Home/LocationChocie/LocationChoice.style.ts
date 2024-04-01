@@ -3,16 +3,18 @@ import styled from 'styled-components';
 const InformationContainer = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: var(--blue-green);
+    /* background-color: var(--blue-green); */
+
+    background-color: #e6f3ff;
     border-radius: 0.5rem;
     width: 100%;
 
     span {
         display: block;
         padding: 0.625rem;
-        margin: 0.9375rem auto;
+        margin: 0.6375rem auto;
         font-weight: bold;
-        width: 50%;
+        width: 100%;
         border-radius: 0.3125rem;
     }
 `;
