@@ -31,6 +31,7 @@ import Navigation from './components/Navigation/Navigation';
 import AdminPage from './pages/AdminPage/AdminPage';
 import UpdateFloorPlanModal from './pages/FloorPlan/FloorPlanUpdate/FloorPlanUpdate';
 import { StyledApp } from './App.style';
+import ReservationUser from './pages/ReservationUser/ReservationUser';
 
 function App() {
     const location = useLocation();
@@ -67,6 +68,8 @@ function App() {
                                     element={<ChangeProfilePictureForm />}
                                 />
                             </Route>
+
+                            <Route path={`${route.reservationUser}/:id`} element={<ReservationUser />} />
 
                             <Route path={route.admin} element={<AdminPage />}></Route>
                             <Route path={`/spots/:id`} element={<CreateSpots />}>
