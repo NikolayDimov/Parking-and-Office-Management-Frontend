@@ -19,17 +19,19 @@ const BurgerDiv = styled.div<NavProps>`
         transition: all 0.3s linear;
 
         &:nth-child(1) {
+            background-color: #fff;
             transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
         }
 
         &:nth-child(2) {
+            background-color: #fff;
             transform: ${({ open }) => (open ? 'translateX(100%)' : 'translateX(0)')};
             opacity: ${({ open }) => (open ? 0 : 1)};
         }
 
         &:nth-child(3) {
+            background-color: #fff;
             transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
-            background-color: ${({ open }) => (open ? '#fff' : '#333')};
         }
     }
 

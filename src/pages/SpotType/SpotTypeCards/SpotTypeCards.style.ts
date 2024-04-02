@@ -8,7 +8,7 @@ const SpotTypeContainer = styled.div`
     border-radius: 0.5rem;
     text-align: center;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -25,7 +25,11 @@ const SpotTypeImageContainer = styled.div`
 
 const SpotTypeParagraph = styled.p`
     font-size: 1.375rem;
-    margin-bottom: 0.625rem;
+`;
+
+const SpotTypeParagraphOccupancy = styled.p`
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 `;
 
 const SpotTypeImage = styled.img`
@@ -40,14 +44,13 @@ const StyledCardLocation = styled.div`
     background-color: var(--navbar);
     color: #fff;
     width: 100%;
-    height: 90%;
+    height: 300px;
     margin: 0 auto;
-    /* border: 1px solid #ccc; */
     border-radius: 0.5rem;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     &.home-card {
@@ -55,4 +58,11 @@ const StyledCardLocation = styled.div`
     }
 `;
 
-export { SpotTypeContainer, SpotTypeImage, SpotTypeImageContainer, SpotTypeParagraph, StyledCardLocation };
+export {
+    SpotTypeContainer,
+    SpotTypeImage,
+    SpotTypeImageContainer,
+    SpotTypeParagraph,
+    StyledCardLocation,
+    SpotTypeParagraphOccupancy,
+};

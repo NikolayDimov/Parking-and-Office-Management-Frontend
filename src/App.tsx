@@ -8,8 +8,6 @@ import { ReservationProvider } from './context/ReservationContext';
 import AddSpotForm from './pages/CreateSpots/AddSpotForm/AddSpotForm';
 import CreateSpots from './pages/CreateSpots/CreateSpotsPage';
 
-import styled from 'styled-components';
-
 import UsersPage from './pages/User/UsersPage/UsersPage';
 import Register from './pages/Register/Register';
 import LocationCreateForm from './pages/LocationCreate/LocationCreate';
