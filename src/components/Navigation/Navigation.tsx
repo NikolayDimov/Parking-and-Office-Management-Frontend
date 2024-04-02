@@ -15,7 +15,7 @@ const Navigation = () => {
                     <StyledNavLink to={`/`} className="logo">
                         <p>Home</p>
                     </StyledNavLink>
-                    <StyledNavLink to={`/user/${decodedToken?.id}`} className="logo">
+                    <StyledNavLink to={`reservation/user/${decodedToken?.id}`} className="logo">
                         <p>Reservations</p>
                     </StyledNavLink>
                 </ContainerNav>
