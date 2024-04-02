@@ -22,6 +22,8 @@ const GlobalStyle = createGlobalStyle`
   --light-blue-2: #e6f3ff;
   --background-color: #f3f6f9;
   --navbar: #102d6a;
+  --light-blue-nav: #0267CC;
+  --hover-color: #E6F3FF;
 
   --font-family: 'Noto Sans', sans-serif;
 

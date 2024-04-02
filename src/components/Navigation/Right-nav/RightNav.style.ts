@@ -5,8 +5,10 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 const Ul = styled.ul<NavProps>`
     list-style: none;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     flex-flow: row nowrap;
+    width: 150px;
 
     li {
         padding: 1.125rem 0.625rem;
@@ -21,28 +23,6 @@ const Ul = styled.ul<NavProps>`
     .nav-link:hover {
         color: #999;
     }
-
-    @media (max-width: 768px) {
-        flex-flow: column nowrap;
-        align-items: center;
-        background-color: #333;
-
-        position: fixed;
-        transform: ${({ open }: NavProps) => (open ? 'translateX(0)' : 'translateX(100%)')};
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%;
-        padding-top: 3.5rem;
-        transition: transform 0.3s ease-in-out;
-        z-index: 1;
-
-        li {
-            color: #fff;
-            margin-top: 1.25rem;
-            border-bottom: 1px solid #fff;
-        }
-    }
 `;
 
 const StyledNavLink = styled(RouterNavLink)`
@@ -53,4 +33,81 @@ const StyledNavLink = styled(RouterNavLink)`
     }
 `;
 
-export { Ul, StyledNavLink };
+const ProfileIcon = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
+    background-color: transparent;
+    width: 26px;
+    height: 26px;
+    color: #fff;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    border: none;
+    cursor: pointer;
+`;
+
+const DropdownMenuOpen = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
+    position: absolute;
+    width: 300px;
+    top: calc(100% + -5px);
+    right: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0;
+    z-index: 2;
+`;
+
+const DropdownItem = styled.div`
+    padding: 0.2rem 0.2rem;
+    color: #000;
+    text-decoration: none;
+    &:hover {
+        background-color: var(--hover-color);
+    }
+`;
+
+const ButtonLogout = styled.button`
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--light-blue-nav);
+        margin-right: 1rem;
+    }
+
+    p {
+        font-family: var(--font-family);
+        font-size: 16px;
+        font-weight: 500;
+    }
+`;
+
+const Settings = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--light-blue-nav);
+        margin-right: 1rem;
+    }
+
+    p {
+        font-family: var(--font-family);
+        font-size: 16px;
+        font-weight: 500;
+    }
+`;
+
+export { Ul, StyledNavLink, DropdownItem, ProfileIcon, ButtonLogout, Settings, DropdownMenuOpen };
