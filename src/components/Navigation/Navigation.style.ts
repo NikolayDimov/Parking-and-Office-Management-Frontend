@@ -50,4 +50,9 @@ const StyledNavLink = styled(RouterNavLink)`
     }
 `;
 
-export { NavDiv, NavContainer, StyledNavLink };
+const ContainerNav = styled.div`
+    display: flex;
+    gap: 2rem;
+`;
+
+export { NavDiv, NavContainer, StyledNavLink, ContainerNav };

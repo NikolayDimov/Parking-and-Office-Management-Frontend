@@ -84,6 +84,7 @@ const UserProfilePage = () => {
                             ></UserProfileInfo>
                         </UserAdditionalInfoContainer>
                     </UserProfileContainer>
+
                     <ToggleButtonsContainer>
                         <BigButtonDark
                             onClick={() => handleTabClick('past')}
