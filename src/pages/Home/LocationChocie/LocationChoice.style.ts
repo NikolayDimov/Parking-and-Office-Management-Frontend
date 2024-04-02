@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const InformationContainer = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: var(--light-blue-2);
+    background-color: var(--light-blue);
     border-radius: 0.5rem;
     width: 100%;
 

@@ -6,7 +6,7 @@ const CalendarIcon = () => {
     const { reservations } = useReservationContext();
     return (
         <StyledCalendarIcon>
-            <FaRegCalendarPlus className='calendar-icon'/>
+            <FaRegCalendarPlus className="calendar-icon" />
             {reservations.length > 0 && <CalendarCount>{reservations.length}</CalendarCount>}
         </StyledCalendarIcon>
     );

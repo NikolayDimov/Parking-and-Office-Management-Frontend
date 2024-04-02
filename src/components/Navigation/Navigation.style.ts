@@ -19,12 +19,6 @@ const NavDiv = styled.div`
         text-decoration: none;
         color: inherit;
     }
-
-    @media (max-width: 768px) {
-        .logo {
-            padding: 0;
-        }
-    }
 `;
 
 const NavContainer = styled.div`

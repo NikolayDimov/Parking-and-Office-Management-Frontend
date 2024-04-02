@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledCalendarIcon = styled.div`
     position: relative;
     cursor: pointer;
-    padding-right: 1.5625rem;
 
     .calendar-icon {
         height: 1.5625rem;
