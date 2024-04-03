@@ -8,7 +8,6 @@ const Ul = styled.ul<NavProps>`
     justify-content: space-between;
     align-items: center;
     flex-flow: row nowrap;
-    width: 150px;
 
     li {
         padding: 1.125rem 0.625rem;
@@ -30,7 +29,13 @@ const StyledNavLink = styled(RouterNavLink)`
         color: #e7eaf0;
         text-decoration: none;
         cursor: pointer;
+        margin-right: 1rem;
     }
+`;
+
+const ContainerIcons = styled.div`
+    display: flex;
+    justify-content: space-between;
 `;
 
 const ProfileIcon = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
@@ -43,6 +48,12 @@ const ProfileIcon = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
     stroke-width: 2;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        stroke: #999;
+    }
 `;
 
 const DropdownMenuOpen = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
@@ -73,6 +84,7 @@ const ButtonLogout = styled.button`
     width: 100%;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     svg {
         width: 22px;
@@ -110,4 +122,4 @@ const Settings = styled.div`
     }
 `;
 
-export { Ul, StyledNavLink, DropdownItem, ProfileIcon, ButtonLogout, Settings, DropdownMenuOpen };
+export { Ul, StyledNavLink, DropdownItem, ProfileIcon, ButtonLogout, Settings, DropdownMenuOpen, ContainerIcons };

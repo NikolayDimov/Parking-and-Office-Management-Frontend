@@ -1,41 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
+import { useAuth } from '../../../context/AuthContext';
+import useToken from '../../../hooks/Token/Token.hook';
 
-const useRightNav = (handleClick: ()=> void) => {
-  const [showPopover, setShowPopover] = useState(false);
+const useRightNav = (handleClick: () => void) => {
+    const [openDrop, setOpenDrop] = useState(false);
+    const { isAuthenticated } = useAuth();
+    const decodedToken = useToken();
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const profileIconRef = useRef<HTMLDivElement>(null);
 
-  const handleProfileClick = () => {
-    setShowPopover(!showPopover);
-  };
-
-  const handlePopoverClose = () => {
-    setShowPopover(false);
-  };
-
-  const handleCloseNav = () => {
-    handleClick();
-    handlePopoverClose();
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (showPopover && !target.closest("#popover-content")) {
-        handlePopoverClose();
-      }
+    const handleCloseNav = () => {
+        handleClick();
+        setOpenDrop(false);
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target as Node) &&
+                profileIconRef.current &&
+                !profileIconRef.current.contains(event.target as Node)
+            ) {
+                setOpenDrop(false);
+            }
+        };
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [dropdownRef, profileIconRef]);
+
+    return {
+        handleCloseNav,
+        isAuthenticated,
+        decodedToken,
+        dropdownRef,
+        profileIconRef,
+        openDrop,
+        setOpenDrop,
     };
-  }, [showPopover]);
-  return {
-    showPopover,
-    handleProfileClick,
-    handlePopoverClose,
-    handleCloseNav,
-  };
 };
 
 export default useRightNav;

@@ -30,7 +30,7 @@ const NavContainer = styled.div`
     align-items: center;
 
     a {
-        font-weight: 700;
+        font-weight: 500;
     }
 `;
 

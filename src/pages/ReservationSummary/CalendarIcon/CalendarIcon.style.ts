@@ -17,7 +17,6 @@ const StyledCalendarIcon = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-left: 1.875rem;
         color: #fff;
     }
 `;

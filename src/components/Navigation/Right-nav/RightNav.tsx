@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { route } from '../../../static/routes';
 import {
     ButtonLogout,
+    ContainerIcons,
     DropdownItem,
     DropdownMenuOpen,
     ProfileIcon,
@@ -9,14 +10,12 @@ import {
     StyledNavLink,
     Ul,
 } from './RightNav.style';
-import { useAuth } from '../../../context/AuthContext';
-import useToken from '../../../hooks/Token/Token.hook';
 import useRightNav from './RightNav.logic';
 import UserRoleHOC from '../../../pages/UserRoleHOC';
 import CalendarIcon from '../../../pages/ReservationSummary/CalendarIcon/CalendarIcon';
 import { StyledToolTip } from '../../CommonStyledElements';
-import { useRef, useState, useEffect } from 'react';
 import { UserProfilePageLogic } from '../../../pages/User/UserProfilePage/UserProfilePage.logic';
+import { useEffect } from 'react';
 
 interface NavProps {
     open: boolean;
@@ -24,12 +23,8 @@ interface NavProps {
 }
 
 const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
-    const { isAuthenticated } = useAuth();
-    const decodedToken = useToken();
-    const { handleCloseNav } = useRightNav(handleClick);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    const profileIconRef = useRef<HTMLDivElement>(null);
-    const [openDrop, setOpenDrop] = useState(false);
+    const { handleCloseNav, isAuthenticated, decodedToken, dropdownRef, profileIconRef, openDrop, setOpenDrop } =
+        useRightNav(handleClick);
 
     const { logout } = UserProfilePageLogic();
 
@@ -57,34 +52,37 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
             <Ul open={open}>
                 {isAuthenticated ? (
                     <>
-                        <StyledNavLink
-                            to={route.reservationSummary}
-                            className="nav-link"
-                            onClick={handleCloseNav}
-                            data-tooltip-id={`component_calendar_icon`}
-                            data-tooltip-place="top"
-                        >
-                            <CalendarIcon />
-                        </StyledNavLink>
-                        <StyledToolTip id={`component_calendar_icon`} className="spot-info">
-                            {<p>Reservation Summary</p>}
-                        </StyledToolTip>
                         <UserRoleHOC>
                             <StyledNavLink to={`/admin`} className="nav-link" onClick={handleCloseNav}>
                                 <li>Admin</li>
                             </StyledNavLink>
                         </UserRoleHOC>
 
-                        <ProfileIcon ref={profileIconRef} onClick={() => setOpenDrop(!openDrop)}>
-                            <svg
-                                width="26"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="profile-icon"
+                        <ContainerIcons>
+                            <StyledNavLink
+                                to={route.reservationSummary}
+                                className="nav-link"
+                                onClick={handleCloseNav}
+                                data-tooltip-id={`component_calendar_icon`}
+                                data-tooltip-place="top"
                             >
-                                <path d="M19 19.6v-1.926c-.523-.535-1.36-1.134-1.847-1.134-.767 0-1.603 0-2.3-.283-.663-.252-1.108-.85-1.108-2.237 0-.22.296-.44.47-.598.802-.725 1.385-1.45 1.385-4.442 0-1.134-1.277-2.52-3.083-2.52-1.805 0-3.108 1.386-3.108 2.52 0 3.024.481 3.749 1.283 4.442.174.157.5.378.5.598 0 1.386-.348 1.985-1.01 2.237-.697.283-1.498.283-2.23.283-.558 0-1.394.599-1.952 1.134V19.6m6.5 2.4c-5.525 0-10-4.475-10-10s4.475-10 10-10 10 4.475 10 10-4.475 10-10 10z"></path>
-                            </svg>
-                        </ProfileIcon>
+                                <CalendarIcon />
+                            </StyledNavLink>
+                            <StyledToolTip id={`component_calendar_icon`} className="spot-info">
+                                {<p>Reservation Summary</p>}
+                            </StyledToolTip>
+
+                            <ProfileIcon ref={profileIconRef} onClick={() => setOpenDrop(!openDrop)}>
+                                <svg
+                                    width="26"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="profile-icon"
+                                >
+                                    <path d="M19 19.6v-1.926c-.523-.535-1.36-1.134-1.847-1.134-.767 0-1.603 0-2.3-.283-.663-.252-1.108-.85-1.108-2.237 0-.22.296-.44.47-.598.802-.725 1.385-1.45 1.385-4.442 0-1.134-1.277-2.52-3.083-2.52-1.805 0-3.108 1.386-3.108 2.52 0 3.024.481 3.749 1.283 4.442.174.157.5.378.5.598 0 1.386-.348 1.985-1.01 2.237-.697.283-1.498.283-2.23.283-.558 0-1.394.599-1.952 1.134V19.6m6.5 2.4c-5.525 0-10-4.475-10-10s4.475-10 10-10 10 4.475 10 10-4.475 10-10 10z"></path>
+                                </svg>
+                            </ProfileIcon>
+                        </ContainerIcons>
 
                         {openDrop && (
                             <DropdownMenuOpen ref={dropdownRef}>
