@@ -2,7 +2,8 @@ import { Tooltip } from 'react-tooltip';
 import { styled } from 'styled-components';
 
 const PageTitle = styled.h1`
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
     color: var(--dark-blue);
     text-align: center;
 `;
@@ -217,20 +218,16 @@ const BaseButtonLogout = styled.button`
 `;
 
 const StyledCard = styled.div`
-    background-color: var(--navbar);
+    border: 1px solid #aaaaaa;
     width: 100%;
-    height: 90%;
     margin: 0 auto;
     border-radius: 0.5rem;
-    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    &.home-card {
-        width: 90%;
-    }
+    box-shadow: 0px 0px 4px 0px #615757;
+    overflow: hidden;
 `;
 
 const FormButtonsContainer = styled.div`

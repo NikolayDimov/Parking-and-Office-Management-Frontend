@@ -3,12 +3,12 @@ import styled from 'styled-components';
 const SpotTypeContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: stretch;
     gap: 1.25rem;
     margin: 3rem auto;
     border-radius: 0.5rem;
     text-align: center;
-    justify-content: center;
-    align-items: stretch;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -29,33 +29,38 @@ const SpotTypeParagraph = styled.p`
 
 const SpotTypeParagraphOccupancy = styled.p`
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 `;
 
 const SpotTypeImage = styled.img`
     width: 100%;
-    height: 12.5rem;
+    height: 14rem;
     margin-bottom: 0.625rem;
-    border-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
     object-fit: cover;
 `;
 
 const StyledCardLocation = styled.div`
-    background-color: var(--navbar);
-    color: #fff;
+    border: 1px solid #aaaaaa;
     width: 100%;
-    height: 300px;
     margin: 0 auto;
     border-radius: 0.5rem;
-    padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
+    box-shadow: 0px 0px 4px 0px #615757;
+    overflow: hidden;
+    background-color: var(--card-background);
 
-    &.home-card {
-        width: 90%;
+    &:hover {
+        box-shadow: 0px 2px 8px 2px var(--light-blue);
     }
+`;
+
+const ContentContainer = styled.div`
+    height: 4rem;
 `;
 
 export {
@@ -65,4 +70,5 @@ export {
     SpotTypeParagraph,
     StyledCardLocation,
     SpotTypeParagraphOccupancy,
+    ContentContainer,
 };

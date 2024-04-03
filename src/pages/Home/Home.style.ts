@@ -27,21 +27,19 @@ const HomeContainer = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
         gap: 2rem;
         margin-bottom: 1.25rem;
     }
 
     li {
+        border-radius: 0.5rem;
         transition: transform 0.3s ease;
         cursor: pointer;
         margin: 0.625rem;
-        /* flex: 1; */
         max-width: 25rem;
-        /* width: calc(33.333% - 1.25rem); */
         width: 25rem;
         &:hover {
-            transform: translateY(-5px);
+            box-shadow: 0px 2px 8px 2px var(--light-blue);
         }
 
         @media (max-width: 450px) {

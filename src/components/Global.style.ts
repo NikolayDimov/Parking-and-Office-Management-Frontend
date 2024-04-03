@@ -20,11 +20,12 @@ const GlobalStyle = createGlobalStyle`
   --spot-green: #00FF40;
   --light-blue: #9fc5e8;
   --light-blue-2: #e6f3ff;
-  --background-color: #f3f6f9;
+  --background-color: #F3F6F9;
   --navbar: #102d6a;
   --light-blue-nav: #0267CC;
   --hover-color: #E6F3FF;
   --hover-color-back-btn: #CCE5FF;
+  --card-background: #FFFFFF;
 
 
   --font-family: 'Noto Sans', sans-serif;
@@ -34,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: var(--font-family);
+  background-color: var(--background-color);
 }
 
 `;
