@@ -1,4 +1,4 @@
-const universalRequest = async (method: string, url: string, data) => {
+const universalRequest = async (method: string, url: string, data: object | undefined) => {
     const userAuth = localStorage.getItem('access_token');
 
     const headers: HeadersInit = {};

@@ -21,6 +21,7 @@ const ReservationSummaryNoItems = styled.div`
 `;
 
 const ReservationSummaryListItem = styled.li`
+    background-color: var(--card-background);
     position: relative;
     border: 1px solid #ccc;
     width: 18.75rem;
@@ -63,8 +64,8 @@ const ReservationSummaryButton = styled.button`
     background-color: var(--blue-green);
     color: #fff;
     border: none;
-    padding: 0.625rem 1.25rem;
-    border-radius: 0.3125rem;
+    padding: 0.425rem 1.25rem;
+    border-radius: 1rem;
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s;

@@ -40,8 +40,12 @@ const BaseButton = styled.button`
         box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
     }
 
-    &.delete-btn,
     &.remove-btn {
+        background-color: lightsteelblue;
+        margin: 0.5rem;
+    }
+
+    &.delete-btn {
         background-color: #cd5362;
         margin: 0.5rem;
     }
