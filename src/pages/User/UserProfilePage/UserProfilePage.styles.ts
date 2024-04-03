@@ -34,25 +34,14 @@ const StyledDetailBullet = styled.li`
 `;
 
 const UserProfileContainer = styled.div`
-    margin: 0.875rem 0.625rem;
-    display: grid;
-    grid-template-columns: 60% 40%;
-    padding: 0.625rem;
-    max-width: 93.75rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+    max-width: 70rem;
     border-radius: 0.5rem;
     overflow: hidden;
 
-    @media (min-width: 1500px) {
-        margin: 1.875rem auto;
-    }
-    @media (max-width: 715px) {
-        grid-template-columns: 1fr;
-        > :nth-child(2) {
-            display: none;
-        }
-    }
-    @media (max-width: 510px) {
-        margin: 0.625rem;
+    @media (max-width: 768px) {
+        padding: 0 1rem;
     }
 `;
 

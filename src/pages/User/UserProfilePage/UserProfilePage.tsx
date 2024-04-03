@@ -12,7 +12,7 @@ import {
 } from './UserProfilePage.styles';
 import { userProfileConstants } from './UserProfilePage.static';
 import defaultPicture from '../../../assets/default-profile.jpg';
-import { TbLogout2 } from 'react-icons/tb';
+import { TbLogout, TbLogout2 } from 'react-icons/tb';
 import NotFound from '../../NotFound/NotFound';
 import { FaArrowLeft } from 'react-icons/fa';
 
@@ -46,8 +46,8 @@ const UserProfilePage = () => {
                                     {userProfileConstants.changePasswordButton}
                                 </BigButtonLight>
                                 <BaseButtonLogout className="remove-btn" onClick={() => logout()}>
+                                    <TbLogout />
                                     {userProfileConstants.logout}
-                                    <TbLogout2 />
                                 </BaseButtonLogout>
                             </UpdateButtonContainer>
                         )}

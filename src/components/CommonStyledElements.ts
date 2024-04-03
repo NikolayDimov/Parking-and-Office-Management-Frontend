@@ -137,6 +137,7 @@ const BaseButtonLogout = styled.button`
     color: black;
     cursor: pointer;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
     font-weight: 500;
@@ -203,8 +204,8 @@ const BaseButtonLogout = styled.button`
     }
 
     svg {
-        margin-left: 0.7rem;
-        margin-right: 0.3rem;
+        margin-left: 0.3rem;
+        margin-right: 0.8rem;
         height: 1.5rem;
         width: 1.5rem;
     }
