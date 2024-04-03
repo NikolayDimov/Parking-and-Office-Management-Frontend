@@ -14,7 +14,8 @@ const UserProfilePageLogic = () => {
     const { id: userId } = useParams();
     const decodedToken = useToken();
     const { id: tokenId, role: tokenRole } = decodedToken || {};
-    const { user, userRefetch } = useUser(userId);
+
+    const { user, userRefetch } = useUser(userId || '');
 
     const { logout } = useAuth();
 
