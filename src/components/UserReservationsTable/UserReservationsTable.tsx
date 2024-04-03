@@ -61,7 +61,7 @@ const UserReservationsTable = ({
                                         <td data-label="Start:">{new Date(reservation.start).toLocaleString()}</td>
                                         <td data-label="End:">{new Date(reservation.end).toLocaleString()}</td>
                                         {reservationType === 'Future' && (
-                                            <td>
+                                            <td data-label="Action:">
                                                 <DeleteIcon
                                                     onClick={() => {
                                                         onDeleteClick(reservation.id);
