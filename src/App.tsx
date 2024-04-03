@@ -69,7 +69,7 @@ function App() {
                                 />
                             </Route>
 
-                            <Route path={`${route.reservationUser}/:id`} element={<ReservationUser />} />
+                            <Route path={`${route.user}/:id/${route.reservations}`} element={<ReservationUser />} />
 
                             <Route path={route.admin} element={<AdminPage />}></Route>
                             <Route path={`/spots/:id`} element={<CreateSpots />}>

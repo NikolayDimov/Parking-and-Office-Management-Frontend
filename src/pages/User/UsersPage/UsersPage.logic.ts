@@ -54,7 +54,7 @@ const useUsersPageLogic = () => {
 
     const handleDisplayUserReservations = async (userId: string) => {
         try {
-            navigate(`/user/${userId}`);
+            navigate(`/user/${userId}/reservations`);
         } catch (error) {}
     };
 

@@ -12,7 +12,7 @@ export const route = {
     updateFloorPlan: ':fpId/update',
     createReservation: '/create-reservation',
     reservationSummary: '/reservation-summary',
-    reservationUser: 'reservation/user',
+    reservations: 'reservations',
     calendar: '/calendar',
     user: '/user',
     updatePassword: '/user-update-password/:userId',
