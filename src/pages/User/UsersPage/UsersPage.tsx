@@ -9,7 +9,6 @@ import { BaseButtonCreateUser, ListContainer, UserPageMainButtonsContainer } fro
 const UsersPage = () => {
     const {
         users,
-        title,
         handleSearch,
         isLoading,
         handleCreateUser,
@@ -38,7 +37,7 @@ const UsersPage = () => {
                 <BaseButtonCreateUser onClick={handleCreateUser}>Create User</BaseButtonCreateUser>
                 <SearchBar placeholder={searchPlaceholder} onSearch={handleSearch} />
             </UserPageMainButtonsContainer>
-            <PageTitle>{title}</PageTitle>
+            <PageTitle>All Users</PageTitle>
             {users && (
                 <UserCardsContainer
                     users={users}

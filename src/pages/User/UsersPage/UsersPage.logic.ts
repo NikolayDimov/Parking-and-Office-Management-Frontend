@@ -26,7 +26,6 @@ const useUsersPageLogic = () => {
     const { users, isLoading, refetch } = useUsers();
     const { deleteUser } = useDeleteUser(refetch);
     const [filteredUsers, setFilteredUsers] = useState<User[] | undefined>([]);
-    const title = 'All Users';
     const searchPlaceholder = 'Search user..';
     const navigate = useNavigate();
     const handleCreateUser = () => {
@@ -64,7 +63,6 @@ const useUsersPageLogic = () => {
         handleSearch,
         handleCreateUser,
         handleDeleteUser,
-        title,
         searchPlaceholder,
         handleGoBack,
         handleDisplayUserReservations,
