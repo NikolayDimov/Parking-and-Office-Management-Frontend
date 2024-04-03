@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import ImgSrc from '../../../assets/wheat_image.jpg';
 
 const UpdateButtonContainer = styled.div`
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,23 +49,39 @@ const UserProfileContainer = styled.div`
 `;
 
 const UserMainInfoContainer = styled.div`
+    position: relative;
     display: flex;
     flex-direction: row;
     margin: 0.625rem auto;
-    width: 90%;
-    height: 90%;
-    background-color: var(--blue-green);
-    padding: 0.625rem;
+    background-image: url(${ImgSrc});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3.625rem;
     border-radius: 0.5rem;
     align-items: center;
     justify-content: center;
     text-align: center;
 
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 0.5rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
     @media (max-width: 510px) {
         flex-direction: column;
     }
 `;
+
 const UserProfilePictureContainer = styled.div`
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     margin: 0.625rem auto;
@@ -86,6 +105,9 @@ const UserProfilePicture = styled.img`
 
 const UserProfileEmail = styled.p`
     font-size: 1.2rem;
+    background-color: #fff;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
 `;
 
 const ListContainer = styled.div`

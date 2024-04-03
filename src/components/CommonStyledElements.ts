@@ -42,7 +42,7 @@ const BaseButton = styled.button`
 
     &.delete-btn,
     &.remove-btn {
-        background-color: lightsteelblue;
+        background-color: #cd5362;
         margin: 0.5rem;
     }
 
