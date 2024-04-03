@@ -14,7 +14,7 @@ const UpdateButtonContainer = styled.div`
 const StyledDetailBullet = styled.li`
     display: flex;
     align-items: center;
-    margin: 0.5rem 1.25rem;
+    margin: 0.5rem 0.5rem;
     background-color: var(--beige-light);
     padding: 0.5rem;
     border-radius: 0.25rem;

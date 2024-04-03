@@ -8,7 +8,7 @@ import {
     UserProfileContainer,
 } from './ReservationUser.styles';
 import { userProfileConstants } from './ReservationUser.static';
-import UserProfileInfo from '../User/UserProfilePage/UserProfileInfo';
+import UserProfileInfo from './DetailBullet/UserProfileInfo';
 import UserReservationsTable from '../../components/UserReservationsTable/UserReservationsTable';
 import NotFound from '../NotFound/NotFound';
 import { FaArrowLeft } from 'react-icons/fa';

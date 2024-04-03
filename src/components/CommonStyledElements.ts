@@ -8,7 +8,7 @@ const PageTitle = styled.h1`
 `;
 
 const Container = styled.div`
-    max-width: 60.75rem;
+    max-width: 75rem;
     margin: auto;
     padding: 0 2rem;
     overflow: hidden;

@@ -4,7 +4,7 @@ const ToggleButtonsContainer = styled.div`
     max-width: 93.75rem;
     display: flex;
     gap: 1.875rem;
-    margin: 5rem auto 1.875rem;
+    margin: 2rem auto 1.875rem;
     padding: 0 2rem;
     overflow: hidden;
     align-items: center;
@@ -19,56 +19,26 @@ const ToggleButtonsContainer = styled.div`
 `;
 
 const UserProfileContainer = styled.div`
-    margin: 0.875rem 0.625rem;
-    display: grid;
-    grid-template-columns: 60% 40%;
-    padding: 0.625rem;
-    max-width: 93.75rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+    max-width: 70rem;
     border-radius: 0.5rem;
     overflow: hidden;
 
-    @media (min-width: 1500px) {
-        margin: 1.875rem auto;
-    }
-    @media (max-width: 715px) {
-        grid-template-columns: 1fr;
-        > :nth-child(2) {
-            display: none;
-        }
-    }
-    @media (max-width: 510px) {
-        margin: 0.625rem;
+    @media (max-width: 768px) {
+        padding: 0 1rem;
     }
 `;
 
 const UserAdditionalInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0.625rem auto;
-    width: 90%;
-    height: 90%;
-    background-color: var(--brown);
+    margin: 0.325rem auto;
+    width: 80%;
+    background-color: var(--light-blue);
     border-radius: 0.5rem;
     text-align: center;
     justify-content: center;
-`;
-
-const UserMainInfoContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin: 0.625rem auto;
-    width: 90%;
-    height: 90%;
-    background-color: var(--blue-green);
-    padding: 0.625rem;
-    border-radius: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    @media (max-width: 510px) {
-        flex-direction: column;
-    }
 `;
 
 const ListContainer = styled.div`
@@ -100,11 +70,4 @@ const BackButton = styled.button`
     }
 `;
 
-export {
-    ToggleButtonsContainer,
-    UserAdditionalInfoContainer,
-    UserProfileContainer,
-    UserMainInfoContainer,
-    ListContainer,
-    BackButton,
-};
+export { ToggleButtonsContainer, UserAdditionalInfoContainer, UserProfileContainer, ListContainer, BackButton };
