@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const InformationContainer = styled.div`
     display: flex;
     flex-direction: column;
     background-color: var(--light-blue);
-    border-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color: var(--card-background);
     width: 100%;
 
     span {
@@ -19,9 +22,9 @@ const InformationContainer = styled.div`
 
 const LocationImage = styled.img`
     width: 100%;
-    height: 12.5rem;
-    margin-bottom: 0.625rem;
-    border-radius: 0.5rem;
+    height: 14rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 `;
 
 const DeleteButton = styled.div`
@@ -40,4 +43,9 @@ const DeleteButton = styled.div`
     z-index: 20;
 `;
 
-export { DeleteButton, LocationImage, InformationContainer };
+const LinkContainer = styled(Link)`
+    box-shadow: 0px 0px 6px 0px #615757;
+    border-radius: 0.5rem;
+`;
+
+export { DeleteButton, LocationImage, InformationContainer, LinkContainer };

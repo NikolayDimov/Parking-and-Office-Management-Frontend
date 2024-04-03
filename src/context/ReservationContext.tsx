@@ -51,7 +51,7 @@ const ReservationProvider = ({ children }: ReservationProviderProps) => {
             await post(`${endpoints.createMultipleReservations}`, dataToSend);
 
             toast.success('Reservations sent successfully');
-            navigation(route.user + '/' + id);
+            navigation(`${route.user}/${id}/${route.reservations}`);
             setReservation([]);
             sessionStorage.removeItem('reservation');
         } catch (error) {

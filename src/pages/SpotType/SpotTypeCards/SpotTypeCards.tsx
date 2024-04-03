@@ -6,6 +6,7 @@ import {
     SpotTypeImageContainer,
     StyledCardLocation,
     SpotTypeParagraphOccupancy,
+    ContentContainer,
 } from './SpotTypeCards.style';
 import { BaseButton, Container, PageTitle } from '../../../components/CommonStyledElements';
 import { SpotType } from './SpotTypeCards.static';
@@ -61,11 +62,13 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                                 }}
                             >
                                 <StyledCardLocation>
-                                    <SpotTypeParagraph>{spotType.name}</SpotTypeParagraph>
-                                    {(spotType.name === 'Office desk' || spotType.name === 'Parking place') && (
-                                        <SpotTypeParagraphOccupancy>{`Occupancy Tomorrow: ${spotType.occupancy}%`}</SpotTypeParagraphOccupancy>
-                                    )}
                                     <SpotTypeImageContainer>{renderImage(spotType.name)}</SpotTypeImageContainer>
+                                    <ContentContainer>
+                                        <SpotTypeParagraph>{spotType.name}</SpotTypeParagraph>
+                                        {(spotType.name === 'Office desk' || spotType.name === 'Parking place') && (
+                                            <SpotTypeParagraphOccupancy>{`Occupancy Tomorrow: ${spotType.occupancy}%`}</SpotTypeParagraphOccupancy>
+                                        )}
+                                    </ContentContainer>
                                 </StyledCardLocation>
                             </BaseButton>
                         ))}
