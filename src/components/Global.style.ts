@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   --card-background: #FFFFFF;
 
 
-  --font-family: 'Noto Sans', sans-serif;
+  --font-family: 'NatoSans', sans-serif;
 
 
 }
