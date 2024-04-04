@@ -66,6 +66,7 @@ const DropdownMenuOpen = styled.div<{ ref?: React.Ref<HTMLDivElement> }>`
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     padding: 0.5rem 0;
     z-index: 2;
+    box-shadow: 0 2px 10px black;
 `;
 
 const DropdownItem = styled.div`
@@ -107,6 +108,11 @@ const Settings = styled.div`
     width: 100%;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+
+    svg.rotate-180 {
+        transform: rotate(180deg);
+    }
 
     svg {
         width: 22px;
@@ -122,4 +128,16 @@ const Settings = styled.div`
     }
 `;
 
-export { Ul, StyledNavLink, DropdownItem, ProfileIcon, ButtonLogout, Settings, DropdownMenuOpen, ContainerIcons };
+const DropdownMenuOpenAccount = styled.div<{ ref?: React.Ref<HTMLDivElement> }>``;
+
+export {
+    Ul,
+    StyledNavLink,
+    DropdownItem,
+    ProfileIcon,
+    ButtonLogout,
+    Settings,
+    DropdownMenuOpen,
+    ContainerIcons,
+    DropdownMenuOpenAccount,
+};

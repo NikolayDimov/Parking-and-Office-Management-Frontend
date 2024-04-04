@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { route } from '../../../static/routes';
 import {
@@ -15,7 +16,6 @@ import UserRoleHOC from '../../../pages/UserRoleHOC';
 import CalendarIcon from '../../../pages/ReservationSummary/CalendarIcon/CalendarIcon';
 import { StyledToolTip } from '../../CommonStyledElements';
 import { UserProfilePageLogic } from '../../../pages/User/UserProfilePage/UserProfilePage.logic';
-import { useEffect } from 'react';
 
 interface NavProps {
     open: boolean;
@@ -27,25 +27,24 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
         useRightNav(handleClick);
 
     const { logout } = UserProfilePageLogic();
+    const [showSettings, setShowSettings] = useState(false);
+    const [profileDropdownOpen, setProfileDropdownOpen] = useState(false); // New state
+
+    const handleAccountSettingsClick = () => {
+        setShowSettings(!showSettings);
+    };
+
+    const handleProfileDropdownClick = () => {
+        setOpenDrop(!openDrop);
+        setProfileDropdownOpen(!openDrop); // Update profile dropdown state
+    };
 
     useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(e.target as Node) &&
-                profileIconRef.current &&
-                !profileIconRef.current.contains(e.target as Node)
-            ) {
-                setOpenDrop(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+        // Close account settings dropdown when profile dropdown opens
+        if (openDrop) {
+            setShowSettings(false);
+        }
+    }, [openDrop]);
 
     return (
         <nav>
@@ -72,7 +71,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                 {<p>Reservation Summary</p>}
                             </StyledToolTip>
 
-                            <ProfileIcon ref={profileIconRef} onClick={() => setOpenDrop(!openDrop)}>
+                            <ProfileIcon ref={profileIconRef} onClick={handleProfileDropdownClick}>
                                 <svg
                                     width="26"
                                     viewBox="0 0 24 24"
@@ -86,39 +85,68 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
 
                         {openDrop && (
                             <DropdownMenuOpen ref={dropdownRef}>
-                                <DropdownItem>
-                                    <Link
-                                        to={`/user/${decodedToken?.id}`}
-                                        onClick={() => {
-                                            handleCloseNav();
-                                            setOpenDrop(false);
-                                        }}
-                                    >
-                                        <Settings>
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                stroke="var(--light-blue-nav)"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="miter"
-                                            >
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                                <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
-                                            </svg>
+                                <DropdownItem onClick={handleAccountSettingsClick}>
+                                    <Settings>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            stroke="var(--light-blue-nav)"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="miter"
+                                        >
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
+                                        </svg>
 
-                                            <p>Account Settings</p>
-                                        </Settings>
-                                    </Link>
+                                        <p>Account Settings</p>
+                                    </Settings>
                                 </DropdownItem>
+                                {showSettings && (
+                                    <>
+                                        <DropdownItem>
+                                            <Link to={`/user/${decodedToken?.id}`} onClick={handleCloseNav}>
+                                                <Settings>
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        stroke="var(--light-blue-nav)"
+                                                        strokeWidth="2"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="miter"
+                                                    >
+                                                        <circle cx="12" cy="12" r="3"></circle>
+                                                        <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
+                                                    </svg>
+                                                    <p>Change Password</p>
+                                                </Settings>
+                                            </Link>
+                                        </DropdownItem>
+                                        <DropdownItem>
+                                            <Link to={`/user/${decodedToken?.id}`} onClick={handleCloseNav}>
+                                                <Settings>
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        stroke="var(--light-blue-nav)"
+                                                        strokeWidth="2"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="miter"
+                                                    >
+                                                        <circle cx="12" cy="12" r="3"></circle>
+                                                        <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
+                                                    </svg>
+                                                    <p>Change Picture</p>
+                                                </Settings>
+                                            </Link>
+                                        </DropdownItem>
+                                    </>
+                                )}
                                 <DropdownItem>
-                                    <ButtonLogout
-                                        onClick={() => {
-                                            logout();
-                                            setOpenDrop(false);
-                                        }}
-                                    >
+                                    <ButtonLogout onClick={logout}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                             <g>
                                                 <path
@@ -151,3 +179,63 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
 };
 
 export default RightNav;
+
+// Radix
+
+// import React from 'react';
+// import { route } from '../../../static/routes';
+// import { ContainerIcons, StyledNavLink, Ul } from './RightNav.style';
+// import useRightNav from './RightNav.logic';
+// import UserRoleHOC from '../../../pages/UserRoleHOC';
+// import CalendarIcon from '../../../pages/ReservationSummary/CalendarIcon/CalendarIcon';
+// import { StyledToolTip } from '../../CommonStyledElements';
+// import ProfileMenu from './ProfileMenu/ProfileMenu';
+
+// interface NavProps {
+//     open: boolean;
+//     handleClick: () => void;
+// }
+
+// const RightNav: React.FC<NavProps> = ({ open }) => {
+//     const { isAuthenticated } = useRightNav();
+
+//     return (
+//         <nav>
+//             <Ul open={open}>
+//                 {isAuthenticated ? (
+//                     <>
+//                         <UserRoleHOC>
+//                             <StyledNavLink to={`/admin`} className="nav-link">
+//                                 <li>Admin</li>
+//                             </StyledNavLink>
+//                         </UserRoleHOC>
+
+//                         <ContainerIcons>
+//                             <StyledNavLink
+//                                 to={route.reservationSummary}
+//                                 className="nav-link"
+//                                 data-tooltip-id={`component_calendar_icon`}
+//                                 data-tooltip-place="top"
+//                             >
+//                                 <CalendarIcon />
+//                             </StyledNavLink>
+//                             <StyledToolTip id={`component_calendar_icon`} className="spot-info">
+//                                 {<p>Reservation Summary</p>}
+//                             </StyledToolTip>
+
+//                             <ProfileMenu />
+//                         </ContainerIcons>
+//                     </>
+//                 ) : (
+//                     <>
+//                         <StyledNavLink to={route.login} className="nav-link">
+//                             <li>Login</li>
+//                         </StyledNavLink>
+//                     </>
+//                 )}
+//             </Ul>
+//         </nav>
+//     );
+// };
+
+// export default RightNav;

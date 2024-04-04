@@ -45,3 +45,19 @@ const useRightNav = (handleClick: () => void) => {
 };
 
 export default useRightNav;
+
+// Radix
+// import { useAuth } from '../../../context/AuthContext';
+// import useToken from '../../../hooks/Token/Token.hook';
+
+// const useRightNav = () => {
+//     const { isAuthenticated } = useAuth();
+//     const decodedToken = useToken();
+
+//     return {
+//         isAuthenticated,
+//         decodedToken,
+//     };
+// };
+
+// export default useRightNav;
