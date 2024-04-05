@@ -1,61 +1,72 @@
-import { useNavigate } from 'react-router';
-import Modal from '../../../components/Modal/Modal';
 import useChangePassword from './ChangePasswordForm.logic';
 import { BaseButton, FormButtonsContainer } from '../../../components/CommonStyledElements';
-import { FormStyled } from '../../../components/InputField/Form.style';
 import InputField from '../../../components/InputField/InputField';
+import { useNavigate } from 'react-router-dom';
+import {
+    BaseButtonCancel,
+    BaseButtonSubmit,
+    FormButtonsContainerPassword,
+    StyledPasswordForm,
+} from './ChangePasswordForm.styles';
+import { route } from '../../../static/routes';
 
 const ChangePasswordForm = () => {
     const { formik } = useChangePassword();
     const navigate = useNavigate();
 
     return (
-        <Modal>
-            <FormStyled onSubmit={formik.handleSubmit}>
-                <h2 className="form-title">Change Password</h2>
+        <StyledPasswordForm onSubmit={formik.handleSubmit}>
+            <div>
+                <label htmlFor="password">Current Password</label>
                 <InputField
                     type="password"
-                    name={'password'}
-                    id={'password'}
-                    label="Current Password"
+                    name="password"
+                    id="password"
                     onChange={formik.handleChange}
+                    value={formik.values.password}
                 />
                 {formik.errors.password && formik.touched.password ? <div>{formik.errors.password}</div> : null}
+            </div>
+            <div>
+                <label htmlFor="newPassword">New Password</label>
                 <InputField
                     type="password"
-                    name={'newPassword'}
-                    id={'newPassword'}
-                    label="New Password"
+                    name="newPassword"
+                    id="newPassword"
                     onChange={formik.handleChange}
+                    value={formik.values.newPassword}
                 />
                 {formik.errors.newPassword && formik.touched.newPassword ? (
                     <div>{formik.errors.newPassword}</div>
                 ) : null}
+            </div>
+            <div>
+                <label htmlFor="confirmPassword">Confirm Password</label>
                 <InputField
                     type="password"
-                    name={'confirmPassword'}
-                    id={'confirmPassword'}
-                    label="Confirm Password"
+                    name="confirmPassword"
+                    id="confirmPassword"
                     onChange={formik.handleChange}
+                    value={formik.values.confirmPassword}
                 />
                 {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
                     <div>{formik.errors.confirmPassword}</div>
                 ) : null}
-                <FormButtonsContainer>
-                    <BaseButton type={'submit'}>Change Password</BaseButton>
-                    <BaseButton
-                        type="button"
-                        className="close-btn"
-                        onClick={() => {
-                            navigate(-1);
-                        }}
-                    >
-                        Close
-                    </BaseButton>
-                </FormButtonsContainer>
-                {formik.errors.error ? <div>{formik.errors.error}</div> : null}
-            </FormStyled>
-        </Modal>
+            </div>
+            <FormButtonsContainerPassword>
+                <BaseButtonCancel
+                    type="button"
+                    // className="close-btn"
+                    onClick={() => {
+                        navigate(route.home);
+                    }}
+                >
+                    Close
+                </BaseButtonCancel>
+                <BaseButtonSubmit type="submit">Change Password</BaseButtonSubmit>
+            </FormButtonsContainerPassword>
+            {formik.errors.error ? <div>{formik.errors.error}</div> : null}
+        </StyledPasswordForm>
     );
 };
 

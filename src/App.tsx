@@ -13,9 +13,6 @@ import Register from './pages/Register/Register';
 import LocationCreateForm from './pages/LocationCreate/LocationCreate';
 import SpotType from './pages/SpotType/SpotType';
 import CreateReservation from './pages/CreateReservation/CreateReservationPage';
-import UserProfilePage from './pages/User/UserProfilePage/UserProfilePage';
-import ChangePasswordForm from './pages/User/ChangePasswordForm/ChangePasswordForm';
-import ChangeProfilePictureForm from './pages/User/ChangeProfilePictureForm/ChangeProfilePictureForm';
 import NotFound from './pages/NotFound/NotFound';
 
 import CreateNewFloorPlanForm from './pages/FloorPlan/CreateFloorPlan/CreateFloorPlan';
@@ -32,6 +29,8 @@ import AdminPage from './pages/AdminPage/AdminPage';
 import UpdateFloorPlanModal from './pages/FloorPlan/FloorPlanUpdate/FloorPlanUpdate';
 import { StyledApp } from './App.style';
 import ReservationUser from './pages/ReservationUser/ReservationUser';
+import ChangePassword from './pages/User/UserProfilePage/UserProfilePage';
+import ChangePasswordPage from './pages/User/ChangePasswordForm/ChangePasswordForm';
 
 function App() {
     const location = useLocation();
@@ -61,13 +60,8 @@ function App() {
                             <Route path={route.user} element={<UsersPage />}>
                                 <Route path={route.register} element={<Register />} />
                             </Route>
-                            <Route path={`${route.user}/:id`} element={<UserProfilePage />}>
-                                <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
-                                <Route
-                                    path={`${route.user}/:id/change-picture`}
-                                    element={<ChangeProfilePictureForm />}
-                                />
-                            </Route>
+
+                            <Route path={`${route.user}/:id/change-password`} element={<ChangePassword />} />
 
                             <Route path={`${route.user}/:id/${route.reservations}`} element={<ReservationUser />} />
 
@@ -90,11 +84,8 @@ function App() {
                                     path={`${route.floorPlan}/${route.updateFloorPlan}`}
                                     element={<UpdateFloorPlanModal />}
                                 />
-                                <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordForm />} />
-                                <Route
-                                    path={`${route.user}/:id/change-picture`}
-                                    element={<ChangeProfilePictureForm />}
-                                />
+                                <Route path={`${route.user}/:id/change-password`} element={<ChangePasswordPage />} />
+
                                 <Route path={`${route.createReservation}/:id`} element={<SpotSelection />} />
                                 <Route path="/create-reservation/combination" element={<CombinationReservation />} />
                                 <Route

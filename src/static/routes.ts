@@ -15,6 +15,7 @@ export const route = {
     reservations: 'reservations',
     calendar: '/calendar',
     user: '/user',
+    userPicture: '/userPicture',
     updatePassword: '/user-update-password/:userId',
     updateProfilePicture: '/user-update-picture/:userId',
     register: '/user/register',

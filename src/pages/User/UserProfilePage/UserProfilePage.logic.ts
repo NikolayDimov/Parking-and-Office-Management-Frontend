@@ -1,3 +1,5 @@
+// UserProfilePage.logic.tsx
+
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { useQuery } from 'react-query';
 import { getUser } from '../../../services/userService';
@@ -26,6 +28,12 @@ const UserProfilePageLogic = () => {
         navigate(-1);
     };
 
+    const handleUpdateUserProfilePicture = (id: string) =>
+        navigate(`${route.user}/${id}/change-picture`, { state: { background: location } });
+
+    const handleUpdateUserPassword = (id: string) =>
+        navigate(`${route.user}/${id}/change-password`, { state: { background: location } });
+
     return {
         user,
         userRefetch,
@@ -33,10 +41,8 @@ const UserProfilePageLogic = () => {
         tokenId,
         tokenRole,
         handleGoBack,
-        handleUpdateUserProfilePicture: (id: string) =>
-            navigate(`${route.user}/${id}/change-picture`, { state: { background: location } }),
-        handleUpdateUserPassword: (id: string) =>
-            navigate(`${route.user}/${id}/change-password`, { state: { background: location } }),
+        handleUpdateUserProfilePicture,
+        handleUpdateUserPassword,
     };
 };
 

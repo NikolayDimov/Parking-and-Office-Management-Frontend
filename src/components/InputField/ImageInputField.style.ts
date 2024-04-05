@@ -36,9 +36,6 @@ const ImageInputStyle = styled.div`
         color: var(--grey);
     }
 
-    input:focus {
-    }
-
     input.number-field {
         width: 10rem;
     }
