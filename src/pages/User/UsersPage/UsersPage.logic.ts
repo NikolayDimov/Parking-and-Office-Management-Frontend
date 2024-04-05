@@ -28,9 +28,12 @@ const useUsersPageLogic = () => {
     const [filteredUsers, setFilteredUsers] = useState<User[] | undefined>([]);
     const searchPlaceholder = 'Search user..';
     const navigate = useNavigate();
+
     const handleCreateUser = () => {
         navigate(route.register, { state: { background: location } });
+        refetch();
     };
+
     const handleDeleteUser = async (userId: string) => {
         deleteUser(userId);
         refetch();

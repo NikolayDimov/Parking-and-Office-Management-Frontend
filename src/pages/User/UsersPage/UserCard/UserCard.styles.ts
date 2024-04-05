@@ -25,18 +25,21 @@ const UserImage = styled.img`
 
 const UserCardsContainerWrapper = styled.div`
     position: relative;
-    background-image: url(${ImgSrc});
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${ImgSrc});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     margin: 0.625rem auto;
-    padding: 0.625rem 1.25rem;
+    padding: 1.625rem 1.85rem;
     border-radius: 0.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    gap: 1.875rem;
+    gap: 3.875rem;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 
     &::before {
         content: '';
@@ -49,14 +52,19 @@ const UserCardsContainerWrapper = styled.div`
         background: rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width: 420px) {
-        background-color: transparent;
+    @media (max-width: 500px) {
+        background-image: none;
+        &::before {
+            background: transparent;
+        }
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     }
 `;
 
 const StyledUserDetails = styled.div`
     padding: 1rem;
     width: 100%;
+    height: 8rem;
     text-align: center;
     background-color: var(--pink-light);
 `;
@@ -71,6 +79,11 @@ const BaseButtonReservationUser = styled(BaseButton)`
     padding: 0.9375rem;
 `;
 
+const UserButtons = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 export {
     StyledUserCard,
     StyledUserDetails,
@@ -78,4 +91,5 @@ export {
     UserCardsContainerWrapper,
     BaseButtonDeleteUser,
     BaseButtonReservationUser,
+    UserButtons,
 };

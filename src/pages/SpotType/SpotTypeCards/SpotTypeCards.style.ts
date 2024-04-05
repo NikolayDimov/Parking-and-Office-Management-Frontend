@@ -29,7 +29,6 @@ const SpotTypeParagraph = styled.p`
 
 const SpotTypeParagraphOccupancy = styled.p`
     font-size: 0.9rem;
-    /* margin-bottom: 0.5rem; */
 `;
 
 const SpotTypeImage = styled.img`
