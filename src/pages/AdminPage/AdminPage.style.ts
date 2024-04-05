@@ -11,7 +11,6 @@ const ListContainer = styled.div`
     max-width: 93rem;
     margin: 0 auto;
     padding: 1.25rem;
-    /* text-transform: uppercase; */
     letter-spacing: 0.5px;
 
     @media (max-width: 768px) {

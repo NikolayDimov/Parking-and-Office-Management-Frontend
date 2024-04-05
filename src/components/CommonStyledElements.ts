@@ -9,9 +9,9 @@ const PageTitle = styled.h1`
 `;
 
 const Container = styled.div`
-    max-width: 75rem;
+    max-width: 85rem;
     margin: auto;
-    padding: 0 2rem;
+    padding: 2rem 4rem;
     overflow: hidden;
 `;
 
