@@ -71,7 +71,7 @@ const UserMainInfoContainer = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 510px) {
@@ -140,6 +140,17 @@ const BackButton = styled.button`
     }
 `;
 
+const ContainerForm = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const UserPasswordContainer = styled.div`
+    background-color: #ffffff;
+    height: 93vh;
+    overflow-y: hidden;
+`;
+
 export {
     UpdateButtonContainer,
     StyledDetailBullet,
@@ -150,4 +161,6 @@ export {
     UserProfileEmail,
     ListContainer,
     BackButton,
+    ContainerForm,
+    UserPasswordContainer,
 };

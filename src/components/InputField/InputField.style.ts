@@ -21,11 +21,11 @@ const InputStyle = styled.div`
         width: 15.625rem;
         color: var(--dark-grey);
         background: var(white-smoke);
-        border: 1px solid gray;
         box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
         border-radius: 0.5rem;
-        padding: 0.625rem 0.875rem;
+        padding: 0.825rem 0.875rem;
         margin-bottom: 1rem;
+        width: 100%;
 
         &:focus {
             border: red;

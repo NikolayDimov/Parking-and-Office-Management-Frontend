@@ -1,5 +1,5 @@
 import DetailBullet from './DetailBullet';
-import { UserDetails } from '../../User/UserProfilePage/UserProfilePage.static';
+import { UserDetails } from '../../User/UserProfilePage1/UserProfilePage.static';
 import redCalendar from '../../../assets/calendarPast.png';
 import blueCalendar from '../../../assets/calendarNow.png';
 import greenCalendar from '../../../assets/calendarFuture.png';

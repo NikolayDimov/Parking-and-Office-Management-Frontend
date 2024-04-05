@@ -1,31 +1,17 @@
 import { UserProfilePageLogic } from './UserProfilePage.logic';
-import { BaseButtonLogout, BigButtonLight } from '../../../components/CommonStyledElements';
-import {
-    BackButton,
-    ListContainer,
-    UpdateButtonContainer,
-    UserMainInfoContainer,
-    UserProfileContainer,
-    UserProfileEmail,
-    UserProfilePicture,
-    UserProfilePictureContainer,
-} from './UserProfilePage.styles';
-import { userProfileConstants } from './UserProfilePage.static';
-import defaultPicture from '../../../assets/default-profile.jpg';
-import { TbLogout } from 'react-icons/tb';
 import NotFound from '../../NotFound/NotFound';
+import ChangePasswordForm from '../ChangePasswordForm/ChangePasswordForm';
+import { BackButton, ContainerForm, UserPasswordContainer } from './UserProfilePage.styles';
 
 const UserProfilePage = () => {
-    const { user, handleUpdateUserPassword, handleUpdateUserProfilePicture, logout, tokenId, tokenRole, handleGoBack } =
-        UserProfilePageLogic();
+    const { user, tokenId, tokenRole, handleGoBack } = UserProfilePageLogic();
 
-    if (tokenRole !== 'ADMIN') {
-        if (tokenId !== user?.id) {
-            return <NotFound />;
-        }
+    if (tokenRole !== 'ADMIN' && tokenId !== user?.id) {
+        return <NotFound />;
     }
+
     return (
-        <ListContainer>
+        <UserPasswordContainer>
             <BackButton onClick={handleGoBack}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 52 52">
                     <path
@@ -35,31 +21,10 @@ const UserProfilePage = () => {
                     />
                 </svg>
             </BackButton>
-            {user && (
-                <UserProfileContainer>
-                    <UserMainInfoContainer>
-                        <UserProfilePictureContainer>
-                            <UserProfilePicture src={user.imgUrl ?? defaultPicture} alt="Profile" />
-                            <UserProfileEmail>{user.email}</UserProfileEmail>
-                        </UserProfilePictureContainer>
-                        {tokenId === user.id && (
-                            <UpdateButtonContainer>
-                                <BigButtonLight onClick={() => handleUpdateUserProfilePicture(user.id)}>
-                                    {userProfileConstants.changeProfilePictureButton}
-                                </BigButtonLight>
-                                <BigButtonLight onClick={() => handleUpdateUserPassword(user.id)}>
-                                    {userProfileConstants.changePasswordButton}
-                                </BigButtonLight>
-                                <BaseButtonLogout className="remove-btn" onClick={() => logout()}>
-                                    <TbLogout />
-                                    {userProfileConstants.logout}
-                                </BaseButtonLogout>
-                            </UpdateButtonContainer>
-                        )}
-                    </UserMainInfoContainer>
-                </UserProfileContainer>
-            )}
-        </ListContainer>
+            <ContainerForm>
+                <ChangePasswordForm />
+            </ContainerForm>
+        </UserPasswordContainer>
     );
 };
 
