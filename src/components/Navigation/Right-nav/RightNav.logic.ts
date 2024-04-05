@@ -9,6 +9,8 @@ const useRightNav = (handleClick: () => void) => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const profileIconRef = useRef<HTMLDivElement>(null);
 
+    const [showSettings, setShowSettings] = useState(false);
+
     const handleCloseNav = () => {
         handleClick();
         setOpenDrop(false);
@@ -33,6 +35,20 @@ const useRightNav = (handleClick: () => void) => {
         };
     }, [dropdownRef, profileIconRef]);
 
+    const handleAccountSettingsClick = () => {
+        setShowSettings(!showSettings);
+    };
+
+    const handleProfileDropdownClick = () => {
+        setOpenDrop(!openDrop);
+    };
+
+    useEffect(() => {
+        if (openDrop) {
+            setShowSettings(false);
+        }
+    }, [openDrop]);
+
     return {
         handleCloseNav,
         isAuthenticated,
@@ -41,23 +57,10 @@ const useRightNav = (handleClick: () => void) => {
         profileIconRef,
         openDrop,
         setOpenDrop,
+        showSettings,
+        handleAccountSettingsClick,
+        handleProfileDropdownClick,
     };
 };
 
 export default useRightNav;
-
-// Radix
-// import { useAuth } from '../../../context/AuthContext';
-// import useToken from '../../../hooks/Token/Token.hook';
-
-// const useRightNav = () => {
-//     const { isAuthenticated } = useAuth();
-//     const decodedToken = useToken();
-
-//     return {
-//         isAuthenticated,
-//         decodedToken,
-//     };
-// };
-
-// export default useRightNav;

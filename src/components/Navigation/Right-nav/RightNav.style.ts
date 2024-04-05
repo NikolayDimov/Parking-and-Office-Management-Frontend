@@ -101,24 +101,27 @@ const ButtonLogout = styled.button`
     }
 `;
 
-const Settings = styled.div`
+interface SettingsProps {
+    $isOpen: boolean;
+}
+
+const Settings = styled.div<SettingsProps>`
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
+    justify-content: space-between;
     width: 100%;
     background-color: transparent;
     border: none;
     cursor: pointer;
 
-    svg.rotate-180 {
-        transform: rotate(180deg);
-    }
-
     svg {
         width: 22px;
         height: 22px;
         stroke: var(--light-blue-nav);
-        margin-right: 1rem;
+        border: none;
+        transition: transform 0.3s ease;
+        transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
     }
 
     p {
@@ -126,6 +129,43 @@ const Settings = styled.div`
         font-size: 16px;
         font-weight: 500;
     }
+`;
+
+const ContainerSettings = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--light-blue-nav);
+        margin-right: 1rem;
+    }
+`;
+
+const ContainerInsideSettings = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--light-blue-nav);
+        margin-right: 1rem;
+    }
+`;
+
+const InsideContainer = styled.div`
+    box-shadow: inset 0px 3px 10px -4px #615757;
 `;
 
 const DropdownMenuOpenAccount = styled.div<{ ref?: React.Ref<HTMLDivElement> }>``;
@@ -140,4 +180,7 @@ export {
     DropdownMenuOpen,
     ContainerIcons,
     DropdownMenuOpenAccount,
+    ContainerSettings,
+    InsideContainer,
+    ContainerInsideSettings,
 };
