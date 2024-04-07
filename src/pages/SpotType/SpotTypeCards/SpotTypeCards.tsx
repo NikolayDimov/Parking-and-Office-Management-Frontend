@@ -17,6 +17,7 @@ import conferenceRoom from '../../../assets/conference-room.jpg';
 import phoneBooth from '../../../assets/phone-booth.jpg';
 import parkingSpot from '../../../assets/parking-spot.jpg';
 import { SpotTypeCardsOccupancyLogic } from './SpotsOccupancyLogic';
+import { useTranslation } from 'react-i18next';
 
 interface SpotTypeCardProps {
     singleLocation: Location | undefined;
@@ -24,6 +25,8 @@ interface SpotTypeCardProps {
 }
 
 const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeData }) => {
+    const { t } = useTranslation();
+
     const navigate = useNavigate();
     if (!spotTypeData) return;
     const { updatedSpotTypeData } = SpotTypeCardsOccupancyLogic(spotTypeData);
@@ -49,7 +52,10 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                 <PageTitle>No Spot Types Data</PageTitle>
             ) : (
                 <>
-                    <PageTitle>Reserve your spot at {singleLocation?.name}</PageTitle>
+                    <PageTitle>
+                        {t('locations.PageTitle')}
+                        {singleLocation?.name}
+                    </PageTitle>
                     <SpotTypeContainer>
                         {updatedSpotTypeData?.map((spotType) => (
                             <BaseButton

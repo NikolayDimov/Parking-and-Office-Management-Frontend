@@ -120,7 +120,7 @@ const Settings = styled.div<SettingsProps>`
         height: 22px;
         stroke: var(--light-blue-nav);
         border: none;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s ease;
         transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
     }
 
@@ -166,9 +166,22 @@ const ContainerInsideSettings = styled.div`
 
 const InsideContainer = styled.div`
     box-shadow: inset 0px 3px 10px -4px #615757;
+    transition: transform 4s ease;
 `;
 
-const DropdownMenuOpenAccount = styled.div<{ ref?: React.Ref<HTMLDivElement> }>``;
+// interface InsideContainerProps {
+//     $show: boolean;
+// }
+
+// const InsideContainer = styled.div<InsideContainerProps>`
+//     box-shadow: inset 0px 3px 10px -4px #615757;
+//     opacity: ${(props) => (props.$show ? '1' : '0')};
+//     max-height: ${(props) => (props.$show ? '1000px' : '0')};
+//     overflow: hidden;
+//     transition:
+//         opacity 2s ease-in-out,
+//         max-height 2s ease-in-out; /* Adjust the transition duration */
+// `;
 
 export {
     Ul,
@@ -179,7 +192,6 @@ export {
     Settings,
     DropdownMenuOpen,
     ContainerIcons,
-    DropdownMenuOpenAccount,
     ContainerSettings,
     InsideContainer,
     ContainerInsideSettings,
