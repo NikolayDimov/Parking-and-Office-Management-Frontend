@@ -4,8 +4,10 @@ import { Location } from './Home.static';
 import Loader from '../../components/Loader/Loader';
 import LocationChoice from './LocationChocie/LocationChocie';
 import { ListContainer } from '../AdminPage/AdminPage.style';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+    const { t } = useTranslation();
     const { locations, isLoading, error } = useHome();
 
     if (isLoading) {
@@ -20,7 +22,8 @@ const Home = () => {
         <HomeContainer>
             {Array.isArray(locations) && locations.length > 0 ? (
                 <ListContainer>
-                    <h1>Select location</h1>
+                    <h1>{t('home.SelectLocation')}</h1>
+
                     <ul>
                         {locations.map((location: Location) => (
                             <LocationChoice key={location.id} location={location} />

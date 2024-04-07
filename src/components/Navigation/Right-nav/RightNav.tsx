@@ -36,6 +36,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
         showSettings,
         handleAccountSettingsClick,
         handleProfileDropdownClick,
+        changeLanguage,
     } = useRightNav(handleClick);
 
     const { logout } = UserProfilePageLogic();
@@ -151,7 +152,9 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                                     <circle cx="12" cy="12" r="3"></circle>
                                                     <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
                                                 </svg>
-                                                <p>Change Picture</p>
+                                                <button onClick={() => changeLanguage('en')}>EN</button>
+                                                <button onClick={() => changeLanguage('bg')}>BG</button>
+                                                <button onClick={() => changeLanguage('de')}>DE</button>
                                             </ContainerInsideSettings>
                                         </DropdownItem>
                                     </InsideContainer>

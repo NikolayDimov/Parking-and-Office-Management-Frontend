@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import useToken from '../../../hooks/Token/Token.hook';
+import { useTranslation } from 'react-i18next';
 
 const useRightNav = (handleClick: () => void) => {
+    const { i18n } = useTranslation();
+
     const [openDrop, setOpenDrop] = useState(false);
     const { isAuthenticated } = useAuth();
     const decodedToken = useToken();
@@ -14,6 +17,10 @@ const useRightNav = (handleClick: () => void) => {
     const handleCloseNav = () => {
         handleClick();
         setOpenDrop(false);
+    };
+
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
     };
 
     useEffect(() => {
@@ -60,6 +67,7 @@ const useRightNav = (handleClick: () => void) => {
         showSettings,
         handleAccountSettingsClick,
         handleProfileDropdownClick,
+        changeLanguage,
     };
 };
 
