@@ -19,6 +19,7 @@ import UserRoleHOC from '../../../pages/UserRoleHOC';
 import CalendarIcon from '../../../pages/ReservationSummary/CalendarIcon/CalendarIcon';
 import { StyledToolTip } from '../../CommonStyledElements';
 import { UserProfilePageLogic } from '../../../pages/User/UserProfilePage/UserProfilePage.logic';
+import { useTranslation } from 'react-i18next';
 
 interface NavProps {
     open: boolean;
@@ -26,6 +27,8 @@ interface NavProps {
 }
 
 const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
+    const { t } = useTranslation();
+
     const {
         handleCloseNav,
         isAuthenticated,
@@ -48,7 +51,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                     <>
                         <UserRoleHOC>
                             <StyledNavLink to={`/admin`} className="nav-link" onClick={handleCloseNav}>
-                                <li>Admin</li>
+                                <li>{t('navbar.admin')}</li>
                             </StyledNavLink>
                         </UserRoleHOC>
 
@@ -63,7 +66,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                 <CalendarIcon />
                             </StyledNavLink>
                             <StyledToolTip id={`component_calendar_icon`} className="spot-info">
-                                {<p>Reservation Summary</p>}
+                                {<p>{t('navbar.reservationSummary')}</p>}
                             </StyledToolTip>
 
                             <ProfileIcon ref={profileIconRef} onClick={handleProfileDropdownClick}>
@@ -96,7 +99,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                                 <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
                                             </svg>
 
-                                            <p>Account Settings</p>
+                                            <p>{t('navbar.profile.accountSettings')}</p>
                                         </ContainerSettings>
 
                                         <svg
@@ -134,7 +137,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                                         <circle cx="12" cy="12" r="3"></circle>
                                                         <path d="M19.74,14H22V10H19.74l0-.14a8.17,8.17,0,0,0-.82-1.92l1.6-1.6L17.66,3.51l-1.6,1.6A8,8,0,0,0,14,4.25V2H10V4.25a8,8,0,0,0-2.06.86l-1.6-1.6L3.51,6.34l1.6,1.6a8.17,8.17,0,0,0-.82,1.92l0,.14H2v4H4.26l0,.14a8.17,8.17,0,0,0,.82,1.92l-1.6,1.6,2.83,2.83,1.6-1.6a8,8,0,0,0,2.06.86V22h4V19.75a8,8,0,0,0,2.06-.86l1.6,1.6,2.83-2.83-1.6-1.6a8.17,8.17,0,0,0,.82-1.92Z"></path>
                                                     </svg>
-                                                    <p>Change Password</p>
+                                                    <p>{t('navbar.profile.changePassword')}</p>
                                                 </ContainerInsideSettings>
                                             </Link>
                                         </DropdownItem>
@@ -179,7 +182,7 @@ const RightNav: React.FC<NavProps> = ({ open, handleClick }) => {
                                                 />
                                             </g>
                                         </svg>
-                                        <p> Log out</p>
+                                        <p>{t('navbar.profile.logOut')}</p>
                                     </ButtonLogout>
                                 </DropdownItem>
                             </DropdownMenuOpen>

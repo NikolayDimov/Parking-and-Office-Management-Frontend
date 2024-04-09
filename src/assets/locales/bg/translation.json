@@ -1,8 +1,125 @@
 {
     "home": {
-        "SelectLocation": "Избери Локация"
+        "SelectLocation": "Избери Локация",
+        "card": {
+            "city": "Град",
+            "office": "Офис"
+        }
     },
+
+    "navbar": {
+        "home": "Начало",
+        "reservations": "Резервации",
+        "admin": "Администратор",
+        "reservationSummary": "Резюме на Резервацията",
+        "profile": {
+            "accountSettings": "Настройки на профила",
+            "changePassword": "Промяна на паролата",
+            "logOut": "Изход"
+        }
+    },
+
     "locations": {
-        "PageTitle": "Запази своето място в "
+        "PageTitle": "Запази своето място в ",
+        "OccupancyTomorrow": "Заетост за утре",
+        "spotTypes": {
+            "officeDesk": "Офис бюро",
+            "conferenceRoom": "Конферентна зала",
+            "phoneBooth": "Телефонна будка",
+            "parkingSpot": "Паркомясто"
+        }
+    },
+
+    "changePassword": {
+        "currentPassword": "Настояща Парола",
+        "newPassword": "Нова Парола",
+        "confirmPassword": "Потвърди Паролата",
+        "close": "Затвори",
+        "changePassBtn": "Смени Паролата"
+    },
+
+    "admin": {
+        "createLocationBtn": "Създай Локация",
+        "manageUsers": "Управление на Потребители",
+        "searchLocations": "Търсене на Локации",
+        "locationList": "Списък с Локации",
+        "name": "Име",
+        "city": "Град",
+        "address": "Адрес",
+        "action": "Действие",
+        "floorPlan": "План на Етажа",
+        "error": "Грешка при зареждане на локациите",
+        "editModal": {
+            "title": "Обновяване на Локацията",
+            "locationName": "Име на Локацията",
+            "locationCity": "Град на Локацията",
+            "locationAddress": "Адрес на Локацията",
+            "confirmBtn": "Потвърди",
+            "closeBtn": "Затвори"
+        },
+        "deleteModal": {
+            "title": "Сигурни ли сте, че искате да изтриете тази локация?"
+        },
+        "noLocationsAvailable": "Няма налични локации"
+    },
+
+    "buttons": {
+        "edit": "Редакция",
+        "delete": "Изтриване",
+        "createFloorPlan": "Създай нов план на етажа",
+        "seeAllFloorPlans": "Виж всички планове на етажа за тази локация"
+    },
+
+    "createNewFloorPlan": {
+        "title": "Създаване на нов план на етажа",
+        "createBtn": "Създай",
+        "name": "Име",
+        "namePlaceholder": "Моля, въведете име на локацията",
+        "image": "Изображение"
+    },
+
+    "floorPlanList": {
+        "loading": "Зареждане",
+        "title": "Списък с Планове на етажа",
+        "floorPlan": "План на етажа",
+        "openFloorPlan": "Отвори План на етажа",
+        "action": "Действие",
+        "showFloorPlan": "Покажи План на етажа",
+        "editModal": {
+            "title": "Актуализиране на Плана на етажа"
+        },
+        "deleteModal": {
+            "title": "Сигурни ли сте, че искате да изтриете този План на етажа?"
+        },
+        "addNewSpotsToTheFloorPlan": "Добавяне на нови места към Плана на етажа",
+        "noFloorPlansAvailable": "Няма налични Планове на етажа",
+        "update": {
+            "title": "Актуализиране на Плана",
+            "name": "Име",
+            "updateBtn": "Актуализиране",
+            "closeBtn": "Затвори"
+        }
+    },
+
+    "createSpotPage": {
+        "error": "Грешка на страницата за създаване на места",
+        "clearNewSpots": "Изчисти новите места",
+        "saveAllSpots": "Запази всички места",
+        "explanations": "*За създаване на ново място, моля изберете позиция на картата от Плана на етажа и кликнете",
+        "addSpotForm": {
+            "title": "Добавяне на ново място",
+            "name": "Име",
+            "description": "Описание",
+            "type": "Тип",
+            "placeHolderType": "Моля, въведете тип",
+            "types": {
+                "Phone booth": "Телефонна будка",
+                "Office desk": "Офис бюро",
+                "Conference room": "Конферентна зала",
+                "Parking place": "Място за паркиране"
+            },
+            "saveBtn": "Запази",
+            "closebtn": "Затвори"
+        }
     }
 }

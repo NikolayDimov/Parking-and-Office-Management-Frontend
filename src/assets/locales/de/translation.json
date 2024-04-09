@@ -1,5 +1,125 @@
 {
     "home": {
-        "SelectLocation": "Ort auswählen"
+        "SelectLocation": "Ort Auswählen",
+        "card": {
+            "city": "Stadt",
+            "office": "Büro"
+        }
+    },
+
+    "navbar": {
+        "home": "Startseite",
+        "reservations": "Reservierungen",
+        "admin": "Administrator",
+        "reservationSummary": "Reservierungszusammenfassung",
+        "profile": {
+            "accountSettings": "Kontoeinstellungen",
+            "changePassword": "Passwort ändern",
+            "logOut": "Abmelden"
+        }
+    },
+
+    "locations": {
+        "PageTitle": "Запази своето място в ",
+        "OccupancyTomorrow": "Belegung Morgen",
+        "spotTypes": {
+            "officeDesk": "Schreibtisch",
+            "conferenceRoom": "Konferenzraum",
+            "phoneBooth": "Telefonzelle",
+            "parkingSpot": "Parkplatz"
+        }
+    },
+
+    "changePassword": {
+        "currentPassword": "Aktuelles Passwort",
+        "newPassword": "Neues Passwort",
+        "confirmPassword": "Passwort Bestätigen",
+        "close": "Schließen",
+        "changePassBtn": "Passwort Ändern"
+    },
+
+    "admin": {
+        "createLocationBtn": "Standort Erstellen",
+        "manageUsers": "Benutzer Verwalten",
+        "searchLocations": "Standorte Suchen",
+        "locationList": "Standortliste",
+        "name": "Name",
+        "city": "Stadt",
+        "address": "Adresse",
+        "action": "Aktion",
+        "floorPlan": "Grundriss",
+        "error": "Fehler beim Laden der Standorte",
+        "editModal": {
+            "title": "Standort Aktualisieren",
+            "locationName": "Standortname",
+            "locationCity": "Standort Stadt",
+            "locationAddress": "Standort Adresse",
+            "confirmBtn": "Bestätigen",
+            "closeBtn": "Schließen"
+        },
+        "deleteModal": {
+            "title": "Sind Sie sicher, dass Sie diesen Standort löschen möchten?"
+        },
+        "noLocationsAvailable": "Keine Standorte verfügbar"
+    },
+
+    "buttons": {
+        "edit": "Bearbeiten",
+        "delete": "Löschen",
+        "createFloorPlan": "Neuen Grundriss erstellen",
+        "seeAllFloorPlans": "Alle Grundrisse für diesen Standort anzeigen"
+    },
+
+    "createNewFloorPlan": {
+        "title": "Neuen Grundriss erstellen",
+        "createBtn": "Erstellen",
+        "name": "Name",
+        "namePlaceholder": "Bitte geben Sie den Namen des Standorts ein",
+        "image": "Bild"
+    },
+
+    "floorPlanList": {
+        "loading": "Laden",
+        "title": "Grundrissliste",
+        "floorPlan": "Grundriss",
+        "openFloorPlan": "Grundriss öffnen",
+        "action": "Aktion",
+        "showFloorPlan": "Grundriss anzeigen",
+        "editModal": {
+            "title": "Grundriss aktualisieren"
+        },
+        "deleteModal": {
+            "title": "Sind Sie sicher, dass Sie diesen Grundriss löschen möchten?"
+        },
+        "addNewSpotsToTheFloorPlan": "Neue Plätze zum Grundriss hinzufügen",
+        "noFloorPlansAvailable": "Keine Grundrisse verfügbar",
+        "update": {
+            "title": "Grundriss aktualisieren",
+            "name": "Name",
+            "updateBtn": "Aktualisieren",
+            "closeBtn": "Schließen"
+        }
+    },
+
+    "createSpotPage": {
+        "error": "Fehler auf der Seite zum Erstellen von Plätzen",
+        "clearNewSpots": "Neue Plätze löschen",
+        "saveAllSpots": "Alle Plätze speichern",
+        "explanations": "*Um einen neuen Spot zu erstellen, wählen Sie bitte eine Position auf der Karte des Grundrissplans aus und klicken Sie",
+        "addSpotForm": {
+            "title": "Neuen Spot hinzufügen",
+            "name": "Name",
+            "description": "Beschreibung",
+            "type": "Typ",
+            "placeHolderType": "Bitte geben Sie den Spot-Typ ein",
+            "types": {
+                "Phone booth": "Telefonzelle",
+                "Office desk": "Schreibtisch",
+                "Conference room": "Konferenzraum",
+                "Parking place": "Parkplatz"
+            },
+            "saveBtn": "Speichern",
+            "closebtn": "Schließen"
+        }
     }
 }

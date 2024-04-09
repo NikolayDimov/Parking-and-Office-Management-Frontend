@@ -6,8 +6,6 @@ const FormStyled = styled.form`
     justify-items: center;
     align-items: center;
     align-content: flex-start;
-    width: auto;
-    height: auto;
     min-width: 300px;
     border-radius: 0.5rem;
     box-shadow: 0 10px 20px 0 darkgrey;

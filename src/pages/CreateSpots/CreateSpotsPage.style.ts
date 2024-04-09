@@ -26,7 +26,7 @@ const DivFlexStyled = styled.div`
 
     &.create-reservation-container.collapsed {
         /* Styles for the container when it's collapsed */
-        display: none; /* or any other styles to hide it */
+        display: none;
     }
 
     &.create-reservation-container-cards {
@@ -44,4 +44,10 @@ const DivFlexStyled = styled.div`
     }
 `;
 
-export { DivFlexStyled };
+const Explanations = styled.div`
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+`;
+
+export { DivFlexStyled, Explanations };
