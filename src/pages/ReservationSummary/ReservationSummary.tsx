@@ -16,8 +16,11 @@ import {
 } from './ReservationSummary.style';
 import { PageTitle } from '../../components/CommonStyledElements';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ReservationSummary = () => {
+    const { t } = useTranslation();
+
     const navigation = useNavigate();
     const { reservations, sendReservationsToBackend, removeReservation } = useReservationContext();
     const { isLoading, error, spotNames } = useReservationSummary();
@@ -31,14 +34,14 @@ const ReservationSummary = () => {
     }
 
     if (error) {
-        return <div>Something went wrong</div>;
+        return <div>{t('reservationSummary.error')}</div>;
     }
 
     return (
         <ReservationSummaryContainer>
-            <PageTitle>Reservation Summary</PageTitle>
+            <PageTitle>{t('reservationSummary.title')}</PageTitle>
             {reservations.length === 0 && !isLoading ? (
-                <ReservationSummaryNoItems>No reservations</ReservationSummaryNoItems>
+                <ReservationSummaryNoItems>{t('reservationSummary.noReservations')}</ReservationSummaryNoItems>
             ) : (
                 <>
                     <ReservationSummaryList>
@@ -46,10 +49,18 @@ const ReservationSummary = () => {
                             <ReservationSummaryListItem
                                 key={`${reservation.spotId}_${reservation.start}_${reservation.end}`}
                             >
-                                <div>Spot Name: {spotNames[reservation.spotId]}</div>
-                                <div>Start: {new Date(reservation.start).toDateString()}</div>
-                                <div>End: {new Date(reservation.end).toDateString()}</div>
-                                <div>Comment: {reservation.comment}</div>
+                                <div>
+                                    {t('reservationSummary.spotName')} {spotNames[reservation.spotId]}
+                                </div>
+                                <div>
+                                    {t('reservationSummary.start')} {new Date(reservation.start).toDateString()}
+                                </div>
+                                <div>
+                                    {t('reservationSummary.end')} {new Date(reservation.end).toDateString()}
+                                </div>
+                                <div>
+                                    {t('reservationSummary.comment')} {reservation.comment}
+                                </div>
 
                                 <ReservationRemveButton
                                     onClick={() =>
@@ -63,9 +74,12 @@ const ReservationSummary = () => {
                     </ReservationSummaryList>
                     <SummaryButtonContainer>
                         <AddNewReservationButton onClick={() => navigation('/')}>
-                            Add new reservation
+                            {t('reservationSummary.addNewReservationBtn')}
                         </AddNewReservationButton>
-                        <ReservationSummaryButton onClick={handleConfirm}>Confirm</ReservationSummaryButton>
+                        <ReservationSummaryButton onClick={handleConfirm}>
+                            {' '}
+                            {t('reservationSummary.confirmBtn')}
+                        </ReservationSummaryButton>
                     </SummaryButtonContainer>
                 </>
             )}

@@ -172,5 +172,28 @@
             "end": "Ende",
             "action": "Aktion"
         }
+    },
+
+    "createReservation": {
+        "error": "Fehler auf der Seite zum Erstellen der Reservierung",
+        "calendar": "Kalender",
+        "selectFloorPlan": "Wählen Sie den Grundriss aus:",
+        "adminReservationUser": "Eine Reservierung durch einen Administrator erstellen:",
+        "selectUser": "Benutzer auswählen",
+        "selectOption": "Option auswählen",
+        "noFreeSpots": "Entschuldigung, es gibt keine freien Plätze dieses Typs.",
+        "spotTitle": "Bitte wählen Sie einen Spot aus:"
+    },
+
+    "reservationSummary": {
+        "error": "Etwas ist schief gelaufen",
+        "title": "Reservierungsübersicht",
+        "noReservations": "Keine Reservierungen",
+        "spotName": "Spot Name: ",
+        "start": "Start: ",
+        "end": "Ende: ",
+        "comment": "Kommentar: ",
+        "addNewReservationBtn": "Neue Reservierung hinzufügen",
+        "confirmBtn": "Bestätigen"
     }
 }

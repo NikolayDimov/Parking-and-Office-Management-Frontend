@@ -172,5 +172,28 @@
             "end": "Край",
             "action": "Действие"
         }
+    },
+
+    "createReservation": {
+        "error": "Грешка при създаване на резервация",
+        "calendar": "Календар",
+        "selectFloorPlan": "Изберете План:",
+        "adminReservationUser": "Създаване на резервация от Администратор:",
+        "selectUser": "Изберете Потребител",
+        "selectOption": "Изберете опция",
+        "noFreeSpots": "Съжаляваме, няма свободни места от този тип.",
+        "spotTitle": "Моля, изберете място:"
+    },
+
+    "reservationSummary": {
+        "error": "Нещо се обърка",
+        "title": "Обобщение на резервациите",
+        "noReservations": "Няма резервации",
+        "spotName": "Място: ",
+        "start": "Начало: ",
+        "end": "Край: ",
+        "comment": "Коментар: ",
+        "addNewReservationBtn": "Добавяне на нова резервация",
+        "confirmBtn": "Потвърди"
     }
 }

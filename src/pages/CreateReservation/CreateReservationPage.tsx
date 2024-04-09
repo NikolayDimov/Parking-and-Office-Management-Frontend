@@ -21,8 +21,11 @@ import CalendarPage from './Calendar/CalendarPage';
 import { FloorPlan } from '../FloorPlan/FloorPlan.static';
 import SpotCardsContainer from './CombinationReservation/SpotCardsContainer';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useTranslation } from 'react-i18next';
 
 export default function CreateReservation() {
+    const { t } = useTranslation();
+
     const {
         isLoading,
         areNoSpots,
@@ -51,7 +54,7 @@ export default function CreateReservation() {
     }
 
     if (error) {
-        return <p>Error at Create reservation page</p>;
+        return <p>{t('createReservation.error')}</p>;
     }
 
     return (
@@ -74,7 +77,7 @@ export default function CreateReservation() {
 
             {isContainerCollapsed ? (
                 <ExpandRow onClick={toggleContainerCollapse}>
-                    <span>Calendar</span>
+                    <span>{t('createReservation.calendar')}</span>
                     {isContainerCollapsed && <ExpandMoreIcon />}
                 </ExpandRow>
             ) : null}
@@ -85,11 +88,11 @@ export default function CreateReservation() {
                 <CalendarPage sendDateTime={handleDataFromCalendar} spotType={selectedSpotType} />
                 {calendarData && (
                     <FloorPlanImageContainer>
-                        <h4>Select Floor Plan:</h4>
+                        <h4>{t('createReservation.selectFloorPlan')}</h4>
                         <DivFlexStyled className="create-reservation-container-cards">
                             {tokenRole === 'ADMIN' && (
                                 <SelectUser>
-                                    <label htmlFor="userSelect">Admin can create reservation for user:</label>
+                                    <label htmlFor="userSelect">{t('createReservation.adminReservationUser')}</label>
                                     <select
                                         value={selectedUser?.id || ''}
                                         onChange={(e) => {
@@ -99,7 +102,7 @@ export default function CreateReservation() {
                                         }}
                                     >
                                         <option value="" disabled>
-                                            Select a user
+                                            {t('createReservation.selectUser')}
                                         </option>
                                         {Array.isArray(users) &&
                                             users.map((user) => (
@@ -129,7 +132,7 @@ export default function CreateReservation() {
                                             <h3>{floorPlan.name}</h3>
                                         </Card>
                                         <StyledToolTip id={`component_${floorPlan.id}`} className="spot-info">
-                                            {<p>Select an option</p>}
+                                            {<p> {t('createReservation.selectOption')}</p>}
                                         </StyledToolTip>
                                     </BaseButton>
                                 );
@@ -140,7 +143,7 @@ export default function CreateReservation() {
             </DivFlexStyledContainer>
 
             {areNoSpots ? (
-                <NoSpotsMessageContainer>Sorry, there are no free spots of this spot type.</NoSpotsMessageContainer>
+                <NoSpotsMessageContainer>{t('createReservation.noFreeSpots')}</NoSpotsMessageContainer>
             ) : (
                 <>
                     {isCombination ? (
@@ -151,7 +154,7 @@ export default function CreateReservation() {
                         currentFloorPlan &&
                         spots && (
                             <ImageContainer>
-                                <h3>Please select a spot:</h3>
+                                <h3>{t('createReservation.spotTitle')}</h3>
                                 <ImageStyled>
                                     <ImageMarker
                                         src={currentFloorPlan.imgUrl!}

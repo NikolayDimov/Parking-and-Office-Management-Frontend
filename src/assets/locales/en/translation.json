@@ -172,5 +172,28 @@
             "end": "End",
             "action": "Action"
         }
+    },
+
+    "createReservation": {
+        "error": "Error at Create reservation page",
+        "calendar": "Calendar",
+        "selectFloorPlan": "Select Floor Plan:",
+        "adminReservationUser": "Create a reservation by an Admin:",
+        "selectUser": "Select User",
+        "selectOption": "Select an option",
+        "noFreeSpots": "Sorry, there are no free spots of this spot type.",
+        "spotTitle": "Please select a spot:"
+    },
+
+    "reservationSummary": {
+        "error": "Something went wrong",
+        "title": "Reservation Summary",
+        "noReservations": "No reservations",
+        "spotName": "Spot Name: ",
+        "start": "Start: ",
+        "end": "End: ",
+        "comment": "Comment: ",
+        "addNewReservationBtn": "Add new reservation",
+        "confirmBtn": "Confirm"
     }
 }
