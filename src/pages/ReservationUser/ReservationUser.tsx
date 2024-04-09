@@ -103,7 +103,6 @@ const ReservationUser = () => {
                             isLoading={arePastReservationsLoading}
                             refetch={pastReservationsRefetch}
                             reservationType={reservationTypes.past}
-                            // reservationType={ {t('reservations.bullets.pastReservations')}}
                         />
                     )}
                     {activeTab === 'current' && (
@@ -112,7 +111,6 @@ const ReservationUser = () => {
                             isLoading={areCurrentReservationsLoading}
                             refetch={currentReservationsRefetch}
                             reservationType={reservationTypes.current}
-                            //  reservationType={{t('reservations.bullets.currentReservations')}}
                         />
                     )}
                     {activeTab === 'future' && (
