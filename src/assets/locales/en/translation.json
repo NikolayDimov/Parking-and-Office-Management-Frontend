@@ -30,6 +30,19 @@
         }
     },
 
+    "createLocation": {
+        "title": "Create new Location",
+        "name": "Name",
+        "placeholderName": "Please enter location's name",
+        "city": "City",
+        "placeholderCity": "Please enter location's city",
+        "address": "Address",
+        "placeholderAddress": "Please enter location's address",
+        "image": "Image",
+        "placeholderImage": "Please enter location's image",
+        "createBtn": "Create"
+    },
+
     "changePassword": {
         "currentPassword": "Current Password",
         "newPassword": "New Password",

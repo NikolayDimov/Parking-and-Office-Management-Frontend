@@ -30,6 +30,19 @@
         }
     },
 
+    "createLocation": {
+        "title": "Създаване на нова Локация",
+        "name": "Име",
+        "placeholderName": "Моля, въведете име на локацията",
+        "city": "Град",
+        "placeholderCity": "Моля, въведете град на локацията",
+        "address": "Адрес",
+        "placeholderAddress": "Моля, въведете адрес на локацията",
+        "image": "Изображение",
+        "placeholderImage": "Моля, въведете изображение на локацията",
+        "createBtn": "Създай"
+    },
+
     "changePassword": {
         "currentPassword": "Настояща Парола",
         "newPassword": "Нова Парола",

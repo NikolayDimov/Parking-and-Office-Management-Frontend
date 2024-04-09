@@ -30,6 +30,19 @@
         }
     },
 
+    "createLocation": {
+        "title": "Neuen Standort erstellen",
+        "name": "Name",
+        "placeholderName": "Bitte geben Sie den Namen des Standorts ein",
+        "city": "Stadt",
+        "placeholderCity": "Bitte geben Sie die Stadt des Standorts ein",
+        "address": "Adresse",
+        "placeholderAddress": "Bitte geben Sie die Adresse des Standorts ein",
+        "image": "Bild",
+        "placeholderImage": "Bitte geben Sie das Bild des Standorts ein",
+        "createBtn": "Erstellen"
+    },
+
     "changePassword": {
         "currentPassword": "Aktuelles Passwort",
         "newPassword": "Neues Passwort",
