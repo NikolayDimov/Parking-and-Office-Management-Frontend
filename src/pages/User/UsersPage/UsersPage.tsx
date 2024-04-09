@@ -5,15 +5,17 @@ import { BackButton } from '../../FloorPlan/FloorPlan.style';
 import UserCardsContainer from './UserCard/UserCardsContainer';
 import { useUsersPageLogic } from './UsersPage.logic';
 import { BaseButtonCreateUser, ListContainer, UserPageMainButtonsContainer } from './UsersPage.style';
+import { useTranslation } from 'react-i18next';
 
 const UsersPage = () => {
+    const { t } = useTranslation();
+
     const {
         users,
         handleSearch,
         isLoading,
         handleCreateUser,
         handleDeleteUser,
-        searchPlaceholder,
         handleGoBack,
         handleDisplayUserReservations,
     } = useUsersPageLogic();
@@ -34,10 +36,10 @@ const UsersPage = () => {
                 </svg>
             </BackButton>
             <UserPageMainButtonsContainer>
-                <BaseButtonCreateUser onClick={handleCreateUser}>Create User</BaseButtonCreateUser>
-                <SearchBar placeholder={searchPlaceholder} onSearch={handleSearch} />
+                <BaseButtonCreateUser onClick={handleCreateUser}>{t('user.createUserBtn')}</BaseButtonCreateUser>
+                <SearchBar placeholder={t('user.searchUser')} onSearch={handleSearch} />
             </UserPageMainButtonsContainer>
-            <PageTitle>All Users</PageTitle>
+            <PageTitle>{t('user.allUsers')}</PageTitle>
             {users && (
                 <UserCardsContainer
                     users={users}

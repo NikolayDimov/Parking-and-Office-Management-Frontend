@@ -8,6 +8,7 @@ import {
     getPastReservationsByUserId,
 } from '../../services/reservationService';
 import useToken from '../../hooks/Token/Token.hook';
+import { useTranslation } from 'react-i18next';
 
 const useUser = (userId: string | undefined) => {
     const { data: user, refetch: userRefetch } = useQuery(['user', userId], () => getUser(userId));
@@ -50,6 +51,8 @@ const useFutureReservationsByUserId = (userId: string | undefined) => {
 };
 
 const UserProfilePageLogic = () => {
+    const { t } = useTranslation();
+
     const { id: userId } = useParams();
     const decodedToken = useToken();
     const { id: tokenId, role: tokenRole } = decodedToken || {};
@@ -67,7 +70,11 @@ const UserProfilePageLogic = () => {
     };
 
     const navigate = useNavigate();
-    const reservationTypes = { past: 'Past', current: 'Current', future: 'Future' };
+    const reservationTypes = {
+        past: t('reservations.table.titlePast'),
+        current: t('reservations.table.titleCurrent'),
+        future: t('reservations.table.titleFuture'),
+    };
 
     const handleGoBack = () => {
         navigate(-1);

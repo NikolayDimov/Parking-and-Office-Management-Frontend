@@ -2,6 +2,7 @@ import { Tooltip } from 'react-tooltip';
 import { styled } from 'styled-components';
 
 const PageTitle = styled.h1`
+    font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 4rem;
     color: var(--dark-blue);
