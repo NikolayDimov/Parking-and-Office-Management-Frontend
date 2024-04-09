@@ -134,5 +134,43 @@
             "saveBtn": "Запази",
             "closebtn": "Затвори"
         }
+    },
+
+    "user": {
+        "createUserBtn": "Създай Потребител",
+        "searchUser": "Търси Потребител...",
+        "allUsers": "Всички Потребители",
+        "noUsers": "Няма налични потребители!",
+        "userContainer": {
+            "userReservations": "Резервации на потребителя",
+            "deleteUser": "Изтрий"
+        }
+    },
+
+    "reservations": {
+        "bullets": {
+            "pastReservations": "Минали Резервации",
+            "currentReservations": "Текущи Резервации",
+            "futureReservations": "Бъдещи Резервации"
+        },
+        "buttons": {
+            "showPastReservations": "Покажи Минали Резервации",
+            "showCurrentReservations": "Покажи Текущи Резервации",
+            "showFutureReservations": "Покажи Бъдещи Резервации"
+        },
+        "table": {
+            "titlePast": "Минали",
+            "titleCurrent": "Текущи",
+            "titleFuture": "Бъдещи",
+            "no": "Няма",
+            "reservation": "Резервации",
+            "spot": "Място",
+            "spotDescription": "Описание",
+            "spotLocation": "Местоположение",
+            "comment": "Коментар",
+            "start": "Начало",
+            "end": "Край",
+            "action": "Действие"
+        }
     }
 }

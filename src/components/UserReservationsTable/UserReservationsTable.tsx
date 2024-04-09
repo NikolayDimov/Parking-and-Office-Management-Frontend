@@ -7,18 +7,19 @@ import DeleteReservationModal from '../UserReservationsTable/DeleteModal/DeleteM
 import useUserReservationsTableLogic from '../UserReservationsTable/UserReservationsTable.logic';
 import { ReservationsTable } from '../UserReservationsTable/UserReservationsTable.static';
 import { UserReservationsTableStyle } from '../UserReservationsTable/UserReservationsTable.styles';
+import { useTranslation } from 'react-i18next';
 
-const UserReservationsTable = ({
-    reservations,
-    isLoading,
-    refetch,
-    reservationType,
-}: {
+interface UserReservationsTable {
     reservations: Reservation[] | undefined;
     isLoading: boolean;
     refetch: () => void;
     reservationType: string;
-}) => {
+}
+
+const UserReservationsTable = (props: UserReservationsTable) => {
+    const { reservations, isLoading, refetch, reservationType } = props;
+    const { t } = useTranslation();
+
     const { formattedReservations, areLoading, onDeleteConfirm, onDeleteClick } = useUserReservationsTableLogic(
         reservations,
         isLoading,
@@ -35,19 +36,26 @@ const UserReservationsTable = ({
         <Container>
             <div>
                 {formattedReservations.length === 0 ? (
-                    <PageTitle>{`No ${reservationType} Reservations`}</PageTitle>
+                    <PageTitle>
+                        {t('reservations.table.no')} {`${reservationType}`} {t('reservations.table.reservation')}
+                    </PageTitle>
                 ) : (
                     <UserReservationsTableStyle>
-                        <caption>{`${reservationType} Reservations`}</caption>
+                        <caption>
+                            {`${reservationType} `}
+                            {t('reservations.table.reservation')}
+                        </caption>
                         <thead>
                             <tr>
-                                <th className="table-head">Spot</th>
-                                <th className="table-head">Spot Description</th>
-                                <th className="table-head">Spot Location</th>
-                                <th className="table-head">Comment</th>
-                                <th className="table-head">Start</th>
-                                <th className="table-head">End</th>
-                                {reservationType === 'Future' && <th className="table-head">Action</th>}
+                                <th className="table-head"> {t('reservations.table.spot')}</th>
+                                <th className="table-head">{t('reservations.table.spotDescription')}</th>
+                                <th className="table-head">{t('reservations.table.spotLocation')}</th>
+                                <th className="table-head">{t('reservations.table.comment')}</th>
+                                <th className="table-head">{t('reservations.table.start')}</th>
+                                <th className="table-head">{t('reservations.table.end')}</th>
+                                {reservationType === 'Future' && (
+                                    <th className="table-head">{t('reservations.table.action')}</th>
+                                )}
                             </tr>
                         </thead>
                         <tbody>

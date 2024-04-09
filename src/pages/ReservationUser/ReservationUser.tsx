@@ -7,12 +7,14 @@ import {
     UserAdditionalInfoContainer,
     UserProfileContainer,
 } from './ReservationUser.styles';
-import { userProfileConstants } from './ReservationUser.static';
 import UserProfileInfo from './DetailBullet/UserProfileInfo';
 import UserReservationsTable from '../../components/UserReservationsTable/UserReservationsTable';
 import NotFound from '../NotFound/NotFound';
+import { useTranslation } from 'react-i18next';
 
 const ReservationUser = () => {
+    const { t } = useTranslation();
+
     const {
         user,
         pastReservations,
@@ -69,7 +71,7 @@ const ReservationUser = () => {
                                     activeTab === 'past' ? `var(--blue-green-light)` : `var(--blue-green-dark)`,
                             }}
                         >
-                            {userProfileConstants.showPastReservations}
+                            {t('reservations.buttons.showPastReservations')}
                         </BigButtonDark>
 
                         <BigButtonDark
@@ -80,7 +82,7 @@ const ReservationUser = () => {
                                     activeTab === 'current' ? `var(--blue-green-light)` : `var(--blue-green-dark)`,
                             }}
                         >
-                            {userProfileConstants.showCurrentReservations}
+                            {t('reservations.buttons.showCurrentReservations')}
                         </BigButtonDark>
 
                         <BigButtonDark
@@ -91,7 +93,7 @@ const ReservationUser = () => {
                                     activeTab === 'future' ? `var(--blue-green-light)` : `var(--blue-green-dark)`,
                             }}
                         >
-                            {userProfileConstants.showFutureReservations}
+                            {t('reservations.buttons.showFutureReservations')}
                         </BigButtonDark>
                     </ToggleButtonsContainer>
 
@@ -101,6 +103,7 @@ const ReservationUser = () => {
                             isLoading={arePastReservationsLoading}
                             refetch={pastReservationsRefetch}
                             reservationType={reservationTypes.past}
+                            // reservationType={ {t('reservations.bullets.pastReservations')}}
                         />
                     )}
                     {activeTab === 'current' && (
@@ -109,6 +112,7 @@ const ReservationUser = () => {
                             isLoading={areCurrentReservationsLoading}
                             refetch={currentReservationsRefetch}
                             reservationType={reservationTypes.current}
+                            //  reservationType={{t('reservations.bullets.currentReservations')}}
                         />
                     )}
                     {activeTab === 'future' && (

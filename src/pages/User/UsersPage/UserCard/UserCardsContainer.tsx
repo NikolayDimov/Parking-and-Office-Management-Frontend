@@ -2,8 +2,11 @@ import { Container } from '../../../../components/CommonStyledElements';
 import { UserCardContainerProps } from './UserCard.static';
 import { UserCardsContainerWrapper } from './UserCard.styles';
 import UserCard from './UserCard';
+import { useTranslation } from 'react-i18next';
 
 const UserCardsContainer = ({ users, deleteUser, userReservations }: UserCardContainerProps) => {
+    const { t } = useTranslation();
+
     return (
         <Container>
             <UserCardsContainerWrapper>
@@ -17,7 +20,7 @@ const UserCardsContainer = ({ users, deleteUser, userReservations }: UserCardCon
                         />
                     ))
                 ) : (
-                    <p>No users available!</p>
+                    <p>{t('user.noUsers')}</p>
                 )}
             </UserCardsContainerWrapper>
         </Container>

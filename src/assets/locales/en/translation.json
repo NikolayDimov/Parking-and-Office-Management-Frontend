@@ -134,5 +134,43 @@
             "saveBtn": "Save",
             "closebtn": "Close"
         }
+    },
+
+    "user": {
+        "createUserBtn": "Create User",
+        "searchUser": "Search User...",
+        "allUsers": "All Users",
+        "noUsers": "No users available!",
+        "userContainer": {
+            "userReservations": "User reservations",
+            "deleteUser": "Delete"
+        }
+    },
+
+    "reservations": {
+        "bullets": {
+            "pastReservations": "Past Reservation",
+            "currentReservations": "Current Reservations",
+            "futureReservations": "Future Reservations"
+        },
+        "buttons": {
+            "showPastReservations": "Show Past Reservations",
+            "showCurrentReservations": "Show Current Reservations",
+            "showFutureReservations": "Show Future Reservations"
+        },
+        "table": {
+            "titlePast": "Past",
+            "titleCurrent": "Current",
+            "titleFuture": "Future",
+            "no": "No",
+            "reservation": "Reservations",
+            "spot": "Spot",
+            "spotDescription": "Spot Description",
+            "spotLocation": "Spot Location",
+            "comment": "Comment",
+            "start": "Start",
+            "end": "End",
+            "action": "Action"
+        }
     }
 }
