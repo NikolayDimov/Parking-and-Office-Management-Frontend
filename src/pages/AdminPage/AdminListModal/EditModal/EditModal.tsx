@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from '../../../../components/ModalList/Modal';
 import { ErrorStyles, HeaderModal, InputModal, ItemsModal, LabelModal } from './EditModal.style';
 import { useEditLocationModalLogic } from './EditModal.logic';
+import { useTranslation } from 'react-i18next';
 
 interface EditModalProps {
     isVisible: boolean;
@@ -28,6 +29,8 @@ const EditLocationModal: React.FC<EditModalProps> = ({
     setCurrentLocation,
     onConfirm,
 }) => {
+    const { t } = useTranslation();
+
     const {
         formErrors,
         newLocationName,
@@ -46,9 +49,9 @@ const EditLocationModal: React.FC<EditModalProps> = ({
 
     return (
         <Modal isVisible={isVisible} hideModal={hideModal} onConfirm={handleConfirm} showConfirmButton={true}>
-            <HeaderModal>Update Location</HeaderModal>
+            <HeaderModal>{t('admin.editModal.title')}</HeaderModal>
             <ItemsModal>
-                <LabelModal>Location Name</LabelModal>
+                <LabelModal>{t('admin.editModal.locationName')}</LabelModal>
                 <InputModal
                     type="text"
                     placeholder="Enter new location name"
@@ -65,7 +68,7 @@ const EditLocationModal: React.FC<EditModalProps> = ({
                 {formErrors.name && <ErrorStyles>{formErrors.name}</ErrorStyles>}
             </ItemsModal>
             <ItemsModal>
-                <LabelModal>Location City</LabelModal>
+                <LabelModal>{t('admin.editModal.locationCity')}</LabelModal>
                 <InputModal
                     type="text"
                     placeholder="Enter new location city"
@@ -82,7 +85,7 @@ const EditLocationModal: React.FC<EditModalProps> = ({
                 {formErrors.city && <ErrorStyles>{formErrors.city}</ErrorStyles>}
             </ItemsModal>
             <ItemsModal>
-                <LabelModal>Location Address</LabelModal>
+                <LabelModal>{t('admin.editModal.locationAddress')}</LabelModal>
                 <InputModal
                     type="text"
                     placeholder="Enter new location address"

@@ -4,8 +4,11 @@ import ImageInputField from '../../../components/InputField/ImageInputField';
 import InputField from '../../../components/InputField/InputField';
 import { BackButton, ListContainer } from '../FloorPlan.style';
 import { useCreateFloorPlan } from './CreateFloorPlan.logic';
+import { useTranslation } from 'react-i18next';
 
 const CreateNewFloorPlanForm = () => {
+    const { t } = useTranslation();
+
     const { formik, setImageFile, handleGoBack } = useCreateFloorPlan();
 
     return (
@@ -20,14 +23,14 @@ const CreateNewFloorPlanForm = () => {
                 </svg>
             </BackButton>
             <FormStyled onSubmit={formik.handleSubmit}>
-                <h3 className="form-title">Create new Floor Plan</h3>
+                <h3 className="form-title">{t('createNewFloorPlan.title')}</h3>
 
                 <InputField
                     type="name"
                     id="name"
                     name="name"
-                    label="Name"
-                    placeholder="Please enter location's name"
+                    label={t('createNewFloorPlan.name')}
+                    placeholder={t('createNewFloorPlan.namePlaceholder')}
                     onChange={formik.handleChange}
                 />
                 {formik.errors.name && formik.touched.name && <div className="error-message">{formik.errors.name}</div>}
@@ -36,7 +39,7 @@ const CreateNewFloorPlanForm = () => {
                     type="file"
                     id="imgUrl"
                     name="imgUrl"
-                    label="Image"
+                    label={t('createNewFloorPlan.image')}
                     placeholder="Please enter location's image"
                     onChange={(event) => {
                         const file = event.currentTarget.files?.[0] || null;
@@ -49,7 +52,7 @@ const CreateNewFloorPlanForm = () => {
                 )}
 
                 <BaseButton className="create-btn" type="submit">
-                    Create
+                    {t('createNewFloorPlan.createBtn')}
                 </BaseButton>
             </FormStyled>
         </ListContainer>

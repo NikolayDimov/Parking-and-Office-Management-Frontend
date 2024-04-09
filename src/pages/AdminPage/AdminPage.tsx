@@ -16,8 +16,10 @@ import { UserReservationsTableStyle } from '../../components/UserReservationsTab
 import Loader from '../../components/Loader/Loader';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { route } from '../../static/routes';
+import { useTranslation } from 'react-i18next';
 
 const AdminPage = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const {
@@ -43,7 +45,7 @@ const AdminPage = () => {
     }
 
     if (error) {
-        return <div>Error loading locations</div>;
+        return <div>{t('admin.error')}</div>;
     }
 
     return (
@@ -56,7 +58,7 @@ const AdminPage = () => {
                             backgroundColor: `var(--light-blue)`,
                         }}
                     >
-                        Create Location
+                        {t('admin.createLocationBtn')}
                     </BaseButtonCreateLocation>
                     <BaseButtonCreateLocation
                         onClick={handleManageUsersClick}
@@ -64,21 +66,21 @@ const AdminPage = () => {
                             backgroundColor: `var(--light-blue)`,
                         }}
                     >
-                        Manage Users
+                        {t('admin.manageUsers')}
                     </BaseButtonCreateLocation>
                 </ContainerCreate>
-                <SearchBar placeholder="Search locations" onSearch={setSearchQuery} />
+                <SearchBar placeholder={t('admin.searchLocations')} onSearch={setSearchQuery} />
             </ContainerCreateSearch>
 
             <UserReservationsTableStyle>
-                <caption>Location List</caption>
+                <caption>{t('admin.locationList')}</caption>
                 <thead>
                     <tr>
-                        <th className="table-head">Name</th>
-                        <th className="table-head">City</th>
-                        <th className="table-head">Address</th>
-                        <th className="table-head">Action</th>
-                        <th className="table-head">Floor Plan</th>
+                        <th className="table-head">{t('admin.name')}</th>
+                        <th className="table-head">{t('admin.city')}</th>
+                        <th className="table-head">{t('admin.address')}</th>
+                        <th className="table-head">{t('admin.action')}</th>
+                        <th className="table-head">{t('admin.floorPlan')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -131,7 +133,7 @@ const AdminPage = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={5}>No Locations available</td>
+                            <td colSpan={5}>{t('admin.noFloorPlansAvailable')}</td>
                         </tr>
                     )}
                 </tbody>

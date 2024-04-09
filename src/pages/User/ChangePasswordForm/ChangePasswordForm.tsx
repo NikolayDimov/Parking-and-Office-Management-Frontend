@@ -1,5 +1,4 @@
 import useChangePassword from './ChangePasswordForm.logic';
-import { BaseButton, FormButtonsContainer } from '../../../components/CommonStyledElements';
 import InputField from '../../../components/InputField/InputField';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -9,15 +8,18 @@ import {
     StyledPasswordForm,
 } from './ChangePasswordForm.styles';
 import { route } from '../../../static/routes';
+import { useTranslation } from 'react-i18next';
 
 const ChangePasswordForm = () => {
+    const { t } = useTranslation();
+
     const { formik } = useChangePassword();
     const navigate = useNavigate();
 
     return (
         <StyledPasswordForm onSubmit={formik.handleSubmit}>
             <div>
-                <label htmlFor="password">Current Password</label>
+                <label htmlFor="password">{t('changePassword.currentPassword')}</label>
                 <InputField
                     type="password"
                     name="password"
@@ -28,7 +30,7 @@ const ChangePasswordForm = () => {
                 {formik.errors.password && formik.touched.password ? <div>{formik.errors.password}</div> : null}
             </div>
             <div>
-                <label htmlFor="newPassword">New Password</label>
+                <label htmlFor="newPassword">{t('changePassword.newPassword')}</label>
                 <InputField
                     type="password"
                     name="newPassword"
@@ -41,7 +43,7 @@ const ChangePasswordForm = () => {
                 ) : null}
             </div>
             <div>
-                <label htmlFor="confirmPassword">Confirm Password</label>
+                <label htmlFor="confirmPassword">{t('changePassword.confirmPassword')}</label>
                 <InputField
                     type="password"
                     name="confirmPassword"
@@ -61,9 +63,9 @@ const ChangePasswordForm = () => {
                         navigate(route.home);
                     }}
                 >
-                    Close
+                    {t('changePassword.close')}
                 </BaseButtonCancel>
-                <BaseButtonSubmit type="submit">Change Password</BaseButtonSubmit>
+                <BaseButtonSubmit type="submit">{t('changePassword.changePassBtn')}</BaseButtonSubmit>
             </FormButtonsContainerPassword>
             {formik.errors.error ? <div>{formik.errors.error}</div> : null}
         </StyledPasswordForm>

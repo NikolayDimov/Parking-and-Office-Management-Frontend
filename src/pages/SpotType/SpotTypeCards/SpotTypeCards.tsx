@@ -72,7 +72,9 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                                     <ContentContainer>
                                         <SpotTypeParagraph>{spotType.name}</SpotTypeParagraph>
                                         {(spotType.name === 'Office desk' || spotType.name === 'Parking place') && (
-                                            <SpotTypeParagraphOccupancy>{`Occupancy Tomorrow: ${spotType.occupancy}%`}</SpotTypeParagraphOccupancy>
+                                            <SpotTypeParagraphOccupancy>
+                                                {t('locations.OccupancyTomorrow')} {`${spotType.occupancy}%`}
+                                            </SpotTypeParagraphOccupancy>
                                         )}
                                     </ContentContainer>
                                 </StyledCardLocation>

@@ -25,11 +25,11 @@ const InputStyle = styled.div`
         border-radius: 0.5rem;
         padding: 0.825rem 0.875rem;
         margin-bottom: 1rem;
-        width: 100%;
+        /* width: 100%; */
 
-        &:focus {
+        /* &:focus {
             border: red;
-        }
+        } */
 
         .image-input input {
             border: none;

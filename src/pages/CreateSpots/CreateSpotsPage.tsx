@@ -1,7 +1,7 @@
 import ImageMarker, { Marker } from 'react-image-marker';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
-import { DivFlexStyled } from './CreateSpotsPage.style';
+import { DivFlexStyled, Explanations } from './CreateSpotsPage.style';
 import { useCreateSpots } from './CreateSpotsPage.logic';
 import { BaseButton, Container, FormButtonsContainer } from '../../components/CommonStyledElements';
 import { useSpotsContext } from '../../context/SpotsContext';
@@ -9,8 +9,11 @@ import Loader from '../../components/Loader/Loader';
 import { BackButton } from '../FloorPlan/FloorPlan.style';
 import SpotCreationMarker from './SpotCreationMarker/SpotCreationMarker';
 import { ImageStyled } from '../FloorPlan/FloorPlanDetails/FloorPlanDetails.style';
+import { useTranslation } from 'react-i18next';
 
 export default function CreateSpots() {
+    const { t } = useTranslation();
+
     const navigate = useNavigate();
     const location = useLocation();
     const {
@@ -30,7 +33,7 @@ export default function CreateSpots() {
     }
 
     if (floorPlanError || spotsError) {
-        return <p>Error at Create Spots page</p>;
+        return <p>{t('createSpotPage.error')}</p>;
     }
 
     return (
@@ -46,12 +49,13 @@ export default function CreateSpots() {
             </BackButton>
             <FormButtonsContainer>
                 <BaseButton className="close-btn" onClick={handleClear}>
-                    Clear New Spots
+                    {t('createSpotPage.clearNewSpots')}
                 </BaseButton>
                 <BaseButton className="create-btn" onClick={createSpots}>
-                    Save All Spots
+                    {t('createSpotPage.saveAllSpots')}
                 </BaseButton>
             </FormButtonsContainer>
+            <Explanations>{t('createSpotPage.explanations')}</Explanations>
             <DivFlexStyled className="frame">
                 {floorPlan && existingSpots && (
                     <ImageStyled>

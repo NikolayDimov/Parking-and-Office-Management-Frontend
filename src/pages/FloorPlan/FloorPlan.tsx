@@ -1,9 +1,8 @@
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AddSpotIcon, ArrowIcon, BackButton, LinkFloorPlan, ListContainer } from './FloorPlan.style';
 import useModal from '../../components/ModalList/useModal';
 import DeleteFloorPlanModal from './FloorPlanDelete/FloorPlanDeleteModal';
 import useFloorPlan from './FloorPlan.logic';
-import { FaArrowLeft } from 'react-icons/fa';
 import { useSpotsContext } from '../../context/SpotsContext';
 import { StyledToolTip } from '../../components/CommonStyledElements';
 import EditIcon from '../../components/Icons/EditIcon/EditIcon';
@@ -11,8 +10,11 @@ import DeleteIcon from '../../components/Icons/DeleteIcon/DeleteIcon';
 import { UserReservationsTableStyle } from '../../components/UserReservationsTable/UserReservationsTable.styles';
 import { FloorPlan } from './FloorPlan.static';
 import { route } from '../../static/routes';
+import { useTranslation } from 'react-i18next';
 
 const FloorPlanPage = () => {
+    const { t } = useTranslation();
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -33,15 +35,15 @@ const FloorPlanPage = () => {
                 </svg>
             </BackButton>
             {isLoading ? (
-                <p>Loading...</p>
+                <p>{t('floorPlanList.loading')}...</p>
             ) : (
                 <UserReservationsTableStyle>
-                    <caption>Floor Plan List</caption>
+                    <caption>{t('floorPlanList.title')}</caption>
                     <thead>
                         <tr>
-                            <th className="table-head">Floor Plan</th>
-                            <th className="table-head">Open Floor Plan</th>
-                            <th className="table-head">Action</th>
+                            <th className="table-head">{t('floorPlanList.floorPlan')}</th>
+                            <th className="table-head">{t('floorPlanList.openFloorPlan')}</th>
+                            <th className="table-head">{t('floorPlanList.action')}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +56,7 @@ const FloorPlanPage = () => {
                                         <LinkFloorPlan
                                             to={`${route.floorPlan.replace(':locId', `${locId}`)}/${floorPlanItem.id}`}
                                         >
-                                            Show Floor Plan
+                                            {t('floorPlanList.showFloorPlan')}
                                             <ArrowIcon />
                                         </LinkFloorPlan>
                                     </td>
@@ -72,7 +74,7 @@ const FloorPlanPage = () => {
                                             maps_ugc
                                         </AddSpotIcon>
                                         <StyledToolTip id={`component_add_spots`} className="spot-info">
-                                            {<p>Add new spots to the floor plan</p>}
+                                            {<p>{t('floorPlanList.addNewSpotsToTheFloorPlan')}</p>}
                                         </StyledToolTip>
                                         <EditIcon
                                             onClick={() => {
@@ -96,7 +98,7 @@ const FloorPlanPage = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={4}>No floor plans available</td>
+                                <td colSpan={4}>{t('floorPlanList.addNewSpotsToTheFloorPlan')}</td>
                             </tr>
                         )}
                     </tbody>

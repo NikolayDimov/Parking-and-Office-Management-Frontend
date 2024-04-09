@@ -1,8 +1,125 @@
 {
     "home": {
-        "SelectLocation": "Select location"
+        "SelectLocation": "Select Location",
+        "card": {
+            "city": "City",
+            "office": "Office"
+        }
     },
+
+    "navbar": {
+        "home": "Home",
+        "reservations": "Reservations",
+        "admin": "Admin",
+        "reservationSummary": "Reservation Summary",
+        "profile": {
+            "accountSettings": "Account Settings",
+            "changePassword": "Change Password",
+            "logOut": "Log out"
+        }
+    },
+
     "locations": {
-        "PageTitle": "Reserve your spot at "
+        "PageTitle": "Reserve your spot at ",
+        "OccupancyTomorrow": "Occupancy Tomorrow",
+        "spotTypes": {
+            "officeDesk": "Office desk",
+            "conferenceRoom": "Conference room",
+            "phoneBooth": "Phone booth",
+            "parkingSpot": "Parking place"
+        }
+    },
+
+    "changePassword": {
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "close": "Close",
+        "changePassBtn": "Change Password"
+    },
+
+    "admin": {
+        "createLocationBtn": "Create Location",
+        "manageUsers": "Manage Users",
+        "searchLocations": "Search locations",
+        "locationList": "Location List",
+        "name": "Name",
+        "city": "City",
+        "address": "Address",
+        "action": "Action",
+        "floorPlan": "Floor Plan",
+        "error": "Error loading locations",
+        "editModal": {
+            "title": "Update Location",
+            "locationName": "Location Name",
+            "locationCity": "Location City",
+            "locationAddress": "Location Address",
+            "confirmBtn": "Confirm",
+            "closeBtn": "Close"
+        },
+        "deleteModal": {
+            "title": "Are you sure you want to delete this location?"
+        },
+        "noLocationsAvailable": "No Locations available"
+    },
+
+    "buttons": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "createFloorPlan": "Create new Floor Plan",
+        "seeAllFloorPlans": "See all Floor Plans for this location"
+    },
+
+    "createNewFloorPlan": {
+        "title": "Create new Floor Plan",
+        "createBtn": "Create",
+        "name": "Name",
+        "namePlaceholder": "Please enter location's name",
+        "image": "Image"
+    },
+
+    "floorPlanList": {
+        "loading": "Loading",
+        "title": "Floor Plan List",
+        "floorPlan": "Floor Plan",
+        "openFloorPlan": "Open Floor Plan",
+        "action": "Action",
+        "showFloorPlan": "Show Floor Plan",
+        "editModal": {
+            "title": "Update Floor Plan"
+        },
+        "deleteModal": {
+            "title": "Are you sure you want to delete this Floor Plan?"
+        },
+        "addNewSpotsToTheFloorPlan": "Add new spots to the Floor Plan",
+        "noFloorPlansAvailable": "No Floor Plans available",
+        "update": {
+            "title": "Update Floor Plan",
+            "name": "Name",
+            "updateBtn": "Update",
+            "closeBtn": "Close"
+        }
+    },
+
+    "createSpotPage": {
+        "error": "Error at Create Spots page",
+        "clearNewSpots": "Clear New Spots",
+        "saveAllSpots": "Save All Spots",
+        "explanations": "*For creating new Spot, please select position on the Floor Plan map and click",
+        "addSpotForm": {
+            "title": "Add new Spot",
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "placeHolderType": "Please enter Spot type",
+            "types": {
+                "Phone booth": "Phone booth",
+                "Office desk": "Office desk",
+                "Conference room": "Conference room",
+                "Parking place": "Parking Place"
+            },
+            "saveBtn": "Save",
+            "closebtn": "Close"
+        }
     }
 }
