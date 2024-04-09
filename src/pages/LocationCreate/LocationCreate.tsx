@@ -5,8 +5,11 @@ import InputField from '../../components/InputField/InputField';
 import { ListContainer } from '../AdminPage/AdminPage.style';
 import { BackButton } from '../FloorPlan/FloorPlan.style';
 import { useCreateLocation } from './LocationCreate.logic';
+import { useTranslation } from 'react-i18next';
 
 export default function LocationCreateForm() {
+    const { t } = useTranslation();
+
     const { formik, setImageFile, handleGoBack } = useCreateLocation();
 
     return (
@@ -21,14 +24,14 @@ export default function LocationCreateForm() {
                 </svg>
             </BackButton>
             <FormStyled onSubmit={formik.handleSubmit}>
-                <h3 className="form-title">Create new location</h3>
+                <h3 className="form-title">{t('createLocation.title')}</h3>
 
                 <InputField
                     type="name"
                     id="name"
                     name="name"
-                    label="Name"
-                    placeholder="Please enter location's name"
+                    label={t('createLocation.name')}
+                    placeholder={t('createLocation.placeholderName')}
                     onChange={formik.handleChange}
                 />
                 {formik.errors.name && formik.touched.name && <div className="error-message">{formik.errors.name}</div>}
@@ -37,8 +40,8 @@ export default function LocationCreateForm() {
                     type="name"
                     id="city"
                     name="city"
-                    label="City"
-                    placeholder="Please enter location's city"
+                    label={t('createLocation.city')}
+                    placeholder={t('createLocation.placeholderCity')}
                     onChange={formik.handleChange}
                 />
                 {formik.errors.city && formik.touched.city && <div className="error-message">{formik.errors.city}</div>}
@@ -47,8 +50,8 @@ export default function LocationCreateForm() {
                     type="name"
                     id="address"
                     name="address"
-                    label="Address"
-                    placeholder="Please enter location's address"
+                    label={t('createLocation.address')}
+                    placeholder={t('createLocation.placeholderCity')}
                     onChange={formik.handleChange}
                 />
                 {formik.errors.address && formik.touched.address && (
@@ -59,8 +62,8 @@ export default function LocationCreateForm() {
                     type="file"
                     id="imgUrl"
                     name="imgUrl"
-                    label="Image"
-                    placeholder="Please enter location's image"
+                    label={t('createLocation.image')}
+                    placeholder={t('createLocation.placeholderImage')}
                     onChange={(event) => {
                         const file = event.currentTarget.files?.[0] || null;
                         setImageFile(file);
@@ -72,7 +75,7 @@ export default function LocationCreateForm() {
                 )}
 
                 <BaseButton className="create-btn" type="submit">
-                    Create
+                    {t('createLocation.createBtn')}
                 </BaseButton>
             </FormStyled>
         </ListContainer>
