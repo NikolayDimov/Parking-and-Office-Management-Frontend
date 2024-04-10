@@ -32,13 +32,26 @@ const ContainerCreate = styled.div`
     justify-content: left;
 
     @media (max-width: 768px) {
-        flex-direction: column;
+        justify-content: center;
     }
 `;
 
 const BaseButtonCreateLocation = styled(BaseButton)`
     font-size: 1rem;
     padding: 0.93rem;
+
+    @media (max-width: 870px) {
+        padding: 0.93rem 0.43rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0.73rem 0.43rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (max-width: 440px) {
+        padding: 0.53rem 0.43rem;
+    }
 `;
 
 const LocationTableStyle = styled.table`
