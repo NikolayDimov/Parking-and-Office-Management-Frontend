@@ -13,8 +13,11 @@ import { BaseButton } from '../../../components/CommonStyledElements';
 import { useCalendar } from './Calendar.logic';
 import { useEffect } from 'react';
 import { dataProps } from './Calendar.static';
+import { useTranslation } from 'react-i18next';
 
 const CalendarPage = ({ sendDateTime = () => {}, spotType }: dataProps) => {
+    const { t } = useTranslation();
+
     const {
         dateTime,
         handleMakeReservation,
@@ -49,7 +52,7 @@ const CalendarPage = ({ sendDateTime = () => {}, spotType }: dataProps) => {
                                 <StyledTimePickerContainer>
                                     {state[0]?.startDate && (
                                         <StyledTimePicker>
-                                            <label>Start Time:</label>
+                                            <label>{t('calendar.startTime')}</label>
                                             <Select
                                                 options={timeOptions}
                                                 value={
@@ -70,7 +73,7 @@ const CalendarPage = ({ sendDateTime = () => {}, spotType }: dataProps) => {
                                             />
                                             {state[0]?.endDate && (
                                                 <>
-                                                    <label>End Time:</label>
+                                                    <label>{t('calendar.endTime')}</label>
                                                     <Select
                                                         options={endTimeOptions.filter((option) => !option.isDisabled)}
                                                         value={
@@ -103,7 +106,7 @@ const CalendarPage = ({ sendDateTime = () => {}, spotType }: dataProps) => {
                             handleMakeReservation();
                         }}
                     >
-                        Set Reservation Period
+                        {t('calendar.setReservationPeriodBtn')}
                     </BaseButton>
                 </StyledAppContainer>
             </CalendarContainer>

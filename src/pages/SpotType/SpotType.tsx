@@ -4,8 +4,11 @@ import useSpotTypeCard from './SpotTypeCards/SpotTypeCards.logic';
 import { ChooseLocationContainer } from './SpotType.style';
 import { useChoseLocation, useFutureReservationsByUserIdAndLocation, useLocationBackBtn } from './SpotType.logic';
 import { BackButton } from '../FloorPlan/FloorPlan.style';
+import { useTranslation } from 'react-i18next';
 
 const SpotType = () => {
+    const { t } = useTranslation();
+
     const { singleLocation, isLoading: loadingLocation, error: errorLocation, userId } = useChoseLocation();
     const { spotTypeByLocationId, isLoading: loadingSpotType, error: errorSpotType } = useSpotTypeCard();
     const { areFutureReservationsLoading } = useFutureReservationsByUserIdAndLocation(userId);
@@ -21,7 +24,7 @@ const SpotType = () => {
     }
 
     if (hasError) {
-        return <div>Error loading data</div>;
+        return <div>{t('locations.error')}</div>;
     }
     return (
         <ChooseLocationContainer>

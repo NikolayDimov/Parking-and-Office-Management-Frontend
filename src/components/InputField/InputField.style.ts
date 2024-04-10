@@ -18,14 +18,13 @@ const InputStyle = styled.div`
     input {
         font-size: 1rem;
         font-weight: 400;
-        width: 15.625rem;
+        width: 17.5rem;
         color: var(--dark-grey);
         background: var(white-smoke);
         box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
         border-radius: 0.5rem;
         padding: 0.825rem 0.875rem;
         margin-bottom: 1rem;
-        /* width: 100%; */
 
         /* &:focus {
             border: red;
