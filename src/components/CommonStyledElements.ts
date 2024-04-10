@@ -95,7 +95,7 @@ const BaseButton = styled.button`
 
     &.edit-btn,
     &.create-btn {
-        background-color: var(--blue-green-light);
+        background-color: var(--light-blue);
         margin: 0.5rem;
     }
     &.close-btn {

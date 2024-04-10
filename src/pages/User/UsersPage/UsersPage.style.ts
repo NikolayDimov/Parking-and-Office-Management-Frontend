@@ -17,7 +17,7 @@ const UserPageMainButtonsContainer = styled(Container)`
 const BaseButtonCreateUser = styled(BaseButton)`
     font-size: 1rem;
     padding: 0.9375rem;
-    background-color: var(--blue-green-light);
+    background-color: var(--light-blue);
 `;
 
 const ListContainer = styled.div`

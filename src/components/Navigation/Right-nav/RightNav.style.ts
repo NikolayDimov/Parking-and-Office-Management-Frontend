@@ -164,6 +164,23 @@ const ContainerInsideSettings = styled.div`
     }
 `;
 
+const ContainerInsideSettingsPass = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--light-blue-nav);
+        margin-right: 1rem;
+    }
+`;
+
 const InsideContainer = styled.div`
     box-shadow: inset 0px 3px 10px -4px #615757;
     transition: transform 4s ease;
@@ -178,10 +195,38 @@ const InsideContainer = styled.div`
 //     opacity: ${(props) => (props.$show ? '1' : '0')};
 //     max-height: ${(props) => (props.$show ? '1000px' : '0')};
 //     overflow: hidden;
-//     transition:
-//         opacity 2s ease-in-out,
-//         max-height 2s ease-in-out; /* Adjust the transition duration */
+//     transition: opacity 0.5s ease-in-out;
+//     max-height 0.5s ease-in-out;
 // `;
+
+interface LanguageButtonProps {
+    isActive: boolean;
+    onClick: () => void;
+}
+
+const LanguageSelectionContainer = styled.div`
+    display: flex;
+    gap: 10px;
+`;
+
+const LanguageButton = styled.button<LanguageButtonProps>`
+    padding: 4px 8px;
+    background-color: ${(props) => (props.isActive ? '#007bff' : '#ffffff')};
+    color: ${(props) => (props.isActive ? '#ffffff' : '#007bff')};
+    border: 2px solid ${(props) => (props.isActive ? '#007bff' : '#cccccc')};
+    border-radius: 4px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        border-color 0.3s;
+
+    &:hover {
+        background-color: ${(props) => (props.isActive ? '#0056b3' : '#e9f5ff')};
+        color: ${(props) => (props.isActive ? '#ffffff' : '#0056b3')};
+        border-color: ${(props) => (props.isActive ? '#0056b3' : '#cccccc')};
+    }
+`;
 
 export {
     Ul,
@@ -195,4 +240,7 @@ export {
     ContainerSettings,
     InsideContainer,
     ContainerInsideSettings,
+    ContainerInsideSettingsPass,
+    LanguageSelectionContainer,
+    LanguageButton,
 };

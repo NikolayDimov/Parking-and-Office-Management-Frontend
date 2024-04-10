@@ -37,9 +37,10 @@ const UserCardsContainerWrapper = styled.div`
     gap: 3.875rem;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 
     &::before {
         content: '';

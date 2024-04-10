@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const UserReservationsTableStyle = styled.table`
     width: 100%;
     margin: 0 auto;
-    margin: 1rem 0;
+    margin: 3rem 0;
     text-align: center;
     font-size: 1.2rem;
 
     caption {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 
     .table-head {
