@@ -15,7 +15,7 @@ const Home = () => {
     }
 
     if (error) {
-        return <div>Error loading locations</div>;
+        return <div>{t('home.error')}</div>;
     }
 
     return (
@@ -31,7 +31,7 @@ const Home = () => {
                     </ul>
                 </ListContainer>
             ) : (
-                <div>No locations available</div>
+                <div>{t('home.noLocations')}</div>
             )}
         </HomeContainer>
     );

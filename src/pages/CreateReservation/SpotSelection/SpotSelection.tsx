@@ -3,8 +3,11 @@ import Modal from '../../../components/Modal/Modal';
 import { FormStyled } from '../../CreateSpots/AddSpotForm/AddSpotForm.style';
 import InputField from '../../../components/InputField/InputField';
 import { useReserveSpot } from './SpotSelection.logic';
+import { useTranslation } from 'react-i18next';
 
 export default function SpotSelection() {
+    const { t } = useTranslation();
+
     const { formik, navigate, spotProps, startPeriodDate, startPeriodTime, endPeriodDate, endPeriodTime } =
         useReserveSpot();
 
@@ -13,21 +16,41 @@ export default function SpotSelection() {
             {spotProps && (
                 <>
                     <h3>{spotProps.name}</h3>
-                    <p>Spot type: {spotProps.spotType}</p>
-                    <p>Description: {spotProps.description}</p>
+                    <p>
+                        {t('spotSelection.spotType')} {spotProps.spotType}
+                    </p>
+                    <p>
+                        {t('spotSelection.description')} {spotProps.description}
+                    </p>
                     {spotProps.spotType === 'Office desk' || spotProps.spotType === 'Parking place' ? (
                         <div>
-                            Reservation period:
-                            <p>from: {startPeriodDate}</p>
-                            <p>to: {endPeriodDate}</p>
-                            {spotProps.user && <p>user: {spotProps.user.email}</p>}
+                            {t('spotSelection.reservationPeriod')}
+                            <p>
+                                {t('spotSelection.from')} {startPeriodDate}
+                            </p>
+                            <p>
+                                {t('spotSelection.to')} {endPeriodDate}
+                            </p>
+                            {spotProps.user && (
+                                <p>
+                                    {t('spotSelection.user')} {spotProps.user.email}
+                                </p>
+                            )}
                         </div>
                     ) : (
                         <div>
-                            Reservation period: on {startPeriodDate}
-                            <p>from: {startPeriodTime}</p>
-                            <p>to: {endPeriodTime}</p>
-                            {spotProps.user && <p>user: {spotProps.user.email}</p>}
+                            {t('spotSelection.reservationPeriod')} on {startPeriodDate}
+                            <p>
+                                {t('spotSelection.from')} {startPeriodTime}
+                            </p>
+                            <p>
+                                {t('spotSelection.to')} {endPeriodTime}
+                            </p>
+                            {spotProps.user && (
+                                <p>
+                                    {t('spotSelection.user')} {spotProps.user.email}
+                                </p>
+                            )}
                         </div>
                     )}
                 </>
@@ -38,13 +61,13 @@ export default function SpotSelection() {
                     type="text"
                     name={'comment'}
                     id={'comment'}
-                    label="Add comment:"
+                    label={t('spotSelection.addCommentLabel')}
                     onChange={formik.handleChange}
                 />
                 {formik.errors.comment && formik.touched.comment ? <div>{formik.errors.comment}</div> : null}
 
                 <FormButtonsContainer>
-                    <BaseButton type={'submit'}>Add reservation</BaseButton>
+                    <BaseButton type={'submit'}>{t('spotSelection.addReservationBtn')}</BaseButton>
                     <BaseButton
                         type="button"
                         className="close-btn"
@@ -52,7 +75,7 @@ export default function SpotSelection() {
                             navigate(-1);
                         }}
                     >
-                        Close
+                        {t('spotSelection.closeBtn')}
                     </BaseButton>
                 </FormButtonsContainer>
                 {formik.errors.error ? <div>{formik.errors.error}</div> : null}

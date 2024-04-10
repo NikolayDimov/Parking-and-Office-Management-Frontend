@@ -1,10 +1,32 @@
 {
+    "login": {
+        "loginTitle": "Login",
+        "email": "Email",
+        "password": "Password",
+        "loginBtn": "Login"
+    },
+
+    "register": {
+        "registerTitle": "Register",
+        "email": "Email",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Email must end with @yara.com",
+        "password": "Password",
+        "passwordRequired": "Password is required",
+        "passwordMin": "Password is too short - should be 6 chars minimum.",
+        "passwordMax": "Password is too long - should be 32 chars maximum.",
+        "passwordInvalid": "Password must contain at least one letter, one number, and one special character.",
+        "registerBtn": "Register"
+    },
+
     "home": {
+        "error": "Error loading locations",
         "SelectLocation": "Select Location",
         "card": {
             "city": "City",
             "office": "Office"
-        }
+        },
+        "noLocations": "No locations available"
     },
 
     "navbar": {
@@ -20,13 +42,16 @@
     },
 
     "locations": {
+        "error": "Error loading data",
         "PageTitle": "Reserve your spot at ",
-        "OccupancyTomorrow": "Occupancy Tomorrow",
+        "occupancyTomorrow": "Occupancy Tomorrow",
+        "missingLocation": "The chosen location is missing",
+        "noSpotTypeData": "No Spot Types Data",
         "spotTypes": {
-            "officeDesk": "Office desk",
-            "conferenceRoom": "Conference room",
-            "phoneBooth": "Phone booth",
-            "parkingSpot": "Parking place"
+            "Office desk": "Office desk",
+            "Conference room": "Conference room",
+            "Phone booth": "Phone booth",
+            "Parking place": "Parking place"
         }
     },
 
@@ -195,5 +220,23 @@
         "comment": "Comment: ",
         "addNewReservationBtn": "Add new reservation",
         "confirmBtn": "Confirm"
+    },
+
+    "calendar": {
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "setReservationPeriodBtn": "Set Reservation Period"
+    },
+
+    "spotSelection": {
+        "spotType": "Spot type: ",
+        "description": "Description: ",
+        "reservationPeriod": "Reservation period: ",
+        "from": "from: ",
+        "to": "to: ",
+        "user": "user: ",
+        "addCommentLabel": "Add comment:",
+        "addReservationBtn": "Add reservation",
+        "closeBtn": "Close"
     }
 }

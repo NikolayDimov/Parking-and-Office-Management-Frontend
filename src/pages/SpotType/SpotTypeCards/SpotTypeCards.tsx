@@ -34,22 +34,23 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
     const renderImage = (name: string) => {
         switch (name) {
             case 'Office desk':
-                return <SpotTypeImage src={officeDeskPhoto} alt="Office desk" />;
+                return <SpotTypeImage src={officeDeskPhoto} alt={t('locations.spotTypes.officeDesk')} />;
             case 'Conference room':
-                return <SpotTypeImage src={conferenceRoom} alt="Conference room" />;
+                return <SpotTypeImage src={conferenceRoom} alt={t('locations.spotTypes.conferenceRoom')} />;
             case 'Phone booth':
-                return <SpotTypeImage src={phoneBooth} alt="Phone booth" />;
+                return <SpotTypeImage src={phoneBooth} alt={t('locations.spotTypes.phoneBooth')} />;
             case 'Parking place':
-                return <SpotTypeImage src={parkingSpot} alt="Parking spot" />;
+                return <SpotTypeImage src={parkingSpot} alt={t('locations.spotTypes.parkingSpot')} />;
             default:
                 return null;
         }
     };
+
     return (
         <Container>
-            {!singleLocation && <PageTitle>The chosen location is missing</PageTitle>}
+            {!singleLocation && <PageTitle>{t('locations.missingLocation')}</PageTitle>}
             {updatedSpotTypeData.length === 0 ? (
-                <PageTitle>No Spot Types Data</PageTitle>
+                <PageTitle>{t('locations.noSpotTypeData')}</PageTitle>
             ) : (
                 <>
                     <PageTitle>
@@ -70,10 +71,12 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                                 <StyledCardLocation>
                                     <SpotTypeImageContainer>{renderImage(spotType.name)}</SpotTypeImageContainer>
                                     <ContentContainer>
-                                        <SpotTypeParagraph>{spotType.name}</SpotTypeParagraph>
+                                        <SpotTypeParagraph>
+                                            {t(`locations.spotTypes.${spotType.name}`)}
+                                        </SpotTypeParagraph>
                                         {(spotType.name === 'Office desk' || spotType.name === 'Parking place') && (
                                             <SpotTypeParagraphOccupancy>
-                                                {t('locations.OccupancyTomorrow')} {`${spotType.occupancy}%`}
+                                                {t('locations.occupancyTomorrow')} {`${spotType.occupancy}%`}
                                             </SpotTypeParagraphOccupancy>
                                         )}
                                     </ContentContainer>

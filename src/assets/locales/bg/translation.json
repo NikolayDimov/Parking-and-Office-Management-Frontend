@@ -1,10 +1,26 @@
 {
+    "login": {
+        "loginTitle": "Вход",
+        "email": "Електронна поща",
+        "password": "Парола",
+        "loginBtn": "Вход"
+    },
+
+    "register": {
+        "registerTitle": "Регистрация",
+        "email": "Електронна поща",
+        "password": "Парола",
+        "registerBtn": "Регистрация"
+    },
+
     "home": {
+        "error": "Грешка при зареждане на локацията",
         "SelectLocation": "Избери Локация",
         "card": {
             "city": "Град",
             "office": "Офис"
-        }
+        },
+        "noLocations": "Няма налични локации"
     },
 
     "navbar": {
@@ -20,13 +36,16 @@
     },
 
     "locations": {
+        "error": "Грешка при зареждане на данни",
         "PageTitle": "Запази своето място в ",
-        "OccupancyTomorrow": "Заетост за утре",
+        "occupancyTomorrow": "Заетост за утре",
+        "missingLocation": "Избраната локация липсва",
+        "noSpotTypeData": "Няма налични данни",
         "spotTypes": {
-            "officeDesk": "Офис бюро",
-            "conferenceRoom": "Конферентна зала",
-            "phoneBooth": "Телефонна будка",
-            "parkingSpot": "Паркомясто"
+            "Office desk": "Офис бюро",
+            "Conference room": "Конферентна зала",
+            "Phone booth": "Телефонна будка",
+            "Parking place": "Паркомясто"
         }
     },
 
@@ -60,7 +79,7 @@
         "city": "Град",
         "address": "Адрес",
         "action": "Действие",
-        "floorPlan": "План на Етажа",
+        "floorPlan": "Схема на Етажа",
         "error": "Грешка при зареждане на локациите",
         "editModal": {
             "title": "Обновяване на Локацията",
@@ -79,12 +98,12 @@
     "buttons": {
         "edit": "Редакция",
         "delete": "Изтриване",
-        "createFloorPlan": "Създай нов план на етажа",
-        "seeAllFloorPlans": "Виж всички планове на етажа за тази локация"
+        "createFloorPlan": "Създай нов Схема на етажа",
+        "seeAllFloorPlans": "Виж всички схеми на етажа за тази локация"
     },
 
     "createNewFloorPlan": {
-        "title": "Създаване на нов план на етажа",
+        "title": "Създаване на нов Схема на етажа",
         "createBtn": "Създай",
         "name": "Име",
         "namePlaceholder": "Моля, въведете име на локацията",
@@ -93,21 +112,21 @@
 
     "floorPlanList": {
         "loading": "Зареждане",
-        "title": "Списък с Планове на етажа",
-        "floorPlan": "План на етажа",
-        "openFloorPlan": "Отвори План на етажа",
+        "title": "Списък с схеми на етажа",
+        "floorPlan": "Схема на етажа",
+        "openFloorPlan": "Отвори Схема на етажа",
         "action": "Действие",
-        "showFloorPlan": "Покажи План на етажа",
+        "showFloorPlan": "Покажи Схема на етажа",
         "editModal": {
-            "title": "Актуализиране на Плана на етажа"
+            "title": "Актуализиране на Схемата на етажа"
         },
         "deleteModal": {
-            "title": "Сигурни ли сте, че искате да изтриете този План на етажа?"
+            "title": "Сигурни ли сте, че искате да изтриете този Схема на етажа?"
         },
-        "addNewSpotsToTheFloorPlan": "Добавяне на нови места към Плана на етажа",
-        "noFloorPlansAvailable": "Няма налични Планове на етажа",
+        "addNewSpotsToTheFloorPlan": "Добавяне на нови места към Схемата на етажа",
+        "noFloorPlansAvailable": "Няма налични схеми на етажа",
         "update": {
-            "title": "Актуализиране на Плана",
+            "title": "Актуализиране на Схемата",
             "name": "Име",
             "updateBtn": "Актуализиране",
             "closeBtn": "Затвори"
@@ -118,7 +137,7 @@
         "error": "Грешка на страницата за създаване на места",
         "clearNewSpots": "Изчисти новите места",
         "saveAllSpots": "Запази всички места",
-        "explanations": "*За създаване на ново място, моля изберете позиция на картата от Плана на етажа и кликнете",
+        "explanations": "*За създаване на ново място, моля изберете позиция на картата от Схемата на етажа и кликнете",
         "addSpotForm": {
             "title": "Добавяне на ново място",
             "name": "Име",
@@ -177,7 +196,7 @@
     "createReservation": {
         "error": "Грешка при създаване на резервация",
         "calendar": "Календар",
-        "selectFloorPlan": "Изберете План:",
+        "selectFloorPlan": "Изберете Схема:",
         "adminReservationUser": "Създаване на резервация от Администратор:",
         "selectUser": "Изберете Потребител",
         "selectOption": "Изберете опция",
@@ -195,5 +214,23 @@
         "comment": "Коментар: ",
         "addNewReservationBtn": "Добавяне на нова резервация",
         "confirmBtn": "Потвърди"
+    },
+
+    "calendar": {
+        "startTime": "Начален час",
+        "endTime": "Краен час",
+        "setReservationPeriodBtn": "Задай период за резервация"
+    },
+
+    "spotSelection": {
+        "spotType": "Тип на място: ",
+        "description": "Описание: ",
+        "reservationPeriod": "Период на резервация: ",
+        "from": "от: ",
+        "to": "до: ",
+        "user": "потребител: ",
+        "addCommentLabel": "Добави коментар:",
+        "addReservationBtn": "Добави резервация",
+        "closeBtn": "Затвори"
     }
 }

@@ -1,10 +1,26 @@
 {
+    "login": {
+        "loginTitle": "Anmelden",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "loginBtn": "Anmelden"
+    },
+
+    "register": {
+        "registerTitle": "Registrieren",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "registerBtn": "Registrieren"
+    },
+
     "home": {
+        "error": "Fehler beim Laden der Standorte",
         "SelectLocation": "Ort Auswählen",
         "card": {
             "city": "Stadt",
             "office": "Büro"
-        }
+        },
+        "noLocations": "Keine Standorte verfügbar"
     },
 
     "navbar": {
@@ -20,13 +36,16 @@
     },
 
     "locations": {
-        "PageTitle": "Запази своето място в ",
-        "OccupancyTomorrow": "Belegung Morgen",
+        "error": "Fehler beim Laden der Daten",
+        "PageTitle": "Reserviere deinen Platz bei ",
+        "occupancyTomorrow": "Belegung Morgen",
+        "missingLocation": "Der gewählte Standort fehlt",
+        "noSpotTypeData": "Keine Daten zu Spot-Typen verfügbar",
         "spotTypes": {
-            "officeDesk": "Schreibtisch",
-            "conferenceRoom": "Konferenzraum",
-            "phoneBooth": "Telefonzelle",
-            "parkingSpot": "Parkplatz"
+            "Office desk": "Schreibtisch",
+            "Conference room": "Konferenzraum",
+            "Phone booth": "Telefonzelle",
+            "Parking place": "Parkplatz"
         }
     },
 
@@ -195,5 +214,23 @@
         "comment": "Kommentar: ",
         "addNewReservationBtn": "Neue Reservierung hinzufügen",
         "confirmBtn": "Bestätigen"
+    },
+
+    "calendar": {
+        "startTime": "Startzeit",
+        "endTime": "Endzeit",
+        "setReservationPeriodBtn": "Reservierungszeitraum festlegen"
+    },
+
+    "spotSelection": {
+        "spotType": "Spot-Typ: ",
+        "description": "Beschreibung: ",
+        "reservationPeriod": "Reservierungszeitraum: ",
+        "from": "von: ",
+        "to": "bis: ",
+        "user": "Benutzer: ",
+        "addCommentLabel": "Kommentar hinzufügen:",
+        "addReservationBtn": "Reservierung hinzufügen",
+        "closeBtn": "Schließen"
     }
 }
