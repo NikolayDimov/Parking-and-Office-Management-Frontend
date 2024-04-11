@@ -12,9 +12,9 @@ import { BaseButton, Container, PageTitle } from '../../../components/CommonStyl
 import { SpotType } from './SpotTypeCards.static';
 import { Location } from '../SpotType.static';
 import { route } from '../../../static/routes';
-import officeDeskPhoto from '../../../assets/office-desk.jpg';
-import conferenceRoom from '../../../assets/conference-room.jpg';
-import phoneBooth from '../../../assets/phone-booth.jpg';
+import officeDeskPhoto from '../../../assets/yara-desk.jpeg';
+import conferenceRoom from '../../../assets/yara-conference.jpeg';
+import phoneBooth from '../../../assets/yara-phone.jpeg';
 import parkingSpot from '../../../assets/parking-spot.jpg';
 import { SpotTypeCardsOccupancyLogic } from './SpotsOccupancyLogic';
 import { useTranslation } from 'react-i18next';
