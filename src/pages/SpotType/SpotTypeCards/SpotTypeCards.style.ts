@@ -2,13 +2,21 @@ import styled from 'styled-components';
 
 const SpotTypeContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: stretch;
-    gap: 1.25rem;
-    margin: 3rem auto;
+    gap: 2rem;
+    margin: 1rem auto;
     border-radius: 0.5rem;
     text-align: center;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+
+        a {
+            margin: 0 auto;
+        }
+    }
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -21,6 +29,10 @@ const SpotTypeContainer = styled.div`
 
 const SpotTypeImageContainer = styled.div`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
 `;
 
 const SpotTypeParagraph = styled.p`
@@ -33,7 +45,7 @@ const SpotTypeParagraphOccupancy = styled.p`
 
 const SpotTypeImage = styled.img`
     width: 100%;
-    height: 14rem;
+    height: 20rem;
     margin-bottom: 0.625rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -42,7 +54,7 @@ const SpotTypeImage = styled.img`
 
 const StyledCardLocation = styled.div`
     border: 1px solid #aaaaaa;
-    width: 100%;
+    height: auto;
     margin: 0 auto;
     border-radius: 0.5rem;
     display: flex;
@@ -60,6 +72,45 @@ const StyledCardLocation = styled.div`
 
 const ContentContainer = styled.div`
     height: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+`;
+
+const BaseButtonCard = styled.button`
+    align-self: center;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 0.625rem;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    outline: none;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 0.5rem;
+
+    @media (max-width: 1100px) {
+        grid-template-columns: 1fr;
+
+        width: 100%;
+        box-shadow: none;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        width: 100%;
+        box-shadow: none;
+        margin: 0 auto;
+    }
 `;
 
 export {
@@ -70,4 +121,5 @@ export {
     StyledCardLocation,
     SpotTypeParagraphOccupancy,
     ContentContainer,
+    BaseButtonCard,
 };
