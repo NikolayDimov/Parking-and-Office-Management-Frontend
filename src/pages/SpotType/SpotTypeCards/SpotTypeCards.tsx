@@ -7,14 +7,15 @@ import {
     StyledCardLocation,
     SpotTypeParagraphOccupancy,
     ContentContainer,
+    BaseButtonCard,
 } from './SpotTypeCards.style';
-import { BaseButton, Container, PageTitle } from '../../../components/CommonStyledElements';
+import { Container, PageTitle } from '../../../components/CommonStyledElements';
 import { SpotType } from './SpotTypeCards.static';
 import { Location } from '../SpotType.static';
 import { route } from '../../../static/routes';
-import officeDeskPhoto from '../../../assets/yara-desk.jpeg';
-import conferenceRoom from '../../../assets/yara-conference.jpeg';
-import phoneBooth from '../../../assets/yara-phone.jpeg';
+import officeDeskPhoto from '../../../assets/office-desk_1.jpeg';
+import conferenceRoom from '../../../assets/conference_1.jpeg';
+import phoneBooth from '../../../assets/phone-booth_1.jpeg';
 import parkingSpot from '../../../assets/parking-spot.jpg';
 import { SpotTypeCardsOccupancyLogic } from './SpotsOccupancyLogic';
 import { useTranslation } from 'react-i18next';
@@ -59,7 +60,7 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                     </PageTitle>
                     <SpotTypeContainer>
                         {updatedSpotTypeData?.map((spotType) => (
-                            <BaseButton
+                            <BaseButtonCard
                                 key={spotType.id}
                                 className="spot-type-card"
                                 onClick={() => {
@@ -81,7 +82,7 @@ const SpotTypeCards: React.FC<SpotTypeCardProps> = ({ singleLocation, spotTypeDa
                                         )}
                                     </ContentContainer>
                                 </StyledCardLocation>
-                            </BaseButton>
+                            </BaseButtonCard>
                         ))}
                     </SpotTypeContainer>
                 </>
