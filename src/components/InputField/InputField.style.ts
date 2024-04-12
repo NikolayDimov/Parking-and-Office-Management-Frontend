@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const InputStyle = styled.div`
-    margin-top: 1rem;
     margin-inline-end: auto;
     margin-inline-start: auto;
 
@@ -12,13 +11,12 @@ const InputStyle = styled.div`
         display: block;
         text-align: left;
         padding-left: 0.8rem;
-        margin-bottom: 0.25rem;
     }
 
     input {
         font-size: 1rem;
         font-weight: 400;
-        width: 17.5rem;
+        width: 100%;
         color: var(--dark-grey);
         background: var(white-smoke);
         box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
@@ -26,12 +24,20 @@ const InputStyle = styled.div`
         padding: 0.825rem 0.875rem;
         margin-bottom: 1rem;
 
-        /* &:focus {
-            border: red;
-        } */
+        &:focus {
+            border-color: red;
+            outline: none;
+        }
+
+        &.error {
+            border: 1px solid red;
+        }
 
         .image-input input {
             border: none;
+        }
+        .p {
+            color: red;
         }
     }
 
@@ -46,8 +52,8 @@ const InputStyle = styled.div`
     }
 
     &.error {
-        color: var(--red);
-        font-size: var(--font-size-sm);
+        color: red;
+        /* font-size: var(--font-size-sm); */
         font-weight: 500;
         margin-left: 1.2rem;
         margin-top: 0.4rem;
@@ -62,4 +68,5 @@ const InputStyle = styled.div`
         }
     }
 `;
+
 export default InputStyle;

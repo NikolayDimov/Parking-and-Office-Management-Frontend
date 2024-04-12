@@ -5,6 +5,7 @@ import {
     BaseButtonCancel,
     BaseButtonSubmit,
     FormButtonsContainerPassword,
+    InputContainer,
     StyledPasswordForm,
 } from './ChangePasswordForm.styles';
 import { route } from '../../../static/routes';
@@ -18,7 +19,7 @@ const ChangePasswordForm = () => {
 
     return (
         <StyledPasswordForm onSubmit={formik.handleSubmit}>
-            <div>
+            <InputContainer>
                 <label htmlFor="password">{t('changePassword.currentPassword')}</label>
                 <InputField
                     type="password"
@@ -28,8 +29,8 @@ const ChangePasswordForm = () => {
                     value={formik.values.password}
                 />
                 {formik.errors.password && formik.touched.password ? <div>{formik.errors.password}</div> : null}
-            </div>
-            <div>
+            </InputContainer>
+            <InputContainer>
                 <label htmlFor="newPassword">{t('changePassword.newPassword')}</label>
                 <InputField
                     type="password"
@@ -41,8 +42,8 @@ const ChangePasswordForm = () => {
                 {formik.errors.newPassword && formik.touched.newPassword ? (
                     <div>{formik.errors.newPassword}</div>
                 ) : null}
-            </div>
-            <div>
+            </InputContainer>
+            <InputContainer>
                 <label htmlFor="confirmPassword">{t('changePassword.confirmPassword')}</label>
                 <InputField
                     type="password"
@@ -54,7 +55,7 @@ const ChangePasswordForm = () => {
                 {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
                     <div>{formik.errors.confirmPassword}</div>
                 ) : null}
-            </div>
+            </InputContainer>
             <FormButtonsContainerPassword>
                 <BaseButtonCancel
                     type="button"

@@ -27,6 +27,14 @@ const StyledPasswordForm = styled.form`
     }
 `;
 
+const InputContainer = styled.div`
+    padding: 0.625rem 1.25rem;
+
+    .div {
+        color: red;
+    }
+`;
+
 const UpdateButtonContainer = styled.div`
     position: relative;
     z-index: 2;
@@ -202,4 +210,5 @@ export {
     BaseButtonSubmit,
     BaseButtonCancel,
     FormButtonsContainerPassword,
+    InputContainer,
 };
