@@ -14,7 +14,7 @@ const ModalOverlay = styled.div<ModalProps>`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 2000;
 `;
 
 const StyledModalContainer = styled.div<ModalProps>`

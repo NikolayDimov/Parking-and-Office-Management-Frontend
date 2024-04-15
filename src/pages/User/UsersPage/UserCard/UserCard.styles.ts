@@ -4,7 +4,6 @@ import ImgSrc from '../../../../assets/wheat_image.jpg';
 
 const StyledUserCard = styled.div`
     position: relative;
-    z-index: 2;
     border: 1px solid #aaaaaa;
     width: 100%;
     margin: 0 auto;
