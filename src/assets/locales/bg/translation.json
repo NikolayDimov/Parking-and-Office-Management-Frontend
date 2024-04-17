@@ -232,5 +232,14 @@
         "addCommentLabel": "Добави коментар:",
         "addReservationBtn": "Добави резервация",
         "closeBtn": "Затвори"
+    },
+
+    "conference-room": {
+        "title": "Резервации за конферентна зала ",
+        "nextReservations": "Следващи резервации",
+        "startTime": "Начален час",
+        "endTime": "Краен час",
+        "timeNow": "Сегашно време",
+        "noReservations": "Няма резервации"
     }
 }

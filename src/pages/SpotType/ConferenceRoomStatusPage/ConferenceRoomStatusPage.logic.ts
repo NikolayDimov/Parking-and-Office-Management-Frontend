@@ -7,7 +7,7 @@ import { Location } from '../SpotType.static';
 
 const useConferenceRoomStatus = (locationId: string | undefined) => {
     const [singleLocation, setSingleLocation] = useState<Location | undefined>();
-
+    const [backgroundColor, setBackgroundColor] = useState<'red' | 'green'>('green');
     const {
         data: reservations,
         error,
@@ -31,10 +31,22 @@ const useConferenceRoomStatus = (locationId: string | undefined) => {
     );
 
     useEffect(() => {
-        console.log('Conference reservations:', reservations);
+        const intervalId = setInterval(() => {
+            const currentDate = new Date();
+            const currentHour = currentDate.getHours();
+            const isReserved = reservations?.some(
+                (reservation) =>
+                    currentHour >= new Date(reservation.start).getHours() &&
+                    currentHour < new Date(reservation.end).getHours(),
+            );
+            const newBackgroundColor = isReserved ? 'red' : 'green';
+            setBackgroundColor(newBackgroundColor);
+        }, 60000);
+
+        return () => clearInterval(intervalId);
     }, [reservations]);
 
-    return { reservations, error, isLoading, singleLocation };
+    return { reservations, error, isLoading, singleLocation, backgroundColor };
 };
 
 export default useConferenceRoomStatus;

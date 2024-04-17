@@ -238,5 +238,14 @@
         "addCommentLabel": "Add comment:",
         "addReservationBtn": "Add reservation",
         "closeBtn": "Close"
+    },
+
+    "conference-room": {
+        "title": "Reservations for Conference Room at Location",
+        "nextReservations": "Next Reservations",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "timeNow": "Time now",
+        "noReservations": "There are no reservations"
     }
 }

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const MarkerStyled = styled.div`
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
     border-radius: 50% 50% 0 50%;
     background: var(--spot-green);
     display: inline-block;
@@ -28,7 +28,5 @@ const MarkerStyled = styled.div`
         height: 0.6rem;
     }
 `;
-
-
 
 export { MarkerStyled };
