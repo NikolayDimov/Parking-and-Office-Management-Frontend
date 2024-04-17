@@ -7,7 +7,7 @@ interface ModalProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const ModalOverlay = styled.div<ModalProps>`
-    display: ${($props) => ($props.$show ? 'block' : 'none')};
+    display: ${(props) => (props.$show ? 'block' : 'none')};
     position: fixed;
     top: 0;
     left: 0;

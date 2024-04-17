@@ -19,5 +19,6 @@ export const route = {
     updatePassword: '/user-update-password/:userId',
     updateProfilePicture: '/user-update-picture/:userId',
     register: '/user/register',
+    conferenceRoom: '/conference-room',
     notFound: '/*',
 };
