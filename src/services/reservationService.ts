@@ -37,11 +37,19 @@ const getReservationsBySpot = async (spotId: string): Promise<Reservation[]> => 
     return response;
 };
 
+// fetchService.ts
+const getReservationsBySpotTypeAndLocation = async (locationId: string): Promise<[]> => {
+    console.log('locationId', locationId);
+    const response = await get(`${endpoints.getReservationsBySpotTypeAndLocation}/${locationId}`, {});
+    console.log('Response', response);
+    return response;
+};
+
 const checkReservation = async (
     { spotId, start, end, comment, userId, modifiedBy }: Reservation,
     currentReservations: Reservation[],
 ): Promise<Reservation> => {
-    console.log("Hello");
+    console.log('Hello');
     console.log(currentReservations);
     return await post(`${endpoints.checkReservation}`, {
         spotId,
@@ -50,7 +58,7 @@ const checkReservation = async (
         comment,
         userId,
         modifiedBy,
-        currentReservations
+        currentReservations,
     });
 };
 
@@ -72,4 +80,5 @@ export {
     checkReservation,
     createReservation,
     deleteReservation,
+    getReservationsBySpotTypeAndLocation,
 };

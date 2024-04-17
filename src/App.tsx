@@ -31,6 +31,7 @@ import { StyledApp } from './App.style';
 import ReservationUser from './pages/ReservationUser/ReservationUser';
 import ChangePassword from './pages/User/UserProfilePage/UserProfilePage';
 import ChangePasswordPage from './pages/User/ChangePasswordForm/ChangePasswordForm';
+import ConferenceRoomStatusPage from './pages/SpotType/ConferenceRoomStatusPage/ConferenceRoomStatusPage';
 
 function App() {
     const location = useLocation();
@@ -73,6 +74,8 @@ function App() {
                                 <Route path="/create-reservation/:id" element={<SpotSelection />} />
                                 <Route path="/create-reservation/combination" element={<CombinationReservation />} />
                             </Route>
+                            <Route path="location/:locationId/conference-room" element={<ConferenceRoomStatusPage />} />
+
                             <Route path={route.notFound} element={<NotFound />} />
                         </Routes>
 

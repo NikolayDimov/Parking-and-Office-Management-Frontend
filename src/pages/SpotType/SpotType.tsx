@@ -5,6 +5,7 @@ import { ChooseLocationContainer } from './SpotType.style';
 import { useChoseLocation, useFutureReservationsByUserIdAndLocation, useLocationBackBtn } from './SpotType.logic';
 import { BackButton } from '../FloorPlan/FloorPlan.style';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const SpotType = () => {
     const { t } = useTranslation();
@@ -26,6 +27,9 @@ const SpotType = () => {
     if (hasError) {
         return <div>{t('locations.error')}</div>;
     }
+
+    const locationId = singleLocation?.id;
+
     return (
         <ChooseLocationContainer>
             <BackButton onClick={handleGoBack}>
@@ -38,6 +42,9 @@ const SpotType = () => {
                 </svg>
             </BackButton>
             <SpotTypeCards singleLocation={singleLocation} spotTypeData={spotTypeByLocationId} />
+            {locationId && (
+                <Link to={`/location/${locationId}/conference-room`}>Go to Conference Room Status Page</Link>
+            )}
         </ChooseLocationContainer>
     );
 };
