@@ -232,5 +232,14 @@
         "addCommentLabel": "Kommentar hinzufügen:",
         "addReservationBtn": "Reservierung hinzufügen",
         "closeBtn": "Schließen"
+    },
+
+    "conference-room": {
+        "title": "Reservierungen für Konferenzraum am Standort",
+        "nextReservations": "Nächste Reservierungen",
+        "startTime": "Startzeit",
+        "endTime": "Endzeit",
+        "timeNow": "Aktuelle Zeit",
+        "noReservations": "Es gibt keine Reservierungen"
     }
 }

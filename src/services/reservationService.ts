@@ -39,9 +39,9 @@ const getReservationsBySpot = async (spotId: string): Promise<Reservation[]> => 
 
 // fetchService.ts
 const getReservationsBySpotTypeAndLocation = async (locationId: string): Promise<[]> => {
-    console.log('locationId', locationId);
+    // console.log('locationId', locationId);
     const response = await get(`${endpoints.getReservationsBySpotTypeAndLocation}/${locationId}`, {});
-    console.log('Response', response);
+    // console.log('Response', response);
     return response;
 };
 

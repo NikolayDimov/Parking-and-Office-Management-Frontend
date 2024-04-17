@@ -1,59 +1,76 @@
 import { useParams } from 'react-router-dom';
 import useConferenceRoomStatus from './ConferenceRoomStatusPage.logic';
-import { List, ListItem, PageContainer } from './ConferenceRoomStatusPage.style';
 
 import DigitalClock from './DigitalClock/DigitalClock';
+import {
+    CenteredContent,
+    ClockContainer,
+    Container,
+    ContainerNoReservations,
+    NoReservations,
+    ReservationsTableStyle,
+    Title,
+} from './ConferenceRoomStatusPage.style';
+
+import { useTranslation } from 'react-i18next';
 
 const ConferenceRoomStatusPage = () => {
+    const { t } = useTranslation();
     const { locationId } = useParams<{ locationId: string }>();
-    const { reservations, error, isLoading, singleLocation } = useConferenceRoomStatus(locationId);
+    const { reservations, error, isLoading, singleLocation, backgroundColor } = useConferenceRoomStatus(locationId);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
-    // Get the current hour
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-    const currentMinute = currentDate.getMinutes();
-
     const formatAndAdjustTime = (date: Date) => {
-        date.setHours(date.getHours());
-        return date
-            .toLocaleString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false,
-            })
-            .replace(',', '');
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+
+        return `${day}/${month}/${year} ${hours}:${minutes}`;
     };
 
-    const backgroundColor = reservations?.some(
-        (reservation) =>
-            currentHour >= new Date(reservation.start).getHours() && currentHour < new Date(reservation.end).getHours(),
-    )
-        ? 'red'
-        : 'green';
-
     return (
-        <PageContainer $backgroundColor={backgroundColor}>
-            <h1>Reservations for Conference Room at Location {singleLocation?.name}</h1>
+        <Container $backgroundColor={backgroundColor}>
+            <Title>
+                {t('conference-room.title')} {singleLocation?.name}
+            </Title>
 
-            <p>Time now:</p>
-            <DigitalClock />
+            <CenteredContent>
+                <ClockContainer>
+                    <p>{t('conference-room.timeNow')}:</p>
+                    <DigitalClock />
+                </ClockContainer>
 
-            <List>
-                {reservations &&
-                    reservations.map((reservation) => (
-                        <ListItem key={reservation.id} $backgroundColor={backgroundColor}>
-                            {formatAndAdjustTime(new Date(reservation.start))} -{' '}
-                            {formatAndAdjustTime(new Date(reservation.end))}
-                        </ListItem>
-                    ))}
-            </List>
-        </PageContainer>
+                {reservations && reservations.length > 0 ? (
+                    <ReservationsTableStyle>
+                        <caption>{t('conference-room.nextReservations')}</caption>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>{t('conference-room.startTime')}</th>
+                                <th>{t('conference-room.endTime')}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {reservations.map((reservation, index) => (
+                                <tr key={reservation.id}>
+                                    <td>{index + 1}</td>
+                                    <td>{formatAndAdjustTime(new Date(reservation.start))}</td>
+                                    <td>{formatAndAdjustTime(new Date(reservation.end))}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </ReservationsTableStyle>
+                ) : (
+                    <ContainerNoReservations>
+                        <NoReservations>{t('conference-room.noReservations')}</NoReservations>
+                    </ContainerNoReservations>
+                )}
+            </CenteredContent>
+        </Container>
     );
 };
 
