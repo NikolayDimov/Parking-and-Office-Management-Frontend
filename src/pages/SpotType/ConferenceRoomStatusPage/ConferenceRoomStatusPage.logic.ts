@@ -41,7 +41,7 @@ const useConferenceRoomStatus = (locationId: string | undefined) => {
             );
             const newBackgroundColor = isReserved ? 'red' : 'green';
             setBackgroundColor(newBackgroundColor);
-        }, 60000);
+        }, 30000);
 
         return () => clearInterval(intervalId);
     }, [reservations]);

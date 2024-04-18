@@ -32,6 +32,18 @@ const UserReservationsTable = (props: UserReservationsTable) => {
         return <Loader />;
     }
 
+    const formatDateTime = (dateTime: Date) => {
+        const options: Intl.DateTimeFormatOptions = {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        };
+        return new Date(dateTime).toLocaleString('en-GB', options);
+    };
+
     return (
         <Container>
             <div>
@@ -66,8 +78,8 @@ const UserReservationsTable = (props: UserReservationsTable) => {
                                         <td data-label="Spot Description:">{reservation.spotDescription}</td>
                                         <td data-label="Location:">{reservation.spotLocation}</td>
                                         <td data-label="Comment:">{reservation.comment}</td>
-                                        <td data-label="Start:">{new Date(reservation.start).toLocaleString()}</td>
-                                        <td data-label="End:">{new Date(reservation.end).toLocaleString()}</td>
+                                        <td data-label="Start:">{formatDateTime(reservation.start)}h</td>
+                                        <td data-label="End:">{formatDateTime(reservation.end)}h</td>
                                         {reservationType === 'Future' && (
                                             <td data-label="Action:">
                                                 <DeleteIcon

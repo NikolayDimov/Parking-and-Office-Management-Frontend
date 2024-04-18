@@ -49,7 +49,7 @@ const checkReservation = async (
     { spotId, start, end, comment, userId, modifiedBy }: Reservation,
     currentReservations: Reservation[],
 ): Promise<Reservation> => {
-    console.log('Hello');
+    // console.log('Hello');
     console.log(currentReservations);
     return await post(`${endpoints.checkReservation}`, {
         spotId,

@@ -28,6 +28,7 @@ const CenteredContent = styled.div`
 
 const ClockContainer = styled.div`
     text-align: center;
+    margin-top: 2rem;
 `;
 
 const ReservationsTableStyle = styled.table`
@@ -86,22 +87,13 @@ const ReservationsTableStyle = styled.table`
 `;
 
 const ContainerNoReservations = styled.div`
-    width: 100%;
-`;
-
-const NoReservations = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    margin-top: 8rem;
     font-size: 2rem;
-    white-space: nowrap;
-
-    @media (max-width: 500px) {
-        white-space: wrap;
-    }
+    width: 100%;
+    text-align: center;
 `;
+
+const NoReservations = styled.div``;
 
 export {
     Container,
