@@ -14,6 +14,30 @@ const Container = styled.div`
     margin: auto;
     padding: 2rem 4rem;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+        padding: 1rem 10rem;
+    }
+
+    @media (max-width: 680px) {
+        padding: 1rem 8rem;
+    }
+
+    @media (max-width: 580px) {
+        padding: 1rem 6rem;
+    }
+
+    @media (max-width: 500px) {
+        padding: 1rem 4rem;
+    }
+
+    @media (max-width: 430px) {
+        padding: 1rem 2rem;
+    }
+
+    @media (max-width: 360px) {
+        padding: 1rem 1rem;
+    }
 `;
 
 const BaseButton = styled.button`
