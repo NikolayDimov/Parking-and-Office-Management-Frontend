@@ -1,9 +1,18 @@
 import { addDays } from 'date-fns';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { DateRange } from 'react-date-range';
 import { DateRangeOutput, DateRangePickerProps } from './Calendar.static';
 
+interface TimeOption {
+    value: string;
+    label: string;
+    isDisabled: boolean;
+}
+
 const useCalendar = () => {
+    const startHour = 7;
+    const endHour = 20;
+
     const [state, setState] = useState<DateRange[]>([
         {
             startDate: new Date(),
@@ -15,12 +24,9 @@ const useCalendar = () => {
     const [dateTime, setDateTime] = useState<DateRangeOutput>();
 
     const [selectedTime, setSelectedTime] = useState({
-        startTime: '00:00',
-        endTime: '24:00',
+        startTime: '07:00',
+        endTime: '21:00',
     });
-
-    const maxDate = new Date();
-    maxDate.setDate(maxDate.getDate() + 365);
 
     const handleTimeChange = (selectedOption: { value: string; label: string }, type: 'startTime' | 'endTime') => {
         const time = selectedOption.value;
@@ -61,25 +67,39 @@ const useCalendar = () => {
         }
     };
 
-    const startHour = 0;
-    const endHour = 24;
+    const timeOptions = useMemo(() => {
+        return Array.from({ length: endHour - startHour + 1 }, (_, i) => {
+            const hour = startHour + i;
+            return {
+                value: `${hour < 10 ? '0' : ''}${hour}:00`,
+                label: `${hour < 10 ? '0' : ''}${hour}:00`,
+            };
+        });
+    }, [startHour, endHour]);
 
-    const timeOptions = Array.from({ length: endHour - startHour + 1 }, (_, i) => {
-        const hour = startHour + i;
-        return {
-            value: `${hour < 10 ? '0' : ''}${hour}:00`,
-            label: `${hour < 10 ? '0' : ''}${hour}:00`,
-        };
-    });
+    const endTimeOptions: TimeOption[] = useMemo(() => {
+        const disabledEndTimes = timeOptions
+            .map((option) => option.value)
+            .filter((value) => value <= selectedTime.startTime);
 
-    const disabledEndTimes = timeOptions
-        .map((option) => option.value)
-        .filter((value) => value <= selectedTime.startTime);
+        let availableEndTimes: TimeOption[] = timeOptions.map((option) => ({
+            ...option,
+            isDisabled: disabledEndTimes.includes(option.value),
+        }));
 
-    const endTimeOptions = timeOptions.map((option) => ({
-        ...option,
-        isDisabled: disabledEndTimes.includes(option.value),
-    }));
+        if (selectedTime.startTime === `${endHour}:00`) {
+            availableEndTimes = availableEndTimes.concat({
+                value: `${endHour + 1}:00`,
+                label: `${endHour + 1}:00`,
+                isDisabled: false,
+            });
+        }
+
+        return availableEndTimes;
+    }, [timeOptions, selectedTime.startTime, endHour]);
+
+    const maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 365);
 
     const dateRangePickerProps: DateRangePickerProps = {
         onChange: (item) => setState([item.selection]),
