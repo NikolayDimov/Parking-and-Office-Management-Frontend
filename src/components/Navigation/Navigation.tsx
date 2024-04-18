@@ -23,10 +23,6 @@ const Navigation = () => {
                     </StyledNavLink>
                 </ContainerNav>
 
-                {/* Burger menu */}
-                {/* <div style={{ flex: 1 }}></div>
-                <Burger /> */}
-
                 <RightNav open={open} handleClick={handleClick} />
             </NavContainer>
         </NavDiv>

@@ -31,6 +31,40 @@ const StyledNavLink = styled(RouterNavLink)`
         cursor: pointer;
         margin-right: 1rem;
     }
+
+    .admin-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .admin-icon {
+        display: none;
+    }
+
+    .admin-text {
+        display: block;
+    }
+
+    @media (max-width: 600px) {
+        .admin-icon {
+            display: block;
+        }
+
+        .admin-text {
+            display: none;
+        }
+    }
+`;
+
+const AdminIconWrapper = styled.div`
+    svg {
+        fill: white;
+
+        &:hover {
+            stroke: #999;
+            transform: scale(1.1);
+        }
+    }
 `;
 
 const ContainerIcons = styled.div`
@@ -254,4 +288,5 @@ export {
     LanguageSelectionContainer,
     LanguageButton,
     UserNameContainer,
+    AdminIconWrapper,
 };

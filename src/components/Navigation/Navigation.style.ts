@@ -47,6 +47,10 @@ const StyledNavLink = styled(RouterNavLink)`
 const ContainerNav = styled.div`
     display: flex;
     gap: 2rem;
+
+    @media (max-width: 600px) {
+        gap: 1rem;
+    }
 `;
 
 export { NavDiv, NavContainer, StyledNavLink, ContainerNav };
